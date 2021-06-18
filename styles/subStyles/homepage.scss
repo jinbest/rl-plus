@@ -6,11 +6,97 @@
   align-items: center;
   flex-direction: column;
   .swiper-container {
-    display: flex;
-    flex-direction: row;
     width: 100%;
+    .slider {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .slider-button {
+        margin: 0 70px;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
+        @media (max-width: 960px) {
+          margin: 0 30px;
+        }
+      }
+      .slider-item-container {
+        width: 100%;
+        display: flex;
+        .slider-item {
+          margin: auto;
+          width: 100%;
+          max-width: 1000px;
+          display: block;
+          .slider-title {
+            font-family: "Montserrat Bold";
+            font-style: normal;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 29px;
+            color: #ffffff;
+          }
+          .version {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 29px;
+            color: #9e9e9e;
+            margin-left: 15px;
+          }
+          .slider-left-container {
+            position: relative;
+            width: 55%;
+            img {
+              width: calc(100% - 15px);
+            }
+            .slider-left-title {
+              position: absolute;
+              left: 8%;
+              top: 20%;
+              p {
+                font-family: "Montserrat Bold";
+                font-style: normal;
+                font-weight: 800;
+                font-size: 24px;
+                line-height: 29px;
+                color: #ffffff;
+              }
+            }
+            .slider-left-subtitle {
+              position: absolute;
+              bottom: 20px;
+              left: 35px;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 12px;
+              line-height: 15px;
+              color: #9e9e9e;
+            }
+            .slider-logo {
+              position: absolute;
+              bottom: 20px;
+              right: -45px;
+              width: 140px;
+            }
+          }
+          .slider-right-container {
+            position: relative;
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            img {
+              width: calc(100% - 15px);
+            }
+          }
+        }
+      }
+    }
   }
   .title {
+    margin-top: 100px;
     p {
       text-align: center;
       font-family: "Montserrat Bold";
@@ -19,7 +105,7 @@
       font-size: 36px;
       line-height: 44px;
       text-align: center;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
 }

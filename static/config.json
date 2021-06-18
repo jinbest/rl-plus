@@ -31,7 +31,22 @@
           "subtitle": "New Artwork Needed",
           "img_src": "/img/home/r-plus-1.svg"
         },
-        "logo": "/img/home/rl-logo-1.svg"
+        "logo": "/img/home/slider-logo-1.png"
+      },
+      {
+        "title": "RL.PLUS UPDATE",
+        "version": "Version 0.2",
+        "left": {
+          "title": ["VERSION 0.1", "PATCH NOTES"],
+          "subtitle": "New Artwork Needed",
+          "img_src": "/img/home/l-plus-1.svg"
+        },
+        "right": {
+          "title": ["RL.PLUS PREMIUM", "FEATURES"],
+          "subtitle": "New Artwork Needed",
+          "img_src": "/img/home/r-plus-1.svg"
+        },
+        "logo": "/img/home/slider-logo-1.png"
       }
     ]
   }
