@@ -3,5 +3,16 @@
     "title": "RLPlus Website",
     "description": "RLPlus Website",
     "favicon": "/img/header/favicon.ico"
+  },
+  "header": {
+    "user": {
+      "avatar": "/img/header/avatar.png",
+      "name": "ROAMING OCTANE",
+      "info": "RL.PLUS Basic"
+    },
+    "drawer": {
+      "menu": "/img/header/menu.svg",
+      "cancel": "/img/header/cancel.svg"
+    }
   }
 }

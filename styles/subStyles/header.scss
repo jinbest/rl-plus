@@ -9,6 +9,12 @@
   color: #9e9e9e;
   justify-content: space-between;
   padding: 0 50px 0 90px;
+  @media (max-width: 960px) {
+    padding: 0 32px;
+  }
+  @media (max-width: 450px) {
+    padding: 0 20px;
+  }
   .logo {
     height: 100%;
     display: flex;
@@ -29,6 +35,28 @@
         opacity: 0.7;
       }
     }
+    @media (max-width: 1500px) {
+      width: 500px;
+    }
+    @media (max-width: 1300px) {
+      width: 450px;
+      a {
+        font-size: 13px;
+      }
+    }
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+  .others {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(50% - 50px);
+    @media (max-width: 1200px) {
+      width: fit-content;
+      justify-content: flex-end;
+    }
   }
   .download p {
     font-family: "Montserrat Bold";
@@ -46,6 +74,12 @@
     }
     &:hover {
       opacity: 0.7;
+    }
+    @media (max-width: 1300px) {
+      font-size: 13px;
+    }
+    @media (max-width: 768px) {
+      display: none;
     }
   }
   .premium {
@@ -89,9 +123,72 @@
         right: -2px;
       }
     }
+    @media (max-width: 1500px) {
+      width: 190px;
+      & > div {
+        p {
+          padding: 0 10px;
+        }
+      }
+    }
+    @media (max-width: 1200px) {
+      margin-left: 20px;
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
   .username {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    .avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 25px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .user {
+      margin-left: 10px;
+      display: block;
+      p {
+        font-family: "Montserrat Bold";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 15px;
+        color: #4E4E4E;        
+      }
+      .name {
+        color: white;
+      }
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+    @media (max-width: 1200px) {
+      margin-left: 20px;
+    }
+    @media (max-width: 450px) {
+      display: none;
+    }
+  }
+  .drawer {
+    display: none;
+    cursor: pointer;
+    img {
+      height: 25px;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+    @media (max-width: 1200px) {
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+    }
   }
 }

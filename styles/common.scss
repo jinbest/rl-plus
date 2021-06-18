@@ -23,7 +23,8 @@ p {
 
 .main-layout {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 800px;
   padding: 84px 0 0 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,4 +35,12 @@ p {
   width: 100%;
   min-height: calc(100vh - 84px);
   color: white;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
 }

@@ -4,6 +4,7 @@ import { pageRoutes } from "../routes"
 import Image from "next/image"
 import logo from "../public/img/header/logo.png"
 import alarm from "../public/img/header/alarm.svg"
+import config from "../static/config.json"
 
 const Header = () => {
   return (
@@ -28,24 +29,37 @@ const Header = () => {
           )
         })}
       </div>
-      <div className="download">
-        <p>
-          <span>+</span>
-          DOWNLOAD
-        </p>
-      </div>
-      <div className="premium">
-        <div>
-          <p>RL.PLUS Premium</p>
+      <div className="others">
+        <div className="download">
+          <p>
+            <span>+</span>
+            DOWNLOAD
+          </p>
         </div>
-        <div>
-          <div className="alarm-img">
-            <Image src={alarm} alt="logo" width="15" height="18" />
-            <div className="badge" />
+        <div className="premium">
+          <div>
+            <p>RL.PLUS Premium</p>
+          </div>
+          <div>
+            <div className="alarm-img">
+              <Image src={alarm} alt="logo" width="15" height="18" />
+              <div className="badge" />
+            </div>
           </div>
         </div>
+        <div className="username">
+          <div className="avatar">
+            <img src={config.header.user.avatar} alt="avatar" />
+          </div>
+          <div className="user">
+            <p className="name">{config.header.user.name}</p>
+            <p>{config.header.user.info}</p>
+          </div>
+        </div>
+        <div className="drawer">
+          <img src={config.header.drawer.menu} alt="menu" />
+        </div>
       </div>
-      <div className="username"></div>
     </div>
   )
 }
