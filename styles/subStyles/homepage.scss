@@ -1,0 +1,25 @@
+.homepage {
+  height: 100%;
+  width: 100%;
+  padding: 80px 0 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .swiper-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .title {
+    p {
+      text-align: center;
+      font-family: "Montserrat Bold";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 44px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+  }
+}

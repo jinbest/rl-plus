@@ -9,12 +9,16 @@
     "lint": "eslint . --ext .ts --ext .tsx"
   },
   "dependencies": {
+    "@react-yuki/ui": "^0.0.39",
     "@types/lodash": "^4.14.170",
+    "@types/swiper": "^5.4.2",
     "lodash": "^4.17.21",
     "next": "11.0.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-id-swiper": "^4.0.0",
+    "swiper": "^6.7.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.11",
