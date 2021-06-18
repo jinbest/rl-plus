@@ -14,5 +14,25 @@
       "menu": "/img/header/menu.svg",
       "cancel": "/img/header/cancel.svg"
     }
+  },
+  "homepage": {
+    "title": ["Rocket League’s Most Advanced Plugin", "All In One Place"],
+    "data": [
+      {
+        "title": "RL.PLUS UPDATE",
+        "version": "Version 0.1",
+        "left": {
+          "title": ["VERSION 0.1", "PATCH NOTES"],
+          "subtitle": "New Artwork Needed",
+          "img_src": "/img/home/l-plus-1.svg"
+        },
+        "right": {
+          "title": ["RL.PLUS PREMIUM", "FEATURES"],
+          "subtitle": "New Artwork Needed",
+          "img_src": "/img/home/r-plus-1.svg"
+        },
+        "logo": "/img/home/rl-logo-1.svg"
+      }
+    ]
   }
 }
