@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-import { NavItemParam, MenuListParam } from "../../models/discord-bot-params"
+import { NavItemParam, MenuListParam, MenuListDataParam } from "../../models/discord-bot-params"
 import config from "../../static/config.json"
+import DiscordCard from "../../components/DiscordCard"
 import _ from "lodash"
 
 const DiscordBot = () => {
@@ -12,7 +13,7 @@ const DiscordBot = () => {
 
   return (
     <div className="discord-bot">
-      <div className="board"></div>
+      <div className="empty-board"></div>
       <div className="discord-board">
         <div className="discord-navbar">
           <div className="navbar-icons">
@@ -62,6 +63,21 @@ const DiscordBot = () => {
         <div className="discord-main">
           <div className="discord-main-header">
             <p>{menuList[menuIndex].title}</p>
+          </div>
+          <div className="discord-main-container">
+            {menuList[menuIndex].data.map((item: MenuListDataParam, index: number) => {
+              return (
+                <div key={index}>
+                  <img src={navList[navIndex].logo} alt={`discord-main-logo-${index}`} />
+                  <div className="discord-main-data">
+                    <p>{navList[navIndex].name}</p>
+                    <div>
+                      <DiscordCard data={item} navData={navList[navIndex]} />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

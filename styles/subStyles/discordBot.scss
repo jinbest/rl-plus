@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  .board {
+  .empty-board {
     background: #c4c4c4;
     width: calc(100% - 40px);
     max-width: 728px;
@@ -15,7 +15,7 @@
   .discord-board {
     background: #101112;
     width: calc(100% - 40px);
-    min-width: 700px;
+    min-width: 550px;
     max-width: 1252px;
     height: 646px;
     border-radius: 10px;
@@ -23,6 +23,7 @@
     display: flex;
     .discord-navbar {
       width: 70px;
+      border-right: 1px solid #16181a;
       .navbar-icons {
         display: flex;
         width: 56px;
@@ -113,9 +114,15 @@
           }
         }
       }
+      @media (max-width: 900px) {
+        display: none;
+      }
     }
     .discord-main {
-      width: calc(100% - 270px);
+      width: calc(100% - 301px);
+      @media (max-width: 900px) {
+        width: calc(100% - 71px);
+      }
       .discord-main-header {
         height: 40px;
         border-bottom: 1px solid rgba($color: #9e9e9e, $alpha: 0.2);
@@ -127,6 +134,145 @@
           font-family: "Montserrat Bold";
           font-weight: 500;
           font-style: normal;
+        }
+      }
+      .discord-main-container {
+        margin-top: -1px;
+        width: 100%;
+        & > div {
+          border-top: 1px solid rgba($color: #9e9e9e, $alpha: 0.2);
+          padding: 15px;
+          display: flex;
+          width: 100%;
+          img {
+            width: 45px;
+            height: 45px;
+          }
+          .discord-main-data {
+            margin: 10px;
+            width: calc(100% - 30px);
+            p {
+              font-size: 14px;
+              font-family: "Montserrat Bold";
+              font-weight: 500;
+              font-style: normal;
+            }
+            & > div {
+              margin-top: 10px;
+              width: 100%;
+              .discord-card {
+                width: 535px;
+                max-width: calc(100% - 30px);
+                height: 157px;
+                background: #1E2023;
+                border-radius: 7px;
+                display: flex;
+                .card-vertical-bar {
+                  width: 5px;
+                  background: #00FF19;
+                  height: 100%;
+                  border-radius: 7px 0 0 7px;
+                }
+                .card-container {
+                  width: 530px;
+                  max-width: calc(100% - 35px);
+                  height: 100%;
+                  padding: 10px;
+                  p {
+                    font-size: 9px;
+                    font-weight: 500;
+                    font-style: normal;
+                    margin-bottom: -5px;
+                  }
+                  a {
+                    font-size: 9px;
+                    font-weight: 500;
+                    font-style: normal;
+                    line-height: 0px;
+                    color: #316DC6;
+                  }
+                  .card-child-board {
+                    width: 484px;
+                    height: 95px;
+                    max-width: 100%;
+                    background: #161719;
+                    border-radius: 7px;
+                    margin-top: 10px;
+                    padding: 10px;
+                    .card-child-board-title {
+                      color: #9E9E9E;
+                      font-size: 9px;
+                      line-height: 11px;
+                    }
+                    & > div {
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      padding: 15px;
+                      & > div {
+                        display: flex;
+                        .child-img-container {
+                          background: #1E2023;
+                          border-radius: 7px;
+                          img {
+                            width: 50px;
+                            height: 50px;
+                          }
+                        }
+                        .child-data-container {
+                          display: block;
+                          margin-left: 10px;
+                          .child-card-data-title {
+                            margin-top: 5px;
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: white;
+                          }
+                          & > div {
+                            margin-top: 10px;
+                            font-size: 9px;
+                            color: #9E9E9E;
+                            & > div {
+                              margin-right: 10px;
+                              display: flex;
+                              align-items: center;
+                              .badge {
+                                width: 13px;
+                                height: 13px;
+                                border-radius: 10px;
+                                margin-right: 5px;
+                              }
+                              .green {
+                                background: #027900;
+                              }
+                              .grey {
+                                background: #9E9E9E;
+                              }
+                            }
+                          }
+                        }
+                      }
+                      button {
+                        outline: none;
+                        border: 1px solid #9e9e9e;
+                        border-radius: 7px;
+                        background: transparent;
+                        color: #9e9e9e;
+                        font-size: 9px;
+                        font-family: "Montserrat Bold";
+                        font-weight: 500;
+                        padding: 10px 30px;
+                        cursor: pointer;
+                        &:hover {
+                          opacity: 0.7;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
