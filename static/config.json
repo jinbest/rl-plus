@@ -21,32 +21,135 @@
       {
         "title": "RL.PLUS UPDATE",
         "version": "Version 0.1",
-        "left": {
-          "title": ["VERSION 0.1", "PATCH NOTES"],
-          "subtitle": "New Artwork Needed",
-          "img_src": "/img/home/l-plus-1.svg"
-        },
-        "right": {
-          "title": ["RL.PLUS PREMIUM", "FEATURES"],
-          "subtitle": "New Artwork Needed",
-          "img_src": "/img/home/r-plus-1.svg"
-        },
-        "logo": "/img/home/slider-logo-1.png"
+        "bgImg": "/img/home/slider1/slider-bg.png",
+        "logo": "/img/home/slider1/slider-logo.png",
+        "btmText": "New Artwork Needed",
+        "content": {
+          "left": ["VERSION 0.1", "PATCH NOTES"],
+          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+        }
       },
       {
         "title": "RL.PLUS UPDATE",
         "version": "Version 0.2",
-        "left": {
-          "title": ["VERSION 0.1", "PATCH NOTES"],
-          "subtitle": "New Artwork Needed",
-          "img_src": "/img/home/l-plus-1.svg"
-        },
-        "right": {
-          "title": ["RL.PLUS PREMIUM", "FEATURES"],
-          "subtitle": "New Artwork Needed",
-          "img_src": "/img/home/r-plus-1.svg"
-        },
-        "logo": "/img/home/slider-logo-1.png"
+        "bgImg": "/img/home/slider1/slider-bg.png",
+        "logo": "/img/home/slider1/slider-logo.png",
+        "content": {
+          "left": ["VERSION 0.1", "PATCH NOTES"],
+          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+        }
+      },
+      {
+        "title": "RL.PLUS UPDATE",
+        "version": "Version 0.3",
+        "bgImg": "/img/home/slider1/slider-bg.png",
+        "logo": "/img/home/slider1/slider-logo.png",
+        "content": {
+          "left": ["VERSION 0.1", "PATCH NOTES"],
+          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+        }
+      },
+      {
+        "title": "RL.PLUS UPDATE",
+        "version": "Version 0.4",
+        "bgImg": "/img/home/slider1/slider-bg.png",
+        "logo": "/img/home/slider1/slider-logo.png",
+        "content": {
+          "left": ["VERSION 0.1", "PATCH NOTES"],
+          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+        }
+      },
+      {
+        "title": "RL.PLUS UPDATE",
+        "version": "Version 0.5",
+        "bgImg": "/img/home/slider1/slider-bg.png",
+        "logo": "/img/home/slider1/slider-logo.png",
+        "content": {
+          "left": ["VERSION 0.1", "PATCH NOTES"],
+          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+        }
+      }
+    ]
+  },
+  "discordBot": {
+    "navList": [
+      {
+        "name": "RL.Plus",
+        "logo": "/img/discord-bot/logo.png"
+      }
+    ],
+    "menuList": [
+      {
+        "title": "# Add me to your Discord!",
+        "order": 1,
+        "data": [
+          {
+            "title": "Bot invite link",
+            "link": {
+              "name": "Here",
+              "href": "#"
+            },
+            "content": "CLICK INVITE TO ADD THIS BOT TO A SERVER.",
+            "child": {
+              "servers": 8537,
+              "online": 0,
+              "members": 0
+            }
+          },
+          {
+            "title": "Discord invite link",
+            "link": {
+              "name": "https://discord.gg/rlt",
+              "href": "https://discord.gg/rlt"
+            },
+            "content": "CLICK INVITE TO ADD THIS BOT TO A SERVER.",
+            "child": {
+              "servers": 0,
+              "online": 61112,
+              "members": 18636
+            }
+          }
+        ]
+      },
+      {
+        "title": "# !auth",
+        "order": 2,
+        "data": []
+      },
+      {
+        "title": "# !price | !set",
+        "order": 3,
+        "data": []
+      },
+      {
+        "title": "# !rep | +rep | -rep",
+        "order": 4,
+        "data": []
+      },
+      {
+        "title": "# !stats | !rankup",
+        "order": 5,
+        "data": []
+      },
+      {
+        "title": "# !me",
+        "order": 6,
+        "data": []
+      },
+      {
+        "title": "# !verify | !friend_check",
+        "order": 7,
+        "data": []
+      },
+      {
+        "title": "# !scam_check",
+        "order": 8,
+        "data": []
+      },
+      {
+        "title": "# !report",
+        "order": 9,
+        "data": []
       }
     ]
   }

@@ -1,14 +1,13 @@
-interface Item {
-  title: string[]
-  subtitle: string
-  img_src: string
+interface ContentParams {
+  left: string[]
+  right: string[]
 }
 
 export interface SliderItemParams {
   title: string
   version: string
-  left: Item
-  right: Item
+  bgImg: string
   logo: string
+  btmText: string
+  content: ContentParams
 }
-

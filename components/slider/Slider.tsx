@@ -1,26 +1,54 @@
-import React, { useRef } from "react"
+import React, { useRef, useState, useCallback, useEffect } from "react"
 import Swiper from "react-id-swiper"
 import config from "../../static/config.json"
 import { SliderItemParams } from "../../models/slider-item-params"
 import SliderItem from "./SliderItem"
-import Image from "next/image"
-import arrowLeft from "../../public/img/home/arrow-left.svg"
-import arrowRight from "../../public/img/home/arrow-right.svg"
+import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar"
+import "react-circular-progressbar/dist/styles.css"
 
 const Slider = () => {
   const ref = useRef<any>(null)
   const data = config.homepage.data as SliderItemParams[]
+  const len = data.length
+
+  const [step, setStep] = useState(0)
 
   const goNext = () => {
     if (ref.current !== null && ref.current?.swiper !== null) {
-      ref.current?.swiper.slideNext()
+      ref.current.swiper.slideNext()
+      setStep(ref.current.swiper.realIndex)
     }
   }
 
   const goPrev = () => {
     if (ref.current !== null && ref.current.swiper !== null) {
-      ref.current?.swiper.slidePrev()
+      ref.current.swiper.slidePrev()
+      setStep(ref.current.swiper.realIndex)
     }
+  }
+
+  const updateIndex = useCallback(() => {
+    if (ref.current !== null && ref.current?.swiper !== null) {
+      setStep(ref.current.swiper.realIndex)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (ref.current !== null && ref.current?.swiper !== null) {
+      const swiperInstance = ref.current.swiper
+      if (swiperInstance) {
+        swiperInstance.on("slideChange", updateIndex)
+      }
+      return () => {
+        if (swiperInstance) {
+          swiperInstance.off("slideChange", updateIndex)
+        }
+      }
+    }
+  }, [updateIndex])
+
+  const calcPro = (val: number) => {
+    return Math.round((val / len) * 100)
   }
 
   const swiperParams = {
@@ -30,7 +58,15 @@ const Slider = () => {
   return (
     <div className="slider">
       <div className="slider-button" onClick={goPrev}>
-        <Image src={arrowLeft} width="38" height="38" alt="arrow-left" />
+        <CircularProgressbarWithChildren
+          value={calcPro(step + 1)}
+          styles={buildStyles({
+            pathColor: "#FAC800",
+            trailColor: "#C4C4C4",
+          })}
+        >
+          <img src="img/home/arrow-left.svg" alt="arrow-left" />
+        </CircularProgressbarWithChildren>
       </div>
       <Swiper ref={ref} {...swiperParams}>
         {data.map((item: SliderItemParams, index: number) => {
@@ -42,7 +78,15 @@ const Slider = () => {
         })}
       </Swiper>
       <div className="slider-button" onClick={goNext}>
-        <Image src={arrowRight} width="38" height="38" alt="arrow-right" />
+        <CircularProgressbarWithChildren
+          value={calcPro(step + 1)}
+          styles={buildStyles({
+            pathColor: "#FAC800",
+            trailColor: "#C4C4C4",
+          })}
+        >
+          <img src="img/home/arrow-right.svg" alt="arrow-right" />
+        </CircularProgressbarWithChildren>
       </div>
     </div>
   )

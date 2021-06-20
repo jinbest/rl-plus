@@ -7,24 +7,27 @@ type Props = {
 
 const SliderItem = ({ data }: Props) => {
   return (
-    <div className="slider-item">
-      <div className="flex" style={{ margin: "0 0 10px 20px" }}>
+    <div className="slider-item" style={{ backgroundImage: `url(${data.bgImg})` }}>
+      <div className="slider-title-container">
         <p className="slider-title">{data.title}</p>
         <p className="version">{data.version}</p>
       </div>
-      <div className="flex">
-        <div className="slider-left-container">
-          <img src={data.left.img_src} alt="slider-item-left" />
-          <div className="slider-left-title">
-            {data.left.title.map((item: string, index: number) => {
-              return <p key={index}>{item}</p>
-            })}
-          </div>
-          <p className="slider-left-subtitle">{data.left.subtitle}</p>
-          <img src={data.logo} alt="slider-logo" className="slider-logo" />
+      <div className="slider-content-container">
+        <div className="slider-left">
+          {data.content.left.map((item: string, index: number) => {
+            return <p key={index}>{item}</p>
+          })}
         </div>
-        <div className="slider-right-container">
-          <img src={data.right.img_src} alt="slider-item-right" />
+        <div className="slider-right">
+          {data.content.right.map((item: string, index: number) => {
+            return <p key={index}>{item}</p>
+          })}
+        </div>
+      </div>
+      <div className="slider-bottom">
+        <img src={data.logo} alt="slider-logo" className="slider-logo" />
+        <div className="download">
+          <div>DOWNLOAD NOW</div>
         </div>
       </div>
     </div>
