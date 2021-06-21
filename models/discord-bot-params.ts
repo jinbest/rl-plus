@@ -4,16 +4,26 @@ export interface NavItemParam {
 }
 
 export interface MenuListParam {
-  title: string
+  title: MenuListTitleParam
   order: number
+  key: string
   data: MenuListDataParam[]
 }
 
+export interface MenuListTitleParam {
+  label1: string
+  label2: string
+}
+
 export interface MenuListDataParam {
-  title: string
-  link: MenuListDataLinkParam
-  content: string
-  child: MenuListDataChildParam
+  name?: string
+  logo?: string
+  title?: string
+  subtitle?: string
+  link?: MenuListDataLinkParam
+  content?: string
+  child?: MenuListDataChildParam
+  authCard?: AuthCardParam
 }
 
 export interface MenuListDataLinkParam {
@@ -22,7 +32,17 @@ export interface MenuListDataLinkParam {
 }
 
 export interface MenuListDataChildParam {
-  servers: number
-  online: number
-  members: number
+  servers?: number
+  online?: number
+  members?: number
+}
+
+export interface AuthCardParam {
+  data: AuthCardContentsParam[]
+  img_src: string
+}
+
+export interface AuthCardContentsParam {
+  title: string
+  contents: string[]
 }
