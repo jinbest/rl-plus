@@ -7,7 +7,7 @@ type Props = {
 
 const SliderItem = ({ data }: Props) => {
   return (
-    <div className="slider-item" style={{ backgroundImage: `url(${data.bgImg})` }}>
+    <div className="slider-item">
       <div className="slider-title-container">
         <p className="slider-title">{data.title}</p>
         <p className="version">{data.version}</p>

@@ -80,14 +80,20 @@
     ],
     "menuList": [
       {
-        "title": "# Add me to your Discord!",
+        "title": {
+          "label1": "# Add me to your Discord!",
+          "label2": "# Add me to your Discord!"
+        },
         "order": 1,
+        "key": "addme",
         "data": [
           {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
             "title": "Bot invite link",
             "link": {
               "name": "Here",
-              "href": "#"
+              "href": "https://discordapp.com/oauth2/authorize?client_id=224617980837756930&scope=bot&permissions=52224"
             },
             "content": "CLICK INVITE TO ADD THIS BOT TO A SERVER.",
             "child": {
@@ -97,6 +103,8 @@
             }
           },
           {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
             "title": "Discord invite link",
             "link": {
               "name": "https://discord.gg/rlt",
@@ -112,43 +120,106 @@
         ]
       },
       {
-        "title": "# !auth",
+        "title": {
+          "label1": "# !auth",
+          "label2": "# Controll which Commands are allowed and where they are allowed!"
+        },
         "order": 2,
-        "data": []
+        "key": "auth",
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": "!auth"
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "authCard": {
+              "data": [
+                {
+                  "title": "Requirements",
+                  "contents": [
+                    "You need to have the Admin Permission on the Server",
+                    "The bot needs to be able to read in that Channel",
+                    "Best case: beeing able to delete messages"
+                  ]
+                },
+                {
+                  "title": "What happens then?",
+                  "contents": [
+                    "I'll sync all your Channels with the RLTracker backend",
+                    "Next i'll send you a link to your personal Control Panel",
+                    "Just set everything up as you need it!"
+                  ]
+                }
+              ],
+              "img_src": "/img/discord-bot/auth/auth-panel.png"
+            }
+          }
+        ]
       },
       {
-        "title": "# !price | !set",
+        "title": {
+          "label1": "# !price | !set",
+          "label2": "# Price Commands"
+        },
         "order": 3,
+        "key": "price",
         "data": []
       },
       {
-        "title": "# !rep | +rep | -rep",
+        "title": {
+          "label1": "# !rep | +rep | -rep",
+          "label2": "# Reputation Commands"
+        },
         "order": 4,
+        "key": "rep",
         "data": []
       },
       {
-        "title": "# !stats | !rankup",
+        "title": {
+          "label1": "# !stats | !rankup",
+          "label2": "# Statistics"
+        },
         "order": 5,
+        "key": "stats",
         "data": []
       },
       {
-        "title": "# !me",
+        "title": {
+          "label1": "# !me",
+          "label2": "# !me Command and connections"
+        },
         "order": 6,
+        "key": "me",
         "data": []
       },
       {
-        "title": "# !verify | !friend_check",
+        "title": {
+          "label1": "# !verify | !friend_check",
+          "label2": "# Verify and Friend Check"
+        },
         "order": 7,
+        "key": "verify",
         "data": []
       },
       {
-        "title": "# !scam_check",
+        "title": {
+          "label1": "# !scam_check",
+          "label2": "# Scam Check"
+        },
         "order": 8,
+        "key": "scam",
         "data": []
       },
       {
-        "title": "# !report",
+        "title": {
+          "label1": "# !report",
+          "label2": "# Report"
+        },
         "order": 9,
+        "key": "report",
         "data": []
       }
     ]
