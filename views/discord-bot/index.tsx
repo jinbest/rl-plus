@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { NavItemParam, MenuListParam, MenuListDataParam } from "../../models/discord-bot-params"
 import config from "../../static/config.json"
-import DiscordCard from "../../components/DiscordCard"
+import DiscordAddmeCard from "../../components/discord-cards/DiscordAddmeCard"
+import DiscordAuthCard from "../../components/discord-cards/DiscordAuthCard"
 import _ from "lodash"
 
 const DiscordBot = () => {
@@ -54,7 +55,7 @@ const DiscordBot = () => {
                     setMenuIndex(index)
                   }}
                 >
-                  <p>{item.title}</p>
+                  <p style={{ color: index === menuIndex ? "white" : "" }}>{item.title.label1}</p>
                 </div>
               )
             })}
@@ -62,17 +63,26 @@ const DiscordBot = () => {
         </div>
         <div className="discord-main">
           <div className="discord-main-header">
-            <p>{menuList[menuIndex].title}</p>
+            <p>{menuList[menuIndex].title.label2}</p>
           </div>
           <div className="discord-main-container">
             {menuList[menuIndex].data.map((item: MenuListDataParam, index: number) => {
               return (
                 <div key={index}>
-                  <img src={navList[navIndex].logo} alt={`discord-main-logo-${index}`} />
+                  <img
+                    src={item.logo ? item.logo : navList[navIndex].logo}
+                    alt={`discord-main-logo-${index}`}
+                  />
                   <div className="discord-main-data">
-                    <p>{navList[navIndex].name}</p>
+                    <p>{item.name ? item.name : navList[navIndex].name}</p>
+                    {item.subtitle && <p className="discord-main-subtitle">{item.subtitle}</p>}
                     <div>
-                      <DiscordCard data={item} navData={navList[navIndex]} />
+                      {menuList[menuIndex].key === "addme" && (
+                        <DiscordAddmeCard data={item} navData={navList[navIndex]} />
+                      )}
+                      {menuList[menuIndex].key === "auth" && (
+                        <DiscordAuthCard data={item} navData={navList[navIndex]} />
+                      )}
                     </div>
                   </div>
                 </div>
