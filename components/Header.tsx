@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { pageRoutes } from "../routes"
@@ -17,6 +17,8 @@ const Header = () => {
   const router = useRouter()
   const [openDrawer, setOpenDrawer] = useState(false)
 
+  const [path, setPath] = useState("/")
+
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer)
     return () => {
@@ -28,6 +30,10 @@ const Header = () => {
     setOpenDrawer(false)
     router.push(link)
   }
+
+  useEffect(() => {
+    setPath(router.asPath)
+  }, [router])
 
   return (
     <React.Fragment>
@@ -45,7 +51,7 @@ const Header = () => {
               <React.Fragment key={index}>
                 {item.name && (
                   <Link href={item.path}>
-                    <a>{item.name}</a>
+                    <a style={{ color: item.path === path ? "white" : "" }}>{item.name}</a>
                   </Link>
                 )}
               </React.Fragment>
@@ -115,6 +121,7 @@ const Header = () => {
             onClick={() => {
               handleNavItem("/")
             }}
+            style={{ color: path === "/" ? "#FAC800" : "" }}
           >
             Home
           </div>
@@ -127,6 +134,7 @@ const Header = () => {
                     onClick={() => {
                       handleNavItem(item.path)
                     }}
+                    style={{ color: item.path === path ? "#FAC800" : "" }}
                   >
                     {item.name}
                   </div>
