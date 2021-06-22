@@ -223,5 +223,224 @@
         "data": []
       }
     ]
+  },
+  "reputation": {
+    "userSearch": {
+      "searchKey": "SteamID64, Epic Games, Gamertag, Reddit Name, DiscordID, Steam URL, Known Name",
+      "summaryData": [
+        {
+          "name": "Reps Given",
+          "logo": "/img/reputation/reps.png",
+          "total": 1482563,
+          "themeCol": "#00DE3E"
+        },
+        {
+          "name": "Scammers Reported",
+          "logo": "/img/reputation/scammers.png",
+          "total": 21879,
+          "themeCol": "#BE0000"
+        },
+        {
+          "name": "Profiles",
+          "logo": "/img/reputation/profile.png",
+          "total": 1294327,
+          "themeCol": "#0085FF"
+        }
+      ],
+      "mainData": {
+        "title": "Discord Reputation for TestUser#0001 (000000000000000001)",
+        "statistic": "+1932/-0",
+        "data": [
+          {
+            "feedback": "I went first in a cash for credits trade, went smoothly received the credits right away. thanks a lot",
+            "creator": "VayreonRL",
+            "date": "2021-06-30 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "gave him a $25 target gift card for 6670 I went first",
+            "creator": "Tinkers",
+            "date": "2021-06-22 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "Extremely easy to trade with fast and quick. Nice guy",
+            "creator": "Spood",
+            "date": "2021-06-10 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "gave me no problems. Used a mm with a $270 transaction and it went smoothly. Thanks gain bro",
+            "creator": "AWD",
+            "date": "2021-06-02 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "i went first in cash trade for $20 didn't scam👍",
+            "creator": "Joesnt",
+            "date": "2021-05-25 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "great dude, has bought credits from me multiple times, always quick and easy",
+            "creator": "Traas",
+            "date": "2021-05-22 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "gave me a nice tip after helping him out. smooth credit for cashapp trade. thanks for going first ~ clorox",
+            "creator": "WOOK",
+            "date": "2021-05-13 23:59:59 UTC",
+            "score": "+1"
+          },
+          {
+            "feedback": "smooth easy trade, ty 🙂",
+            "creator": "Poosh",
+            "date": "2021-05-07 23:59:59 UTC",
+            "score": "+1"
+          }
+        ]
+      }
+    },
+    "repuLeaderBoard": {
+      "fieldData": {
+        "rank": "Rank",
+        "name": "Name",
+        "discriminator": "Discriminator",
+        "reputation": "Reputation +/-"
+      },
+      "childData": [
+        {
+          "rank": 1,
+          "name": "Darikof",
+          "discriminator": "Darikof#3188",
+          "reputation": {
+            "total": 2275,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 2,
+          "name": "Theverylongnamethatslo...",
+          "discriminator": "LongestNameEver#3234",
+          "reputation": {
+            "total": 2275,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 3,
+          "name": "BestAccount",
+          "discriminator": "BestAccount#4444",
+          "reputation": {
+            "total": 1982,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 4,
+          "name": "Phys",
+          "discriminator": "Phys1000#9651",
+          "reputation": {
+            "total": 1976,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 5,
+          "name": "BMW401",
+          "discriminator": "BMWm4#0001",
+          "reputation": {
+            "total": 1799,
+            "current": -1
+          },
+          "link": "#"
+        },
+        {
+          "rank": 6,
+          "name": "RocketLeagueBest",
+          "discriminator": "RocketLeagueBest#8988",
+          "reputation": {
+            "total": 1754,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 7,
+          "name": "RandomName",
+          "discriminator": "RandomName#1234",
+          "reputation": {
+            "total": 1675,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 8,
+          "name": "SophyiAH",
+          "discriminator": "SophiAH#2222",
+          "reputation": {
+            "total": 1603,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 9,
+          "name": "AWDCar",
+          "discriminator": "AWD#4691",
+          "reputation": {
+            "total": 1511,
+            "current": -2
+          },
+          "link": "#"
+        },
+        {
+          "rank": 10,
+          "name": "JinZh",
+          "discriminator": "BestFrontEndDev#9999",
+          "reputation": {
+            "total": 1437,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 11,
+          "name": "moonshot",
+          "discriminator": "BestBackEndDev#1111",
+          "reputation": {
+            "total": 1422,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 12,
+          "name": "Viral",
+          "discriminator": "Viral#0000",
+          "reputation": {
+            "total": 1397,
+            "current": 0
+          },
+          "link": "#"
+        },
+        {
+          "rank": 13,
+          "name": "Bids",
+          "discriminator": "Bids#0000",
+          "reputation": {
+            "total": 1376,
+            "current": 0
+          },
+          "link": "#"
+        }
+      ]
+    }
   }
 }
