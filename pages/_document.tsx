@@ -9,7 +9,14 @@ export default class CustomDocument extends Document {
         <Head>
           <meta name="description" content={config.headerData.description} />
           <link rel="icon" href={config.headerData.favicon} />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/css/swiper.min.css"></link>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/css/swiper.min.css"
+          ></link>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css"
+          ></link>
         </Head>
 
         <body>

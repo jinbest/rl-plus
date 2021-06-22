@@ -59,7 +59,7 @@ const Slider = () => {
     <div className="slider">
       <div className="slider-button" onClick={goPrev}>
         <CircularProgressbarWithChildren
-          value={calcPro(step + 1)}
+          value={0}
           styles={buildStyles({
             pathColor: "#FAC800",
             trailColor: "#C4C4C4",
