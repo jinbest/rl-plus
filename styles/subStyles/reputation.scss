@@ -55,6 +55,7 @@
         color: white;
         padding: 20px 0;
         background: transparent;
+        border: none !important;
       }
       .ui.grid {
         @media (max-width: 600px) {
@@ -246,6 +247,186 @@
         width: 100%;
       }
     }
+    .communities-container {
+      width: 100%;
+      margin-top: 10px;
+      .partnered-bar {
+        display: flex;
+        height: auto;
+        padding: 10px 10px 10px 15px;
+        background: rgba(19, 19, 19, 0.75);
+        border-radius: 8px;
+        width: 100%;
+        @media (max-width: 600px) {
+          padding: 10px 7px;
+        }
+        @media (max-width: 500px) {
+          display: block;
+        }
+        p,
+        a {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          word-break: break-all;
+          @media (max-width: 600px) {
+            font-size: 12px;
+          }
+        }
+        a {
+          color: white;
+          text-decoration: underline;
+          cursor: pointer;
+          margin-left: 5px;
+          &:hover {
+            opacity: 0.7;
+          }
+          @media (max-width: 500px) {
+            margin-left: 0;
+            margin-top: 5px;
+          }
+        }
+      }
+      .communities-data-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-between;
+        a {
+          width: 33%;
+          padding: 2px 4px;
+          img {
+            width: 100%;
+            height: auto;
+          }
+          &:hover {
+            transform: scale(1.01);
+          }
+          @media (max-width: 700px) {
+            width: 50%;
+            padding: 2px;
+          }
+          @media (max-width: 425px) {
+            width: 100%;
+            padding: 2px 0px;
+          }
+        }
+      }
+    }
+    .report-scammer-container {
+      width: 100%;
+      margin-top: 10px;
+      .scammer-bar {
+        display: flex;
+        height: auto;
+        padding: 10px 10px 10px 15px;
+        background: rgba(19, 19, 19, 0.75);
+        border-radius: 8px;
+        width: 100%;
+        @media (max-width: 600px) {
+          padding: 10px 7px;
+        }
+        @media (max-width: 500px) {
+          display: block;
+        }
+        p {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          word-break: break-all;
+          @media (max-width: 600px) {
+            font-size: 12px;
+          }
+        }
+      }
+      .report-scammer-submit-form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-between;
+        .type-1 {
+          width: calc(50% - 5px);
+          @media (max-width: 600px) {
+            width: 100%;
+          }
+        }
+        .type-2 {
+          width: 100%;
+        }
+        .report-scammer-child {
+          display: block;
+          margin: 5px 0;
+          p,
+          input,
+          textarea {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            word-break: break-all;
+            margin-bottom: 5px;
+            color: white;
+            @media (max-width: 600px) {
+              font-size: 12px;
+            }
+          }
+          input,
+          textarea {
+            height: auto;
+            padding: 10px 10px 10px 15px;
+            background: rgba(19, 19, 19, 0.75);
+            border-radius: 8px;
+            width: 100% !important;
+            outline: none;
+            border: none;
+            min-height: 40px;
+            margin-bottom: 0;
+            @media (max-width: 600px) {
+              padding: 10px 7px;
+            }
+            @media (max-width: 500px) {
+              display: block;
+            }
+          }
+          span {
+            color: #b50b00;
+            font-size: 10px;
+          }
+        }
+      }
+      .report-submit-button {
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        @media (max-width: 600px) {
+          margin-top: 0;
+        }
+        & > div {
+          background-image: url("../../public/img/reputation/submit-report.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 299px;
+          height: 122px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: auto;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+          }
+          p {
+            font-family: "Montserrat Bold";
+            font-style: normal;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 22px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -293,15 +474,23 @@
 .reputation-leader-board-card {
   display: flex;
   height: auto;
-  padding: 10px 15px;
+  padding: 10px 10px 10px 15px;
   background: rgba(19, 19, 19, 0.75);
   border-radius: 8px;
   width: 100%;
   margin: 5px 0;
-  p {
+  @media (max-width: 600px) {
+    padding: 10px 7px;
+  }
+  & > div {
+    padding: 0 5px;
+  }
+  p,
+  a {
     font-size: 14px;
     font-weight: 600;
     color: white;
+    word-break: break-all;
     @media (max-width: 600px) {
       font-size: 12px;
     }
@@ -312,10 +501,16 @@
   .reputation-rank {
     width: 10%;
     min-width: 40px;
+    @media (max-width: 500px) {
+      min-width: 20px;
+    }
   }
   .reputation-name {
     width: 20%;
     min-width: 80px;
+    @media (max-width: 500px) {
+      min-width: 50px;
+    }
   }
   .reputation-discriminator {
     width: 50%;
@@ -326,16 +521,22 @@
     p {
       white-space: nowrap;
     }
+    @media (max-width: 500px) {
+      min-width: 65px;
+    }
   }
   .reputation-link {
     width: 10%;
-    min-width: 80px;
+    min-width: 100px;
     a {
       color: #dfdfdf;
       text-decoration: underline;
       &:hover {
         color: white;
       }
+    }
+    @media (max-width: 600px) {
+      min-width: 50px;
     }
   }
 }
