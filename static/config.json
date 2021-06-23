@@ -441,6 +441,118 @@
           "link": "#"
         }
       ]
+    },
+    "communities": {
+      "partnerBar": {
+        "text": "Partnered Communities is where you have full access to give and recieve reputation as well as additional benefits.",
+        "link": {
+          "name": "Click Here To Apply",
+          "href": "#"
+        }
+      },
+      "data": [
+        {
+          "img_src": "/img/reputation/communities/1.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/2.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/3.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/4.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/5.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/6.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/7.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/8.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/9.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/10.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/11.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/12.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/13.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/14.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/15.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/16.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/17.png",
+          "link": "#"
+        },
+        {
+          "img_src": "/img/reputation/communities/18.png",
+          "link": "#"
+        }
+      ]
+    },
+    "reportScammer": {
+      "scammerBar": "Please provide as much information as possible so we can properly assess the dispute. Be sure to include your trade agreement, proof the transaction happened, and most importantly identifying the accused.",
+      "scamInfo": {
+        "place": {
+          "title": "Where did the Scam happen?",
+          "placeholder": "Discord Group (Include Name), Discord DMs, In Game, etc."
+        },
+        "kind": {
+          "title": "What kind of Scam happened?",
+          "placeholder": "Trust Trade, Paint Swap, Middle Man Scam, etc."
+        },
+        "scammerProfile": {
+          "title": "Scammer Profile",
+          "placeholder": "+ Add Profile"
+        },
+        "proof": {
+          "title": "Proof:",
+          "placeholder": "+ Add Proof"
+        },
+        "description": {
+          "title": "Please describe what happened. (50 Character Minimum)",
+          "placeholder": "Please be as thorough as possible."
+        }
+      },
+      "button": {
+        "bg": "/img/reputation/submit-report.png",
+        "title": "SUBMIT REPORT"
+      }
     }
   }
 }
