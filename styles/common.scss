@@ -6,6 +6,7 @@ body {
   scroll-behavior: smooth;
   overflow: visible !important;
   background-color: black;
+  min-width: 300px !important;
 }
 
 a {
@@ -54,4 +55,20 @@ textarea {
 
 .justify-center {
   justify-content: center;
+}
+
+.custom-scroll-bar {
+  &::-webkit-scrollbar {
+    width: 3px;
+    cursor: pointer;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #fac800;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
 }
