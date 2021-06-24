@@ -1,0 +1,234 @@
+.sign-modal {
+  width: calc(100% - 30px) !important;
+  max-width: 1000px !important;
+  background: #131313 !important;
+  border-radius: 8px !important;
+  p {
+    color: white !important;
+    padding: 3px 0;
+  }
+  .sign-modal-header {
+    height: 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #101112;
+    padding: 25px;
+    .sign-main-title {
+      font-size: 20px;
+      font-family: "Montserrat Bold";
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .sign-sub-title {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .sign-modal-header-logo {
+      margin-right: 15px;
+    }
+    @media (max-width: 500px) {
+      .sign-main-title {
+        font-size: 18px;
+      }
+      .sign-sub-title {
+        font-size: 14px;
+      }
+      .sign-modal-header-logo {
+        margin-right: 0;
+      }
+    }
+  }
+  .sign-modal-content {
+    padding: 25px;
+    width: 100%;
+    max-height: calc(100vh - 180px);
+    overflow-y: scroll;
+    .sign-modal-content-1 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media (max-width: 600px) {
+        display: block;
+      }
+      .sign-input-form {
+        width: calc(50% - 20px);
+        max-width: 400px;
+        display: block;
+        & > div {
+          width: 100%;
+          p {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            @media (max-width: 700px) {
+              font-size: 13px;
+            }
+          }
+          input {
+            background: #101112;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            padding: 10px;
+            height: 48px;
+            color: white;
+            margin-bottom: 5px;
+          }
+          span {
+            font-size: 12px;
+            color: #b50b00;
+          }
+        }
+        @media (max-width: 600px) {
+          width: 100%;
+          margin: auto;
+        }
+      }
+      .sign-vertical-liner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .vertical-line {
+          width: 1px;
+          height: 82px;
+          margin: 5px auto;
+          background: white;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        @media (max-width: 600px) {
+          display: none;
+        }
+      }
+      .sign-with-social {
+        width: calc(50% - 20px);
+        max-width: 400px;
+        & > div {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          margin: 25px 0;
+          height: 48px;
+          background: #101112;
+          border-radius: 6px;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+          }
+          .sign-with-social-logo {
+            width: 58px;
+            height: 100%;
+            border-radius: 6px 0 0 6px;
+            display: flex;
+            text-align: center;
+            img {
+              margin: auto;
+              width: 24px;
+            }
+          }
+          .sign-with-social-button {
+            width: calc(100% - 58px);
+            padding: 0 10px;
+          }
+          p {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            white-space: nowrap;
+            @media (max-width: 700px) {
+              font-size: 13px;
+            }
+          }
+        }
+        @media (max-width: 600px) {
+          width: 100%;
+          margin: auto;
+          max-width: 250px;
+          margin-top: 20px;
+          & > div {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+    .sign-modal-content-2 {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 15px 0;
+      label {
+        color: white !important;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Montserrat";
+        @media (max-width: 600px) {
+          text-align: left;
+          font-size: 12px;
+        }
+      }
+      .ui.checkbox .box:before,
+      .ui.checkbox label:before,
+      .ui.checkbox input:checked ~ .box:before,
+      .ui.checkbox input:checked ~ label:before {
+        background: #101112;
+        border: none;
+      }
+      .ui.checkbox input:checked ~ .box:after,
+      .ui.checkbox input:checked ~ label:after {
+        color: #c4c4c4;
+      }
+      .sign-modal-button {
+        border: none;
+        background: #fac800;
+        height: 56px;
+        width: 100%;
+        max-width: 424px;
+        outline: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 15px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          opacity: 0.7;
+        }
+        p {
+          color: white;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        @media (max-width: 600px) {
+          font-size: 12px;
+        }
+      }
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #fac800;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
+      .sign-modal-privacy-text {
+        margin-top: 15px;
+      }
+    }
+  }
+}

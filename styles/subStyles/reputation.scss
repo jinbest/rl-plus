@@ -268,7 +268,10 @@
           font-style: normal;
           font-weight: 600;
           font-size: 14px;
-          word-break: break-all;
+          // word-break: break-all;
+          // text-overflow: ellipsis;
+          // overflow-y: hidden;
+          // white-space: nowrap;
           @media (max-width: 600px) {
             font-size: 12px;
           }
@@ -334,7 +337,10 @@
           font-style: normal;
           font-weight: 600;
           font-size: 14px;
-          word-break: break-all;
+          // word-break: break-all;
+          // text-overflow: ellipsis;
+          // overflow-y: hidden;
+          // white-space: nowrap;
           @media (max-width: 600px) {
             font-size: 12px;
           }
@@ -364,7 +370,10 @@
             font-style: normal;
             font-weight: 600;
             font-size: 14px;
-            word-break: break-all;
+            // word-break: break-all;
+            // text-overflow: ellipsis;
+            // overflow-y: hidden;
+            // white-space: nowrap;
             margin-bottom: 5px;
             color: white;
             @media (max-width: 600px) {
@@ -423,6 +432,10 @@
             font-size: 18px;
             line-height: 22px;
             color: #ffffff;
+          }
+          @media (max-width: 400px) {
+            width: 250px;
+            height: 102px;
           }
         }
       }
@@ -484,13 +497,17 @@
   }
   & > div {
     padding: 0 5px;
+    overflow: hidden;
   }
   p,
   a {
     font-size: 14px;
     font-weight: 600;
     color: white;
-    word-break: break-all;
+    // word-break: break-all;
+    text-overflow: ellipsis;
+    overflow-y: hidden;
+    white-space: nowrap;
     @media (max-width: 600px) {
       font-size: 12px;
     }
@@ -504,6 +521,9 @@
     @media (max-width: 500px) {
       min-width: 20px;
     }
+    @media (max-width: 400px) {
+      width: 7%;
+    }
   }
   .reputation-name {
     width: 20%;
@@ -514,6 +534,13 @@
   }
   .reputation-discriminator {
     width: 50%;
+    @media (max-width: 500px) {
+      max-width: calc(100% - 215px);
+    }
+    @media (max-width: 400px) {
+      width: 53%;
+      max-width: calc(100% - 185px);
+    }
   }
   .reputation-reputation {
     width: 10%;
@@ -535,8 +562,12 @@
         color: white;
       }
     }
-    @media (max-width: 600px) {
-      min-width: 50px;
+    @media (max-width: 500px) {
+      min-width: 80px;
+    }
+    @media (max-width: 400px) {
+      min-width: 35px;
+      overflow: hidden;
     }
   }
 }
