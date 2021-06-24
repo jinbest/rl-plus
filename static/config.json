@@ -304,7 +304,7 @@
     },
     "repuLeaderBoard": {
       "fieldData": {
-        "rank": "Rank",
+        "rank": "#",
         "name": "Name",
         "discriminator": "Discriminator",
         "reputation": "Reputation +/-"

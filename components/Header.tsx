@@ -7,6 +7,7 @@ import logo from "../public/img/header/logo.png"
 import alarm from "../public/img/header/alarm.svg"
 import config from "../static/config.json"
 import ReactDrawer from "react-drawer"
+import SignModal from "./SignModal"
 import "react-drawer/lib/react-drawer.css"
 
 console.warn = () => {
@@ -16,7 +17,6 @@ console.warn = () => {
 const Header = () => {
   const router = useRouter()
   const [openDrawer, setOpenDrawer] = useState(false)
-
   const [path, setPath] = useState("/")
 
   const toggleDrawer = () => {
@@ -41,7 +41,7 @@ const Header = () => {
         <div className="logo">
           <Link href="/">
             <a>
-              <Image src={logo} alt="logo" width="126" height="52" />
+              <Image src={logo} alt="logo" width="120" height="54" />
             </a>
           </Link>
         </div>
@@ -49,7 +49,7 @@ const Header = () => {
           {pageRoutes.map((item: any, index: number) => {
             return (
               <React.Fragment key={index}>
-                {item.name && (
+                {item.name && item.visible && (
                   <Link href={item.path}>
                     <a style={{ color: item.path === path ? "white" : "" }}>{item.name}</a>
                   </Link>
@@ -76,15 +76,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className="username">
-            <div className="avatar">
-              <img src={config.header.user.avatar} alt="avatar" />
-            </div>
-            <div className="user">
-              <p className="name">{config.header.user.name}</p>
-              <p>{config.header.user.info}</p>
-            </div>
-          </div>
+          <SignModal />
           <div className="drawer" onClick={toggleDrawer}>
             <img src={config.header.drawer.menu} alt="menu" />
           </div>
@@ -123,7 +115,7 @@ const Header = () => {
             }}
             style={{ color: path === "/" ? "#FAC800" : "" }}
           >
-            Home
+            HOME
           </div>
           {pageRoutes.map((item: any, index: number) => {
             return (
@@ -144,6 +136,13 @@ const Header = () => {
               </React.Fragment>
             )
           })}
+          <div
+            onClick={() => {
+              setOpenDrawer(false)
+            }}
+          >
+            <SignModal mobile={true} />
+          </div>
         </div>
       </ReactDrawer>
     </React.Fragment>
