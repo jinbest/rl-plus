@@ -82,6 +82,45 @@
             font-size: 12px;
             color: #b50b00;
           }
+          .password-status {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: white;
+            span {
+              color: #e00000;
+            }
+          }
+          .pass-status-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: -3px;
+            img {
+              width: 11px;
+              height: 11px;
+              margin-left: 5px;
+            }
+            p {
+              font-size: 11px;
+              color: #acb4d8 !important;
+              padding: 0 !important;
+            }
+            & > div {
+              display: flex;
+              align-items: center;
+            }
+            .custom-progress-bar {
+              width: calc(100% - 80px);
+              & > div {
+                width: calc(33% - 3px);
+                margin-right: 3px;
+                max-width: 90px;
+                height: 9px;
+                background: #101010;
+                border-radius: 6px;
+              }
+            }
+          }
         }
         @media (max-width: 600px) {
           width: 100%;
@@ -214,10 +253,11 @@
           font-size: 12px;
         }
       }
-      span {
+      span,
+      .forgot-password-button {
         font-size: 14px;
         font-weight: 500;
-        color: #fac800;
+        color: #fac800 !important;
         cursor: pointer;
         &:hover {
           opacity: 0.7;
@@ -227,6 +267,9 @@
         font-size: 12px;
       }
       .sign-modal-privacy-text {
+        margin-top: 15px;
+      }
+      .forgot-password-button {
         margin-top: 15px;
       }
     }

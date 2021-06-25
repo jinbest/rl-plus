@@ -7,8 +7,11 @@ import logo from "../public/img/header/logo.png"
 import alarm from "../public/img/header/alarm.svg"
 import config from "../static/config.json"
 import ReactDrawer from "react-drawer"
-import SignModal from "./SignModal"
+import SignModal from "./modal/SignModal"
+import ForgotPassModal from "./modal/ForgotPassModal"
 import "react-drawer/lib/react-drawer.css"
+import Toast from "./toast/Toast"
+import { ToastMsgParams } from "./toast/toast-msg-params"
 
 console.warn = () => {
   // EMPTY
@@ -18,6 +21,11 @@ const Header = () => {
   const router = useRouter()
   const [openDrawer, setOpenDrawer] = useState(false)
   const [path, setPath] = useState("/")
+  const [toastParam, setToastParam] = useState<ToastMsgParams>({
+    msg: "",
+  })
+  const [openForgotModal, setOpenForgotModal] = useState(false)
+  const [openSignModal, setOpenSignModal] = useState(false)
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer)
@@ -34,6 +42,15 @@ const Header = () => {
   useEffect(() => {
     setPath(router.asPath)
   }, [router])
+
+  const resetToastStatus = () => {
+    setToastParam({
+      msg: "",
+      isSuccess: false,
+      isError: false,
+      isWarning: false,
+    })
+  }
 
   return (
     <React.Fragment>
@@ -76,7 +93,20 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <SignModal />
+          <div
+            className="username"
+            onClick={() => {
+              setOpenSignModal(true)
+            }}
+          >
+            <div className="avatar">
+              <img src={config.header.user.avatar} alt="avatar" />
+            </div>
+            <div className="user">
+              <p className="name">{config.header.user.name}</p>
+              <p>{config.header.user.info}</p>
+            </div>
+          </div>
           <div className="drawer" onClick={toggleDrawer}>
             <img src={config.header.drawer.menu} alt="menu" />
           </div>
@@ -139,12 +169,25 @@ const Header = () => {
           <div
             onClick={() => {
               setOpenDrawer(false)
+              setOpenSignModal(true)
             }}
           >
-            <SignModal mobile={true} />
+            <p className="drawer-sign-trigger">SIGN</p>
           </div>
         </div>
       </ReactDrawer>
+      <SignModal
+        open={openSignModal}
+        setOpen={setOpenSignModal}
+        setToastParam={setToastParam}
+        setForgotModal={setOpenForgotModal}
+      />
+      <ForgotPassModal
+        openForgotModal={openForgotModal}
+        setOpenForgotModal={setOpenForgotModal}
+        setOpenSignModal={setOpenSignModal}
+      />
+      <Toast param={toastParam} resetStatus={resetToastStatus} />
     </React.Fragment>
   )
 }

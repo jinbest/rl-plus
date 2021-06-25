@@ -1,3 +1,5 @@
+import { CheckPassParam } from "../models/check-pass-param"
+
 export function getWidth() {
   if (typeof window !== "undefined") {
     return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
@@ -12,34 +14,56 @@ export function ValidateEmail(e: string) {
 }
 
 export function CheckPassword(pass: string) {
-  let result = {
-    status: true,
-    msg: "Password is good",
+  const result: CheckPassParam = {
+    status: false,
+    msg: "Password is too weak.",
+    strength: "Weak",
+    letter: false,
+    number: false,
+    character: false,
   }
-  if (pass.length < 6) {
-    result = {
-      status: false,
-      msg: "Password Should be Minimum 6 Characters",
+  if (!pass) {
+    return result
+  }
+  if (pass.length < 8) {
+    result.msg = "Password Should be 8 Characters at least."
+    if (pass.match(/[A-Z]+/) || pass.match(/[$@#&!]+/)) {
+      result.letter = true
+    }
+    if (pass.match(/[a-z]+/)) {
+      result.character = true
+    }
+    if (pass.match(/[0-9]+/)) {
+      result.number = true
     }
   } else {
     let strength = 0
     if (pass.match(/[a-z]+/)) {
       strength += 1
+      result.character = true
     }
     if (pass.match(/[A-Z]+/)) {
       strength += 1
+      result.letter = true
     }
     if (pass.match(/[0-9]+/)) {
       strength += 1
+      result.number = true
     }
     if (pass.match(/[$@#&!]+/)) {
       strength += 1
+      result.letter = true
     }
-    if (strength < 3) {
-      result = {
-        status: false,
-        msg: "Password is too weak.",
-      }
+    if (strength < 2) {
+      result.msg = "Password is too weak."
+    } else if (strength < 3) {
+      result.status = true
+      result.msg = "Password is fair."
+      result.strength = "Fair"
+    } else {
+      result.status = true
+      result.msg = "Password is strong."
+      result.strength = "Strong"
     }
   }
   return result

@@ -1,22 +1,25 @@
 import React, { useState } from "react"
 import { Modal, Checkbox } from "semantic-ui-react"
-import config from "../static/config.json"
 import Image from "next/image"
-import logo from "../public/img/header/logo.png"
-import { ValidateEmail, CheckPassword, CheckConfPass } from "../service/helper"
-import Loading from "./Loading"
-import APIClient from "../service/api-clients"
-import apiConfig from "../config/config"
-import { RegisterResParams, LoginResParams } from "../models/sign-params"
+import logo from "../../public/img/header/logo.png"
+import { ValidateEmail, CheckPassword, CheckConfPass } from "../../service/helper"
+import Loading from "../Loading"
+import APIClient from "../../service/api-clients"
+import apiConfig from "../../config/config"
+import { RegisterResParams, LoginResParams } from "../../models/sign-params"
+import { ToastMsgParams } from "../toast/toast-msg-params"
+import { CheckPassParam } from "../../models/check-pass-param"
 
 const apiClient = APIClient.getInstance()
 
 type Props = {
-  mobile?: boolean
+  open: boolean
+  setOpen: (val: boolean) => void
+  setForgotModal: (val: boolean) => void
+  setToastParam: (val: ToastMsgParams) => void
 }
 
-const SignModal = ({ mobile }: Props) => {
-  const [open, setOpen] = useState(false)
+const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
   const [signKey, setSignKey] = useState(true)
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
@@ -27,12 +30,16 @@ const SignModal = ({ mobile }: Props) => {
   const [errPass, setErrPass] = useState("")
   const [errConfPass, setErrConfPass] = useState("")
   const [submitting, setSubmitting] = useState(false)
+  const [check, setCheck] = useState(false)
+  const [checkPass, setCheckPass] = useState<CheckPassParam>(CheckPassword(""))
 
   const handleSubmit = async () => {
     if (!validate()) {
       return
     }
     setSubmitting(true)
+    let msg = "You've been registered successfully.",
+      isFailed = false
     try {
       if (signKey) {
         const res = await apiClient.post<RegisterResParams>(apiConfig.REGISTER_API_URL, {
@@ -41,18 +48,31 @@ const SignModal = ({ mobile }: Props) => {
           username: username,
         })
         if (res && res.success) {
-          const logRes = await apiClient.post<LoginResParams>(apiConfig.LOGIN_API_URL, {
-            email: email,
-            password: pass,
-          })
-          if (logRes.success) {
-            window.localStorage.setItem("token", logRes.token)
-          }
+          setSignKey(false)
+        }
+      } else {
+        const logRes = await apiClient.post<LoginResParams>(apiConfig.LOGIN_API_URL, {
+          email: email,
+          password: pass,
+        })
+        if (logRes.success) {
+          window.localStorage.setItem("token", logRes.token)
+          msg = "You've logged in successfully."
+          setOpen(false)
+        } else {
+          msg = "Password mismatch."
+          isFailed = true
         }
       }
     } catch (error) {
-      // EMPTY
+      msg = "Something went wrong."
+      isFailed = true
     } finally {
+      setToastParam({
+        msg,
+        isSuccess: !isFailed,
+        isError: isFailed,
+      })
       setSubmitting(false)
     }
   }
@@ -80,7 +100,7 @@ const SignModal = ({ mobile }: Props) => {
       setErrEmail("E-Mail is not correct.")
       result = false
     }
-    if (!username) {
+    if (signKey && !username) {
       setErrUsername("Username is required.")
       result = false
     }
@@ -108,28 +128,20 @@ const SignModal = ({ mobile }: Props) => {
     return result
   }
 
+  const handleCheckedChange = (checked: boolean | undefined) => {
+    setCheck(checked || false)
+  }
+
+  const handleChangePassword = (val: string) => {
+    setPass(val)
+    setCheckPass(CheckPassword(val))
+  }
+
   return (
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={
-        <div>
-          {!mobile ? (
-            <div className="username">
-              <div className="avatar">
-                <img src={config.header.user.avatar} alt="avatar" />
-              </div>
-              <div className="user">
-                <p className="name">{config.header.user.name}</p>
-                <p>{config.header.user.info}</p>
-              </div>
-            </div>
-          ) : (
-            <p className="drawer-sign-trigger">{signKey ? "REGISTER" : "LOG IN"}</p>
-          )}
-        </div>
-      }
       className="sign-modal"
     >
       <div className="sign-modal-header">
@@ -170,13 +182,58 @@ const SignModal = ({ mobile }: Props) => {
             )}
             <div>
               <p>Password</p>
+              {pass && (
+                <p className="password-status">
+                  At least{" "}
+                  <span style={{ color: checkPass.character ? "#006A04" : "" }}>8 characters</span>,{" "}
+                  <span style={{ color: checkPass.number ? "#006A04" : "" }}>1 number</span> and{" "}
+                  <span style={{ color: checkPass.letter ? "#006A04" : "" }}>1 letter</span>.
+                </p>
+              )}
               <input
                 value={pass}
                 type="password"
                 onChange={(e) => {
-                  setPass(e.target.value)
+                  handleChangePassword(e.target.value)
                 }}
               />
+              {signKey && pass && (
+                <div className="pass-status-progress">
+                  <div className="custom-progress-bar">
+                    <div
+                      style={{
+                        background:
+                          checkPass.strength === "Weak"
+                            ? "#E00000"
+                            : checkPass.strength === "Fair"
+                            ? "#FFC700"
+                            : checkPass.strength === "Strong"
+                            ? "#006A04"
+                            : "",
+                      }}
+                    />
+                    <div
+                      style={{
+                        background:
+                          checkPass.strength === "Fair"
+                            ? "#FFC700"
+                            : checkPass.strength === "Strong"
+                            ? "#006A04"
+                            : "",
+                      }}
+                    />
+                    <div
+                      style={{
+                        background: checkPass.strength === "Strong" ? "#006A04" : "",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <p>{checkPass.strength}</p>
+                    <img src="img/modal/info.png" alt="info" />
+                  </div>
+                </div>
+              )}
               {errPass && <span>{errPass}</span>}
             </div>
             {signKey && (
@@ -201,7 +258,7 @@ const SignModal = ({ mobile }: Props) => {
           <div className="sign-with-social">
             <div>
               <div className="sign-with-social-logo" style={{ background: "white" }}>
-                <img src="/img/sign-modal/google.png" alt="google-logo" />
+                <img src="/img/modal/google.png" alt="google-logo" />
               </div>
               <div className="sign-with-social-button">
                 {signKey ? <p>SIGN UP WITH GOOGLE</p> : <p>SIGN IN WITH GOOGLE</p>}
@@ -209,7 +266,7 @@ const SignModal = ({ mobile }: Props) => {
             </div>
             <div>
               <div className="sign-with-social-logo" style={{ background: "#8697F6" }}>
-                <img src="/img/sign-modal/discord.png" alt="discord-logo" />
+                <img src="/img/modal/discord.png" alt="discord-logo" />
               </div>
               <div className="sign-with-social-button">
                 {signKey ? <p>SIGN UP WITH DISCORD</p> : <p>SIGN IN WITH DISCORD</p>}
@@ -217,7 +274,7 @@ const SignModal = ({ mobile }: Props) => {
             </div>
             <div>
               <div className="sign-with-social-logo" style={{ background: "#115C93" }}>
-                <img src="/img/sign-modal/steam.png" alt="steam-logo" />
+                <img src="/img/modal/steam.png" alt="steam-logo" />
               </div>
               <div className="sign-with-social-button">
                 {signKey ? <p>SIGN UP WITH STEAM</p> : <p>SIGN IN WITH STEAM</p>}
@@ -225,7 +282,7 @@ const SignModal = ({ mobile }: Props) => {
             </div>
             <div>
               <div className="sign-with-social-logo" style={{ background: "#000000" }}>
-                <img src="/img/sign-modal/games.png" alt="games-logo" />
+                <img src="/img/modal/games.png" alt="games-logo" />
               </div>
               <div className="sign-with-social-button">
                 {signKey ? <p>SIGN UP WITH GAMES</p> : <p>SIGN IN WITH GAMES</p>}
@@ -234,7 +291,13 @@ const SignModal = ({ mobile }: Props) => {
           </div>
         </div>
         <div className="sign-modal-content-2">
-          <Checkbox label="Yes, I would like to receive e-mail offers and promotions from RLPlus" />
+          {signKey && (
+            <Checkbox
+              checked={check}
+              onChange={(e, { checked }) => handleCheckedChange(checked)}
+              label="Yes, I would like to receive e-mail offers and promotions from RLPlus"
+            />
+          )}
           <div className="sign-modal-button" onClick={handleSubmit}>
             {submitting ? <Loading /> : <p>{signKey ? "Register" : "Log In"}</p>}
           </div>
@@ -244,13 +307,28 @@ const SignModal = ({ mobile }: Props) => {
             </p>
           ) : (
             <p>
-              Don&apos;t have an account ? <span onClick={() => setSignKey(true)}>Register</span>
+              Don&apos;t have an account ?{" "}
+              <span onClick={() => setSignKey(true)}>Register now</span>
             </p>
           )}
-          <p className="sign-modal-privacy-text">
-            By creating an account, I agree to RLPlus’s Terms of Service, Privacy Policy and
-            Intellectual Property Rights
-          </p>
+          {signKey && (
+            <p className="sign-modal-privacy-text">
+              By creating an account, I agree to RLPlus’s Terms of Service, Privacy Policy and
+              Intellectual Property Rights
+            </p>
+          )}
+          {!signKey && (
+            <p
+              className="forgot-password-button"
+              onClick={() => {
+                setForgotModal(true)
+                init()
+                setOpen(false)
+              }}
+            >
+              Forgot Password?
+            </p>
+          )}
         </div>
       </div>
     </Modal>
