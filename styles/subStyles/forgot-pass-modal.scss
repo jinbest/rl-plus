@@ -1,0 +1,136 @@
+.forgot-pass-modal {
+  width: calc(100% - 30px) !important;
+  max-width: 480px !important;
+  background: #131313 !important;
+  border-radius: 8px !important;
+  p {
+    color: white !important;
+    padding: 3px 0;
+  }
+  .forgot-pass-modal-header {
+    height: 125px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #101112;
+    padding: 25px;
+    .forgot-pass-main-title {
+      font-size: 20px;
+      font-family: "Montserrat Bold";
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .forgot-pass-sub-title {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .forgot-pass-modal-header-logo {
+      margin-right: 15px;
+    }
+    @media (max-width: 500px) {
+      .forgot-pass-main-title {
+        font-size: 17px;
+      }
+      .forgot-pass-modal-header-logo {
+        margin-right: 0;
+      }
+    }
+  }
+  .forgot-pass-modal-container {
+    padding: 25px;
+    width: 100%;
+    max-height: calc(100vh - 180px);
+    overflow-y: scroll;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0 15px;
+    .forgot-input-form {
+      width: 100%;
+      margin: 50px 0;
+      text-align: left;
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        text-align: left;
+        @media (max-width: 700px) {
+          font-size: 13px;
+        }
+      }
+      input {
+        background: #101112;
+        outline: none;
+        border: 1px solid white;
+        border-radius: 6px;
+        width: 100%;
+        padding: 10px;
+        height: 48px;
+        color: white;
+        margin-bottom: 5px;
+      }
+      span {
+        font-size: 12px;
+        color: #b50b00;
+      }
+    }
+    .forgot-check-email {
+      margin: 50px 0;
+      @media (max-width: 400px) {
+        width: 110px;
+      }
+    }
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
+    }
+    span {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fac800;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .forgot-pass-modal-button {
+      border: none;
+      background: #fac800;
+      height: 56px;
+      width: 100%;
+      max-width: 424px;
+      outline: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        opacity: 0.7;
+      }
+      p {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      @media (max-width: 400px) {
+        font-size: 13px;
+      }
+    }
+    .forgot-modal-description {
+      font-size: 16px;
+      font-weight: 600;
+      color: #bac2d1;
+      letter-spacing: 1px;
+      text-align: left;
+      @media (max-width: 400px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
