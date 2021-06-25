@@ -554,5 +554,31 @@
         "title": "SUBMIT REPORT"
       }
     }
+  },
+  "forgotPass": {
+    "reset": {
+      "title": "Reset Password",
+      "content": "Enter the e-mail associated with your account and we’ll send an email with instructions to reset your password",
+      "img_src": "",
+      "btnTitle": "Send Instructions"
+    },
+    "checkEmail": {
+      "title": "Check your email!",
+      "content": "Password recovery instructions have been sent to your email.",
+      "img_src": "/img/modal/check-email.png",
+      "btnTitle": "Send Instructions"
+    },
+    "setNewPass": {
+      "title": "Set new password",
+      "content": "",
+      "img_src": "",
+      "btnTitle": "Reset Password"
+    },
+    "passChanged": {
+      "title": "Password Changed",
+      "content": "Your password has been reset successfully, please re-login.",
+      "img_src": "",
+      "btnTitle": "Login"
+    }
   }
 }
