@@ -1,7 +1,7 @@
 .forgot-pass-modal {
   width: calc(100% - 30px) !important;
   max-width: 480px !important;
-  background: #131313 !important;
+  background: #101010 !important;
   border-radius: 8px !important;
   p {
     color: white !important;
@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #101112;
+    background: #131313;
     padding: 25px;
     .forgot-pass-main-title {
       font-size: 20px;
@@ -51,16 +51,36 @@
       width: 100%;
       margin: 50px 0;
       text-align: left;
-      p {
+      label {
         font-size: 16px;
         font-weight: 600;
         text-align: left;
+        color: white;
+        font-family: "Montserrat";
         @media (max-width: 700px) {
           font-size: 13px;
         }
       }
+      .password-with-eye-ball {
+        position: relative;
+        display: flex;
+        align-items: center;
+        button {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          right: 8px;
+          border: none;
+          outline: none;
+          background: transparent;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
       input {
-        background: #101112;
+        background: #131313;
         outline: none;
         border: 1px solid white;
         border-radius: 6px;
@@ -68,7 +88,7 @@
         padding: 10px;
         height: 48px;
         color: white;
-        margin-bottom: 5px;
+        margin: 10px 0;
       }
       span {
         font-size: 12px;
@@ -113,13 +133,34 @@
       &:hover {
         opacity: 0.7;
       }
-      p {
-        color: white;
+      span {
+        color: white !important;
         font-size: 16px;
         font-weight: 600;
+        font-family: "Montserrat";
       }
       @media (max-width: 400px) {
         font-size: 13px;
+      }
+    }
+    .reset-receive-link {
+      display: flex;
+      button {
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Montserrat";
+        color: #fac800;
+        cursor: pointer;
+        margin-left: 5px;
+        &:hover {
+          opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+          font-size: 12px;
+        }
       }
     }
     .forgot-modal-description {

@@ -558,7 +558,7 @@
   "forgotPass": {
     "reset": {
       "title": "Reset Password",
-      "content": "Enter the e-mail associated with your account and we’ll send an email with instructions to reset your password",
+      "content": "Enter the email associated with your account and we’ll send an email with instructions to reset your password",
       "img_src": "",
       "btnTitle": "Send Instructions"
     },
