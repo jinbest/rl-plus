@@ -26,9 +26,9 @@ const SliderItem = ({ data }: Props) => {
       </div>
       <div className="slider-bottom">
         <img src={data.logo} alt="slider-logo" className="slider-logo" />
-        <div className="download">
-          <div>DOWNLOAD NOW</div>
-        </div>
+        <button className="download">
+          <span>DOWNLOAD NOW</span>
+        </button>
       </div>
     </div>
   )

@@ -3,6 +3,8 @@ import Reputation from "../views/reputation"
 import DiscordBot from "../views/discord-bot"
 import RankStats from "../views/rank-stats"
 import Trading from "../views/trading"
+import TermsOfService from "../views/terms-of-service"
+import PrivacyPolicy from "../views/privacy-policy"
 
 const pageRoutes = [
   {
@@ -52,6 +54,18 @@ const pageRoutes = [
     name: "TRADING",
     component: () => <Trading />,
     visible: true,
+  },
+  {
+    path: "/terms-of-service",
+    name: "TERMS OF SERVICE",
+    component: () => <TermsOfService />,
+    visible: false,
+  },
+  {
+    path: "/privacy-policy",
+    name: "PRIVACY POLICY",
+    component: () => <PrivacyPolicy />,
+    visible: false,
   },
 ]
 

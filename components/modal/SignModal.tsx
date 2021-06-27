@@ -1,14 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Modal, Checkbox } from "semantic-ui-react"
 import Image from "next/image"
 import logo from "../../public/img/header/logo.png"
-import { ValidateEmail, CheckPassword, CheckConfPass } from "../../service/helper"
+import { ValidateEmail, CheckPassword } from "../../service/helper"
 import Loading from "../Loading"
 import APIClient from "../../service/api-clients"
 import apiConfig from "../../config/config"
 import { RegisterResParams, LoginResParams } from "../../models/sign-params"
 import { ToastMsgParams } from "../toast/toast-msg-params"
 import { CheckPassParam } from "../../models/check-pass-param"
+import { useRouter } from "next/router"
 
 const apiClient = APIClient.getInstance()
 
@@ -20,18 +21,20 @@ type Props = {
 }
 
 const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
+  const router = useRouter()
+
   const [signKey, setSignKey] = useState(true)
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [pass, setPass] = useState("")
-  const [confPass, setConfPass] = useState("")
   const [errEmail, setErrEmail] = useState("")
   const [errUsername, setErrUsername] = useState("")
   const [errPass, setErrPass] = useState("")
-  const [errConfPass, setErrConfPass] = useState("")
   const [submitting, setSubmitting] = useState(false)
   const [check, setCheck] = useState(false)
   const [checkPass, setCheckPass] = useState<CheckPassParam>(CheckPassword(""))
+  const [disable, setDisable] = useState(true)
+  const [passVisible, setPassVisible] = useState(false)
 
   const handleSubmit = async () => {
     if (!validate()) {
@@ -81,23 +84,29 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
     setEmail("")
     setUsername("")
     setPass("")
-    setConfPass("")
   }
 
   const clearErr = () => {
     setErrEmail("")
     setErrUsername("")
     setErrPass("")
-    setErrConfPass("")
   }
+
+  useEffect(() => {
+    if (((signKey && username) || !signKey) && email && pass) {
+      setDisable(false)
+    } else {
+      setDisable(true)
+    }
+  }, [username, email, pass])
 
   const validate = () => {
     let result = true
     if (!email) {
-      setErrEmail("E-Mail is required.")
+      setErrEmail("Email is required.")
       result = false
     } else if (!ValidateEmail(email)) {
-      setErrEmail("E-Mail is not correct.")
+      setErrEmail("Email is not correct.")
       result = false
     }
     if (signKey && !username) {
@@ -113,13 +122,6 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
         setErrPass(checkPass.msg)
         result = false
       }
-    }
-    if (signKey && !confPass) {
-      setErrConfPass("Confirm password is required.")
-      result = false
-    } else if (signKey && !CheckConfPass(confPass, pass)) {
-      setErrConfPass("Confirm Password is not matched with password.")
-      result = false
     }
     setTimeout(() => {
       clearErr()
@@ -158,20 +160,11 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
       <div className="sign-modal-content custom-scroll-bar">
         <div className="sign-modal-content-1">
           <div className="sign-input-form">
-            <div>
-              <p>E-Mail</p>
-              <input
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value)
-                }}
-              />
-              {errEmail && <span>{errEmail}</span>}
-            </div>
             {signKey && (
               <div>
-                <p>Username</p>
+                <label htmlFor="username">Username</label>
                 <input
+                  id="username"
                   value={username}
                   onChange={(e) => {
                     setUsername(e.target.value)
@@ -181,22 +174,47 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
               </div>
             )}
             <div>
-              <p>Password</p>
-              {pass && (
-                <p className="password-status">
-                  At least{" "}
-                  <span style={{ color: checkPass.character ? "#006A04" : "" }}>8 characters</span>,{" "}
-                  <span style={{ color: checkPass.number ? "#006A04" : "" }}>1 number</span> and{" "}
-                  <span style={{ color: checkPass.letter ? "#006A04" : "" }}>1 letter</span>.
-                </p>
-              )}
+              <label htmlFor="email">Email</label>
               <input
-                value={pass}
-                type="password"
+                id="email"
+                value={email}
                 onChange={(e) => {
-                  handleChangePassword(e.target.value)
+                  setEmail(e.target.value)
                 }}
               />
+              {errEmail && <span>{errEmail}</span>}
+            </div>
+            <div>
+              <label htmlFor="password">Password</label>
+              {signKey && pass && (
+                <p className="password-status">
+                  At least{" "}
+                  <span style={{ color: checkPass.character ? "#00FF19" : "" }}>8 characters</span>,{" "}
+                  <span style={{ color: checkPass.number ? "#00FF19" : "" }}>1 number</span> and{" "}
+                  <span style={{ color: checkPass.letter ? "#00FF19" : "" }}>1 letter</span>.
+                </p>
+              )}
+              <div className="password-with-eye-ball">
+                <input
+                  id="password"
+                  value={pass}
+                  type={!passVisible ? "password" : "text"}
+                  onChange={(e) => {
+                    handleChangePassword(e.target.value)
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    setPassVisible(!passVisible)
+                  }}
+                >
+                  {!passVisible ? (
+                    <img src="/img/modal/eyeball-visible.svg" alt="eyeball-visible" />
+                  ) : (
+                    <img src="/img/modal/eyeball-invisible.svg" alt="eyeball-invisible" />
+                  )}
+                </button>
+              </div>
               {signKey && pass && (
                 <div className="pass-status-progress">
                   <div className="custom-progress-bar">
@@ -236,19 +254,6 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
               )}
               {errPass && <span>{errPass}</span>}
             </div>
-            {signKey && (
-              <div>
-                <p>Confirm Password</p>
-                <input
-                  value={confPass}
-                  type="password"
-                  onChange={(e) => {
-                    setConfPass(e.target.value)
-                  }}
-                />
-                {errConfPass && <span>{errConfPass}</span>}
-              </div>
-            )}
           </div>
           <div className="sign-vertical-liner">
             <div className="vertical-line" />
@@ -256,38 +261,42 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
             <div className="vertical-line" />
           </div>
           <div className="sign-with-social">
-            <div>
-              <div className="sign-with-social-logo" style={{ background: "white" }}>
+            <button>
+              <span className="sign-with-social-logo" style={{ background: "white" }}>
                 <img src="/img/modal/google.png" alt="google-logo" />
-              </div>
-              <div className="sign-with-social-button">
-                {signKey ? <p>SIGN UP WITH GOOGLE</p> : <p>SIGN IN WITH GOOGLE</p>}
-              </div>
-            </div>
-            <div>
-              <div className="sign-with-social-logo" style={{ background: "#8697F6" }}>
+              </span>
+              <span className="sign-with-social-button">
+                {signKey ? <span>SIGN UP WITH GOOGLE</span> : <span>SIGN IN WITH GOOGLE</span>}
+              </span>
+            </button>
+            <button>
+              <span className="sign-with-social-logo" style={{ background: "#8697F6" }}>
                 <img src="/img/modal/discord.png" alt="discord-logo" />
-              </div>
-              <div className="sign-with-social-button">
-                {signKey ? <p>SIGN UP WITH DISCORD</p> : <p>SIGN IN WITH DISCORD</p>}
-              </div>
-            </div>
-            <div>
-              <div className="sign-with-social-logo" style={{ background: "#115C93" }}>
+              </span>
+              <span className="sign-with-social-button">
+                {signKey ? <span>SIGN UP WITH DISCORD</span> : <span>SIGN IN WITH DISCORD</span>}
+              </span>
+            </button>
+            <button>
+              <span className="sign-with-social-logo" style={{ background: "#115C93" }}>
                 <img src="/img/modal/steam.png" alt="steam-logo" />
-              </div>
-              <div className="sign-with-social-button">
-                {signKey ? <p>SIGN UP WITH STEAM</p> : <p>SIGN IN WITH STEAM</p>}
-              </div>
-            </div>
-            <div>
-              <div className="sign-with-social-logo" style={{ background: "#000000" }}>
+              </span>
+              <span className="sign-with-social-button">
+                {signKey ? <span>SIGN UP WITH STEAM</span> : <span>SIGN IN WITH STEAM</span>}
+              </span>
+            </button>
+            <button>
+              <span className="sign-with-social-logo" style={{ background: "#000000" }}>
                 <img src="/img/modal/games.png" alt="games-logo" />
-              </div>
-              <div className="sign-with-social-button">
-                {signKey ? <p>SIGN UP WITH GAMES</p> : <p>SIGN IN WITH GAMES</p>}
-              </div>
-            </div>
+              </span>
+              <span className="sign-with-social-button">
+                {signKey ? (
+                  <span>SIGN UP WITH EPIC GAMES</span>
+                ) : (
+                  <span>SIGN IN WITH EPIC GAMES</span>
+                )}
+              </span>
+            </button>
           </div>
         </div>
         <div className="sign-modal-content-2">
@@ -295,30 +304,66 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
             <Checkbox
               checked={check}
               onChange={(e, { checked }) => handleCheckedChange(checked)}
-              label="Yes, I would like to receive e-mail offers and promotions from RLPlus"
+              label="Yes, I would like to receive email offers and promotions from RLPlus"
             />
           )}
-          <div className="sign-modal-button" onClick={handleSubmit}>
-            {submitting ? <Loading /> : <p>{signKey ? "Register" : "Log In"}</p>}
-          </div>
+          <button
+            disabled={disable}
+            className="sign-modal-button"
+            onClick={handleSubmit}
+            style={{ opacity: disable ? 0.7 : "inherit" }}
+          >
+            {submitting ? <Loading /> : <span>{signKey ? "Register" : "Log In"}</span>}
+          </button>
           {signKey ? (
-            <p>
-              Already have an account ? <span onClick={() => setSignKey(false)}>Log In</span>
-            </p>
+            <div className="switch-register-login">
+              <p>Already have an account ?</p>
+              <button
+                onClick={() => {
+                  init()
+                  setSignKey(false)
+                }}
+              >
+                Log In
+              </button>
+            </div>
           ) : (
-            <p>
-              Don&apos;t have an account ?{" "}
-              <span onClick={() => setSignKey(true)}>Register now</span>
-            </p>
+            <div className="switch-register-login">
+              <p>Don&apos;t have an account ?</p>
+              <button
+                onClick={() => {
+                  init()
+                  setSignKey(true)
+                }}
+              >
+                Register now
+              </button>
+            </div>
           )}
           {signKey && (
             <p className="sign-modal-privacy-text">
-              By creating an account, I agree to RLPlus’s Terms of Service, Privacy Policy and
-              Intellectual Property Rights
+              {`By creating an account, I agree to RL.Plus's${" "}`}
+              <a
+                onClick={() => {
+                  setOpen(false)
+                  router.push("/terms-of-service")
+                }}
+              >
+                Terms of Service
+              </a>
+              {`${" "}and${" "}`}
+              <a
+                onClick={() => {
+                  setOpen(false)
+                  router.push("/privacy-policy")
+                }}
+              >
+                Privacy Policy
+              </a>
             </p>
           )}
           {!signKey && (
-            <p
+            <button
               className="forgot-password-button"
               onClick={() => {
                 setForgotModal(true)
@@ -327,7 +372,7 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
               }}
             >
               Forgot Password?
-            </p>
+            </button>
           )}
         </div>
       </div>

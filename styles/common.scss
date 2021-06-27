@@ -7,6 +7,10 @@ body {
   overflow: visible !important;
   background-color: black;
   min-width: 300px !important;
+  height: 100vh;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 a {
@@ -18,7 +22,8 @@ a {
   box-sizing: border-box;
 }
 
-p {
+p,
+button {
   margin: 0;
   padding: 0;
 }

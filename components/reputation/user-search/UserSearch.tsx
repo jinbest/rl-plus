@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState } from "react"
 import { MainDataParams } from "../../../models/reputation-params"
 import CustomSearchBar from "../../CustomSearchBar"
 import SummaryData from "./SummaryData"
@@ -41,22 +41,6 @@ const UserSearch = () => {
     }
     setSummaryDataVisible(false)
   }
-
-  useEffect(() => {
-    document.addEventListener("keydown", onKeyPress, false)
-    return () => {
-      document.removeEventListener("keydown", onKeyPress, false)
-    }
-  })
-
-  const onKeyPress = useCallback(
-    (event) => {
-      if (event.key === "Enter") {
-        handleUserSearchIconClick()
-      }
-    },
-    [userSearchKey, mainData]
-  )
 
   return (
     <div>

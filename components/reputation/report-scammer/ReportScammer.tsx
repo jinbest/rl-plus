@@ -84,8 +84,9 @@ const ReportScammer = () => {
       </div>
       <div className="report-scammer-submit-form">
         <div className="report-scammer-child type-1">
-          <p>{thisPage.scamInfo.place.title}</p>
+          <label htmlFor="report-scammer-place">{thisPage.scamInfo.place.title}</label>
           <input
+            id="report-scammer-place"
             value={place}
             onChange={(e) => {
               setPlace(e.target.value)
@@ -95,8 +96,9 @@ const ReportScammer = () => {
           {errPlace && <span>{errPlace}</span>}
         </div>
         <div className="report-scammer-child type-1">
-          <p>{thisPage.scamInfo.kind.title}</p>
+          <label htmlFor="report-scammer-kind">{thisPage.scamInfo.kind.title}</label>
           <input
+            id="report-scammer-kind"
             value={kind}
             onChange={(e) => {
               setKind(e.target.value)
@@ -106,8 +108,9 @@ const ReportScammer = () => {
           {errKind && <span>{errKind}</span>}
         </div>
         <div className="report-scammer-child type-1">
-          <p>{thisPage.scamInfo.scammerProfile.title}</p>
+          <label htmlFor="report-scammer-profile">{thisPage.scamInfo.scammerProfile.title}</label>
           <input
+            id="report-scammer-profile"
             value={scammerProfile}
             onChange={(e) => {
               setScammerProfile(e.target.value)
@@ -117,8 +120,9 @@ const ReportScammer = () => {
           {errScammerProfile && <span>{errScammerProfile}</span>}
         </div>
         <div className="report-scammer-child type-1">
-          <p>{thisPage.scamInfo.proof.title}</p>
+          <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label>
           <input
+            id="report-scammer-proof"
             value={proof}
             onChange={(e) => {
               setProof(e.target.value)
@@ -128,8 +132,9 @@ const ReportScammer = () => {
           {errProof && <span>{errProof}</span>}
         </div>
         <div className="report-scammer-child type-2">
-          <p>{thisPage.scamInfo.description.title}</p>
+          <label htmlFor="report-scammer-description">{thisPage.scamInfo.description.title}</label>
           <textarea
+            id="report-scammer-description"
             value={description}
             onChange={(e) => {
               setDescription(e.target.value)
@@ -140,9 +145,9 @@ const ReportScammer = () => {
         </div>
       </div>
       <div className="report-submit-button">
-        <div onClick={handleSubmit}>
-          {!submitting ? <p>{thisPage.button.title}</p> : <Loading />}
-        </div>
+        <button onClick={handleSubmit}>
+          {!submitting ? <span>{thisPage.button.title}</span> : <Loading />}
+        </button>
       </div>
     </div>
   )
