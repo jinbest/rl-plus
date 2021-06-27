@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState } from "react"
 import RepuLeaderBoardCard from "./RepuLeaderBoardCard"
 import CustomSearchBar from "../../CustomSearchBar"
 import { ReputationLeaderBoardCardParam } from "../../../models/reputation-params"
@@ -43,22 +43,6 @@ const LeaderBoard = () => {
     }
   }
 
-  useEffect(() => {
-    document.addEventListener("keydown", onKeyPress, false)
-    return () => {
-      document.removeEventListener("keydown", onKeyPress, false)
-    }
-  })
-
-  const onKeyPress = useCallback(
-    (event) => {
-      if (event.key === "Enter") {
-        handleRepuSearchIconClick()
-      }
-    },
-    [repuSearchKey, repuData]
-  )
-
   return (
     <div className="reputation-leaderboard-container">
       <RepuLeaderBoardCard data={repuFieldData} />
@@ -74,30 +58,30 @@ const LeaderBoard = () => {
           />
         </div>
         <div className="filter-filter">
-          <p
+          <button
             onClick={() => {
               setRepuFilter("daily")
             }}
             style={{ color: repuFilter === "daily" ? "white" : "" }}
           >
             Daily
-          </p>
-          <p
+          </button>
+          <button
             onClick={() => {
               setRepuFilter("weekly")
             }}
             style={{ color: repuFilter === "weekly" ? "white" : "" }}
           >
             Weekly
-          </p>
-          <p
+          </button>
+          <button
             onClick={() => {
               setRepuFilter("allTime")
             }}
             style={{ color: repuFilter === "allTime" ? "white" : "" }}
           >
             All-Time
-          </p>
+          </button>
         </div>
       </div>
       <div className="reputation-main-data-container">

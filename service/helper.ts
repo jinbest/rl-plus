@@ -27,20 +27,21 @@ export function CheckPassword(pass: string) {
   }
   if (pass.length < 8) {
     result.msg = "Password Should be 8 Characters at least."
-    if (pass.match(/[A-Z]+/) || pass.match(/[$@#&!]+/)) {
+    if (pass.match(/[A-Z]+/) || pass.match(/[a-z]+/)) {
       result.letter = true
     }
-    if (pass.match(/[a-z]+/)) {
-      result.character = true
-    }
+    // if (pass.match(/[$@#&!]+/)) {
+    //   result.number = true
+    // }
     if (pass.match(/[0-9]+/)) {
       result.number = true
     }
   } else {
     let strength = 0
+    result.character = true
     if (pass.match(/[a-z]+/)) {
       strength += 1
-      result.character = true
+      result.letter = true
     }
     if (pass.match(/[A-Z]+/)) {
       strength += 1
@@ -52,7 +53,7 @@ export function CheckPassword(pass: string) {
     }
     if (pass.match(/[$@#&!]+/)) {
       strength += 1
-      result.letter = true
+      // result.letter = true
     }
     if (strength < 2) {
       result.msg = "Password is too weak."

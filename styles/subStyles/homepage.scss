@@ -18,6 +18,9 @@
         margin: 0 70px;
         width: 38px;
         cursor: pointer;
+        background: transparent;
+        outline: none;
+        border: none;
         img {
           width: 50%;
         }
@@ -181,6 +184,9 @@
               }
             }
             .download {
+              background: transparent;
+              border: none;
+              outline: none;
               position: absolute;
               right: 0;
               bottom: -20px;
@@ -208,7 +214,7 @@
                 height: calc(100% + 3.5vw);
                 margin-bottom: 3vw;
               }
-              div {
+              span {
                 color: white;
                 font-size: 24px;
                 font-weight: 800;

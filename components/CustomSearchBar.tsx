@@ -4,7 +4,7 @@ type Props = {
   value?: string
   placeholder?: string
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  handleIconClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  handleIconClick: (event: any) => void
 }
 
 const CustomSearchBar = (props: Props) => {
@@ -15,9 +15,9 @@ const CustomSearchBar = (props: Props) => {
         value={props.value ?? ""}
         onChange={props.handleChange}
       />
-      <div onClick={props.handleIconClick} className="custom-search-icon">
+      <button onClick={props.handleIconClick} className="custom-search-icon">
         <img src="img/reputation/search-icon.png" alt="custom-search-icon" />
-      </div>
+      </button>
     </div>
   )
 }

@@ -25,6 +25,8 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
   const [errConfPass, setErrConfPass] = useState("")
   const [step, setStep] = useState<ForgotModalStepParams>("reset")
   const [data, setData] = useState<ForgotModalDataParams>(_.cloneDeep(thisPage.reset))
+  const [passNewVisible, setNewPassVisible] = useState(false)
+  const [passConfVisible, setConfPassVisible] = useState(false)
 
   useEffect(() => {
     if (step === "reset") {
@@ -33,6 +35,8 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
       setData(_.cloneDeep(thisPage.checkEmail))
     } else if (step === "setNewPass") {
       setData(_.cloneDeep(thisPage.setNewPass))
+      setNewPassVisible(false)
+      setConfPassVisible(false)
     } else if (step === "passChanged") {
       setData(_.cloneDeep(thisPage.passChanged))
     }
@@ -42,6 +46,8 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
     setEmail("")
     setPass("")
     setConfPass("")
+    setNewPassVisible(false)
+    setConfPassVisible(false)
   }
 
   const clearErr = () => {
@@ -71,17 +77,17 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
         setStep("passChanged")
       }
       setSubmitting(false)
-    }, 3000)
+    }, 1000)
   }
 
   const validate = () => {
     let result = true
     if (step === "reset") {
       if (!email) {
-        setErrEmail("E-Mail is required.")
+        setErrEmail("Email is required.")
         result = false
       } else if (!ValidateEmail(email)) {
-        setErrEmail("E-Mail is not correct.")
+        setErrEmail("Email is not correct.")
         result = false
       }
     } else if (step === "setNewPass") {
@@ -129,8 +135,9 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
         {step !== "setNewPass" && <p className="forgot-modal-description">{data.content}</p>}
         {step === "reset" && (
           <div className="forgot-input-form">
-            <p>E-Mail:</p>
+            <label htmlFor="forgot-email">Email:</label>
             <input
+              id="forgot-email"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value)
@@ -141,51 +148,79 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
         )}
         {step === "setNewPass" && (
           <div className="forgot-input-form" style={{ margin: 0 }}>
-            <p>New Password</p>
-            <input
-              value={pass}
-              type="password"
-              onChange={(e) => {
-                setPass(e.target.value)
-              }}
-            />
+            <label htmlFor="forgot-new-pass">New Password</label>
+            <div className="password-with-eye-ball">
+              <input
+                id="forgot-new-pass"
+                value={pass}
+                type={!passNewVisible ? "password" : "text"}
+                onChange={(e) => {
+                  setPass(e.target.value)
+                }}
+              />
+              <button
+                onClick={() => {
+                  setNewPassVisible(!passNewVisible)
+                }}
+              >
+                {!passNewVisible ? (
+                  <img src="/img/modal/eyeball-visible.svg" alt="eyeball-new-visible" />
+                ) : (
+                  <img src="/img/modal/eyeball-invisible.svg" alt="eyeball-new-invisible" />
+                )}
+              </button>
+            </div>
             {errPass && <span>{errPass}</span>}
           </div>
         )}
         {step === "setNewPass" && (
           <div className="forgot-input-form" style={{ margin: "25px 0 50px" }}>
-            <p>Confirm Password</p>
-            <input
-              value={confPass}
-              type="password"
-              onChange={(e) => {
-                setConfPass(e.target.value)
-              }}
-            />
+            <label htmlFor="forgot-conf-pass">Confirm Password</label>
+            <div className="password-with-eye-ball">
+              <input
+                id="forgot-conf-pass"
+                value={confPass}
+                type={!passConfVisible ? "password" : "text"}
+                onChange={(e) => {
+                  setConfPass(e.target.value)
+                }}
+              />
+              <button
+                onClick={() => {
+                  setConfPassVisible(!passConfVisible)
+                }}
+              >
+                {!passConfVisible ? (
+                  <img src="/img/modal/eyeball-visible.svg" alt="eyeball-conf-visible" />
+                ) : (
+                  <img src="/img/modal/eyeball-invisible.svg" alt="eyeball-conf-invisible" />
+                )}
+              </button>
+            </div>
             {errConfPass && <span>{errConfPass}</span>}
           </div>
         )}
         {step === "checkEmail" && (
           <img className="forgot-check-email" src={data.img_src} alt="check-email" />
         )}
-        <div
+        <button
           className="forgot-pass-modal-button"
           onClick={handleSubmit}
           style={{ marginTop: step === "passChanged" ? "200px" : "" }}
         >
-          {submitting ? <Loading /> : <p>{data.btnTitle}</p>}
-        </div>
+          {submitting ? <Loading /> : <span>{data.btnTitle}</span>}
+        </button>
         {(step === "reset" || step === "checkEmail") && (
-          <p>
-            Didn&apos;t receive the link?{" "}
-            <span
+          <div className="reset-receive-link">
+            <p>Didn&apos;t receive the link?</p>
+            <button
               onClick={() => {
                 setStep("reset")
               }}
             >
               Resend
-            </span>
-          </p>
+            </button>
+          </div>
         )}
       </div>
     </Modal>

@@ -55,9 +55,16 @@ const Slider = () => {
     loop: true,
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goNext()
+    }, 15000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className="slider">
-      <div className="slider-button" onClick={goPrev}>
+      <button className="slider-button" onClick={goPrev}>
         <CircularProgressbarWithChildren
           value={0}
           styles={buildStyles({
@@ -67,7 +74,7 @@ const Slider = () => {
         >
           <img src="img/home/arrow-left.svg" alt="arrow-left" />
         </CircularProgressbarWithChildren>
-      </div>
+      </button>
       <Swiper ref={ref} {...swiperParams}>
         {data.map((item: SliderItemParams, index: number) => {
           return (
@@ -77,7 +84,7 @@ const Slider = () => {
           )
         })}
       </Swiper>
-      <div className="slider-button" onClick={goNext}>
+      <button className="slider-button" onClick={goNext}>
         <CircularProgressbarWithChildren
           value={calcPro(step + 1)}
           styles={buildStyles({
@@ -87,7 +94,7 @@ const Slider = () => {
         >
           <img src="img/home/arrow-right.svg" alt="arrow-right" />
         </CircularProgressbarWithChildren>
-      </div>
+      </button>
     </div>
   )
 }
