@@ -6,7 +6,7 @@ export interface NavItemParam {
 export interface MenuListParam {
   title: MenuListTitleParam
   order: number
-  key: DiscordBotMenuKeysParam
+  key: string
   data: MenuListDataParam[]
 }
 
