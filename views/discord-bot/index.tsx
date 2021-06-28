@@ -1,5 +1,10 @@
 import React, { useState } from "react"
-import { NavItemParam, MenuListParam, MenuListDataParam } from "../../models/discord-bot-params"
+import {
+  NavItemParam,
+  MenuListParam,
+  MenuListDataParam,
+  DiscordBotMenuKeysParam,
+} from "../../models/discord-bot-params"
 import config from "../../static/config.json"
 import DiscordAddmeCard from "../../components/discord-cards/DiscordAddmeCard"
 import DiscordAuthCard from "../../components/discord-cards/DiscordAuthCard"
@@ -89,18 +94,15 @@ const DiscordBot = () => {
                       </>
                     )}
                     <div>
-                      {menuList[menuIndex].key === "addme" && (
+                      {menuList[menuIndex].key === ("addme" as DiscordBotMenuKeysParam) && (
                         <DiscordAddmeCard data={item} navData={navList[navIndex]} />
                       )}
-                      {menuList[menuIndex].key === "auth" && item.authCard && (
-                        <DiscordAuthCard data={item} />
-                      )}
-                      {menuList[menuIndex].key === "price" && item.priceSetCard1 && (
-                        <PriceSetCard1 data={item} />
-                      )}
-                      {menuList[menuIndex].key === "price" && item.priceSetCard2 && (
-                        <PriceSetCard2 data={item} />
-                      )}
+                      {menuList[menuIndex].key === ("auth" as DiscordBotMenuKeysParam) &&
+                        item.authCard && <DiscordAuthCard data={item} />}
+                      {menuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
+                        item.priceSetCard1 && <PriceSetCard1 data={item} />}
+                      {menuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
+                        item.priceSetCard2 && <PriceSetCard2 data={item} />}
                     </div>
                   </div>
                 </div>
