@@ -130,7 +130,7 @@
           {
             "name": "Yixn",
             "logo": "/img/discord-bot/auth/yixn.png",
-            "subtitle": "!auth"
+            "subtitle": ["!auth"]
           },
           {
             "name": "RL.Plus",
@@ -166,7 +166,115 @@
         },
         "order": 3,
         "key": "price",
-        "data": []
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": ["!price tw zomba", "!price white zomba", "!price titanium white zombas"]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "priceSetCard1": {
+              "title": "Titanium White Zomba",
+              "content": "Value: 173 - 188 Keys",
+              "links": [
+                {
+                  "title": "Trading",
+                  "link": "https://rltracker.pro/trades"
+                },
+                {
+                  "title": "Price Graphs",
+                  "link": "https://rltracker.pro/prices/71/9/0"
+                },
+                {
+                  "title": "Full Price list",
+                  "link": "https://rltracker.pro/prices"
+                }
+              ],
+              "logo": "/img/discord-bot/price-set/price-logo.png",
+              "img_src": "/img/discord-bot/price-set/price-chart.png"
+            }
+          },
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": ["!set zomba", "!price zomba set", "!price all zomba"]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "priceSetCard2": {
+              "title": "Zomba Set",
+              "content": "Default",
+              "logo": "/img/discord-bot/price-set/price-logo-2.png",
+              "data": [
+                {
+                  "title": "Burnt Sienna",
+                  "content": "1.7 - 2.0 Keys"
+                },
+                {
+                  "title": "Crimson",
+                  "content": "18.6 - 19.6 Keys"
+                },
+                {
+                  "title": "Grey",
+                  "content": "11.5 - 12.5 Keys"
+                },
+                {
+                  "title": "Orange",
+                  "content": "3.8 - 4.3 Keys"
+                },
+                {
+                  "title": "Saffron",
+                  "content": "14.5 - 15.5 Keys"
+                },
+                {
+                  "title": "Titanium White",
+                  "content": "208 - 223 Keys"
+                },
+                {
+                  "title": "Black",
+                  "content": "29.5 - 30.5 Keys"
+                },
+                {
+                  "title": "Cobalt",
+                  "content": "7.7 - 8.7 Keys"
+                },
+                {
+                  "title": "Forest Green",
+                  "content": "13.5 - 14.5 Keys"
+                },
+                {
+                  "title": "Lime",
+                  "content": "6.2 - 7.2 Keys"
+                },
+                {
+                  "title": "Purple",
+                  "content": "9.5 - 10.5 Keys"
+                },
+                {
+                  "title": "Sky Blue",
+                  "content": "11.6 - 12.6 Keys"
+                },
+                {
+                  "title": "Pink",
+                  "content": "3.6 - 4.1 Keys"
+                }
+              ],
+              "links": [
+                {
+                  "title": "Trading",
+                  "link": "https://rltracker.pro/trades"
+                },
+                {
+                  "title": "Full Price list",
+                  "link": "https://rltracker.pro/prices"
+                }
+              ]
+            }
+          }
+        ]
       },
       {
         "title": {
