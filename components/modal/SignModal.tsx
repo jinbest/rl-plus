@@ -51,7 +51,8 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
           username: username,
         })
         if (res && res.success) {
-          setSignKey(false)
+          window.localStorage.setItem("token", res.token)
+          setOpen(false)
         }
       } else {
         const logRes = await apiClient.post<LoginResParams>(apiConfig.LOGIN_API_URL, {
