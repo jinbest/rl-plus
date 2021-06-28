@@ -6,7 +6,7 @@ export interface NavItemParam {
 export interface MenuListParam {
   title: MenuListTitleParam
   order: number
-  key: string
+  key: DiscordBotMenuKeysParam
   data: MenuListDataParam[]
 }
 
@@ -19,11 +19,13 @@ export interface MenuListDataParam {
   name?: string
   logo?: string
   title?: string
-  subtitle?: string
+  subtitle?: string[]
   link?: MenuListDataLinkParam
   content?: string
   child?: MenuListDataChildParam
   authCard?: AuthCardParam
+  priceSetCard1?: PriceSetCard1Param
+  priceSetCard2?: PriceSetCard2Param
 }
 
 export interface MenuListDataLinkParam {
@@ -42,7 +44,44 @@ export interface AuthCardParam {
   img_src: string
 }
 
+export interface PriceSetCard1Param {
+  title: string
+  content: string
+  links: GeneralLinkParam[]
+  logo: string
+  img_src: string
+}
+
+export interface PriceSetCard2Param {
+  title: string
+  content: string
+  logo: string
+  data: GeneralDataParam[]
+  links: GeneralLinkParam[]
+}
+
+export interface GeneralDataParam {
+  title: string
+  content: string
+}
+
+export interface GeneralLinkParam {
+  title: string
+  link: string
+}
+
 export interface AuthCardContentsParam {
   title: string
   contents: string[]
 }
+
+export type DiscordBotMenuKeysParam =
+  | "addme"
+  | "auth"
+  | "price"
+  | "rep"
+  | "stats"
+  | "me"
+  | "verify"
+  | "scam"
+  | "report"

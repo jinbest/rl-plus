@@ -3,6 +3,8 @@ import { NavItemParam, MenuListParam, MenuListDataParam } from "../../models/dis
 import config from "../../static/config.json"
 import DiscordAddmeCard from "../../components/discord-cards/DiscordAddmeCard"
 import DiscordAuthCard from "../../components/discord-cards/DiscordAuthCard"
+import PriceSetCard1 from "../../components/discord-cards/PriceSetCard1"
+import PriceSetCard2 from "../../components/discord-cards/PriceSetCard2"
 import _ from "lodash"
 
 const DiscordBot = () => {
@@ -75,13 +77,29 @@ const DiscordBot = () => {
                   />
                   <div className="discord-main-data">
                     <p>{item.name ? item.name : navList[navIndex].name}</p>
-                    {item.subtitle && <p className="discord-main-subtitle">{item.subtitle}</p>}
+                    {item.subtitle?.length && (
+                      <>
+                        {item.subtitle.map((it: string, idx: number) => {
+                          return (
+                            <p className="discord-main-subtitle" key={`${index}-${idx}`}>
+                              {it}
+                            </p>
+                          )
+                        })}
+                      </>
+                    )}
                     <div>
                       {menuList[menuIndex].key === "addme" && (
                         <DiscordAddmeCard data={item} navData={navList[navIndex]} />
                       )}
-                      {menuList[menuIndex].key === "auth" && (
-                        <DiscordAuthCard data={item} navData={navList[navIndex]} />
+                      {menuList[menuIndex].key === "auth" && item.authCard && (
+                        <DiscordAuthCard data={item} />
+                      )}
+                      {menuList[menuIndex].key === "price" && item.priceSetCard1 && (
+                        <PriceSetCard1 data={item} />
+                      )}
+                      {menuList[menuIndex].key === "price" && item.priceSetCard2 && (
+                        <PriceSetCard2 data={item} />
                       )}
                     </div>
                   </div>

@@ -1,19 +1,40 @@
 import React from "react"
-import { MenuListDataParam, NavItemParam, AuthCardParam } from "../../models/discord-bot-params"
-// import { isEmpty } from "lodash"
+import {
+  MenuListDataParam,
+  AuthCardParam,
+  AuthCardContentsParam,
+} from "../../models/discord-bot-params"
+import { isEmpty } from "lodash"
 
 type Props = {
   data: MenuListDataParam
-  navData: NavItemParam
 }
 
-const DiscordAuthCard = ({ data, navData }: Props) => {
+const DiscordAuthCard = ({ data }: Props) => {
   const cardData = (data.authCard ? data.authCard : {}) as AuthCardParam
-  console.log("discord-auth-card", cardData, navData)
 
   return (
-    <div style={{ color: "#9e9e9e", fontSize: "9px" }}>
-      <i>Discord Auth Card will be created here</i>
+    <div className="discord-card">
+      <div className="card-vertical-bar" />
+      <div className="card-container" style={{ maxWidth: "100%" }}>
+        {!isEmpty(cardData) && (
+          <>
+            {cardData.data.map((item: AuthCardContentsParam, index: number) => {
+              return (
+                <React.Fragment key={index}>
+                  <p>{item.title}:</p>
+                  <div className="card-child-content">
+                    {item.contents.map((it: string, idx: number) => {
+                      return <p key={`${index}-${idx}`}>{`- ${it}`}</p>
+                    })}
+                  </div>
+                </React.Fragment>
+              )
+            })}
+            <img className="card-child-img" src={cardData.img_src} alt="auth-card" />
+          </>
+        )}
+      </div>
     </div>
   )
 }
