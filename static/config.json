@@ -283,7 +283,122 @@
         },
         "order": 4,
         "key": "rep",
-        "data": []
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "contentWithLink": [
+              {
+                "text": "!rep",
+                "link": {
+                  "title": "@Yixn",
+                  "link": "https://rltracker.pro/discord#"
+                }
+              }
+            ]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "repCard": {
+              "title": "Yixn#0001",
+              "overview": {
+                "positive": 35,
+                "negative": 0
+              },
+              "repsData": [
+                "+best admin EUW",
+                "+Great trader + Great helper",
+                "+This guy is the best, so friendly and helpful",
+                "+super good admin ;)",
+                "+very helpful and fast!!! Thanks"
+              ],
+              "uniqueRepu": "35 +Reps from 34 users.",
+              "ranking": "790/34879",
+              "links": [
+                {
+                  "title": "Full Reputation",
+                  "link": "https://rltracker.pro/reputation/176412791010230283"
+                },
+                {
+                  "title": "Trading",
+                  "link": "https://rltracker.pro/trades"
+                },
+                {
+                  "title": "Price List",
+                  "link": "https://rltracker.pro/prices"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "contentWithLink": [
+              {
+                "text": "+rep",
+                "link": {
+                  "title": "@RLTrader",
+                  "link": "https://rltracker.pro/discord#"
+                }
+              },
+              {
+                "text": "This bot is the best!"
+              }
+            ]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "repCard": {
+              "title": "RLTrader#7907",
+              "content": "Thank You for adding a rep!",
+              "contentWithLink": [
+                {
+                  "text": "",
+                  "link": {
+                    "title": "@Yixn",
+                    "link": "https://rltracker.pro/discord#"
+                  }
+                },
+                {
+                  "text": "added a new Reputation for",
+                  "link": {
+                    "title": "@RLTrader",
+                    "link": "https://rltracker.pro/discord#"
+                  }
+                }
+              ],
+              "overview": {
+                "positive": 298,
+                "negative": 0
+              },
+              "repsData": [
+                "+This bot is the best!",
+                "+because you're a bot",
+                "+best bot EUW",
+                "+good bot",
+                "+WE LOVE YOU REP BOT ❤"
+              ],
+              "uniqueRepu": "298 +Reps from 176 users.",
+              "ranking": "62/34879",
+              "links": [
+                {
+                  "title": "Full Reputation",
+                  "link": "https://rltracker.pro/reputation/224617980837756930"
+                },
+                {
+                  "title": "Trading",
+                  "link": "https://rltracker.pro/trades"
+                },
+                {
+                  "title": "Price List",
+                  "link": "https://rltracker.pro/prices"
+                }
+              ]
+            }
+          }
+        ]
       },
       {
         "title": {
@@ -292,7 +407,29 @@
         },
         "order": 5,
         "key": "stats",
-        "data": []
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": ["!stats steam yixn", "(!stats {steam|ps4|xbox} {userID})"]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png"
+          },
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": [
+              "!rankup steam nielzschwein 2vs2",
+              "(!rankup {steam|ps4|xbox} {userID} {playlist})"
+            ]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png"
+          }
+        ]
       },
       {
         "title": {
