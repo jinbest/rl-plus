@@ -82,73 +82,82 @@ const ReportScammer = () => {
       <div className="scammer-bar">
         <p>{thisPage.scammerBar}</p>
       </div>
-      <div className="report-scammer-submit-form">
-        <div className="report-scammer-child type-1">
-          <label htmlFor="report-scammer-place">{thisPage.scamInfo.place.title}</label>
-          <input
-            id="report-scammer-place"
-            value={place}
-            onChange={(e) => {
-              setPlace(e.target.value)
-            }}
-            placeholder={thisPage.scamInfo.place.placeholder}
-          />
-          {errPlace && <span>{errPlace}</span>}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleSubmit()
+        }}
+      >
+        <div className="report-scammer-submit-form">
+          <div className="report-scammer-child type-1">
+            <label htmlFor="report-scammer-place">{thisPage.scamInfo.place.title}</label>
+            <input
+              id="report-scammer-place"
+              value={place}
+              onChange={(e) => {
+                setPlace(e.target.value)
+              }}
+              placeholder={thisPage.scamInfo.place.placeholder}
+            />
+            {errPlace && <span>{errPlace}</span>}
+          </div>
+          <div className="report-scammer-child type-1">
+            <label htmlFor="report-scammer-kind">{thisPage.scamInfo.kind.title}</label>
+            <input
+              id="report-scammer-kind"
+              value={kind}
+              onChange={(e) => {
+                setKind(e.target.value)
+              }}
+              placeholder={thisPage.scamInfo.kind.placeholder}
+            />
+            {errKind && <span>{errKind}</span>}
+          </div>
+          <div className="report-scammer-child type-1">
+            <label htmlFor="report-scammer-profile">{thisPage.scamInfo.scammerProfile.title}</label>
+            <input
+              id="report-scammer-profile"
+              value={scammerProfile}
+              onChange={(e) => {
+                setScammerProfile(e.target.value)
+              }}
+              placeholder={thisPage.scamInfo.scammerProfile.placeholder}
+            />
+            {errScammerProfile && <span>{errScammerProfile}</span>}
+          </div>
+          <div className="report-scammer-child type-1">
+            <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label>
+            <input
+              id="report-scammer-proof"
+              value={proof}
+              onChange={(e) => {
+                setProof(e.target.value)
+              }}
+              placeholder={thisPage.scamInfo.proof.placeholder}
+            />
+            {errProof && <span>{errProof}</span>}
+          </div>
+          <div className="report-scammer-child type-2">
+            <label htmlFor="report-scammer-description">
+              {thisPage.scamInfo.description.title}
+            </label>
+            <input
+              id="report-scammer-description"
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value)
+              }}
+              placeholder={thisPage.scamInfo.description.placeholder}
+            />
+            {errDescription && <span>{errDescription}</span>}
+          </div>
         </div>
-        <div className="report-scammer-child type-1">
-          <label htmlFor="report-scammer-kind">{thisPage.scamInfo.kind.title}</label>
-          <input
-            id="report-scammer-kind"
-            value={kind}
-            onChange={(e) => {
-              setKind(e.target.value)
-            }}
-            placeholder={thisPage.scamInfo.kind.placeholder}
-          />
-          {errKind && <span>{errKind}</span>}
+        <div className="report-submit-button">
+          <button type="submit">
+            {!submitting ? <span>{thisPage.button.title}</span> : <Loading />}
+          </button>
         </div>
-        <div className="report-scammer-child type-1">
-          <label htmlFor="report-scammer-profile">{thisPage.scamInfo.scammerProfile.title}</label>
-          <input
-            id="report-scammer-profile"
-            value={scammerProfile}
-            onChange={(e) => {
-              setScammerProfile(e.target.value)
-            }}
-            placeholder={thisPage.scamInfo.scammerProfile.placeholder}
-          />
-          {errScammerProfile && <span>{errScammerProfile}</span>}
-        </div>
-        <div className="report-scammer-child type-1">
-          <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label>
-          <input
-            id="report-scammer-proof"
-            value={proof}
-            onChange={(e) => {
-              setProof(e.target.value)
-            }}
-            placeholder={thisPage.scamInfo.proof.placeholder}
-          />
-          {errProof && <span>{errProof}</span>}
-        </div>
-        <div className="report-scammer-child type-2">
-          <label htmlFor="report-scammer-description">{thisPage.scamInfo.description.title}</label>
-          <textarea
-            id="report-scammer-description"
-            value={description}
-            onChange={(e) => {
-              setDescription(e.target.value)
-            }}
-            placeholder={thisPage.scamInfo.description.placeholder}
-          />
-          {errDescription && <span>{errDescription}</span>}
-        </div>
-      </div>
-      <div className="report-submit-button">
-        <button onClick={handleSubmit}>
-          {!submitting ? <span>{thisPage.button.title}</span> : <Loading />}
-        </button>
-      </div>
+      </form>
     </div>
   )
 }

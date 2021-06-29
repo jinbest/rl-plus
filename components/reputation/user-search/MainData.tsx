@@ -14,38 +14,40 @@ const MainData = ({ data }: Props) => {
             <p>{data.title}</p>
             <p>{data.statistic}</p>
           </div>
-          <div className="main-data-table">
-            <div className="table-row">
-              <div className="table-col-1"></div>
-              <div className="table-col-2">
-                <p>Feedback</p>
-              </div>
-              <div className="table-col-3">
-                <p>Creator</p>
-              </div>
-              <div className="table-col-4">
-                <p>Date</p>
-              </div>
-            </div>
-            {data.data.map((item: MainDataChildParams, index: number) => {
-              return (
-                <div className="table-row item-row" key={index}>
-                  <div className="table-col-1">
-                    <p>{item.score}</p>
-                  </div>
-                  <div className="table-col-2">
-                    <p>{item.feedback}</p>
-                  </div>
-                  <div className="table-col-3">
-                    <p>{item.creator}</p>
-                  </div>
-                  <div className="table-col-4">
-                    <p>{item.date}</p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <table className="main-data-table">
+            <tbody>
+              <tr className="table-row">
+                <th className="table-col-1"></th>
+                <th className="table-col-2">
+                  <p>Feedback</p>
+                </th>
+                <th className="table-col-3">
+                  <p>Creator</p>
+                </th>
+                <th className="table-col-4">
+                  <p>Date</p>
+                </th>
+              </tr>
+              {data.data.map((item: MainDataChildParams, index: number) => {
+                return (
+                  <tr className="table-row item-row" key={index}>
+                    <td className="table-col-1">
+                      <p>{item.score}</p>
+                    </td>
+                    <td className="table-col-2">
+                      <p>{item.feedback}</p>
+                    </td>
+                    <td className="table-col-3">
+                      <p>{item.creator}</p>
+                    </td>
+                    <td className="table-col-4">
+                      <p>{item.date}</p>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       ) : (
         <p className="main-data-nothing">Nothing Found</p>

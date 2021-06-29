@@ -84,10 +84,57 @@ const LeaderBoard = () => {
           </button>
         </div>
       </div>
-      <div className="reputation-main-data-container">
-        {repuData.map((item: ReputationLeaderBoardCardParam, index: number) => {
-          return <RepuLeaderBoardCard data={item} key={index} />
-        })}
+      <div style={{ width: "100%" }}>
+        <table>
+          <tbody>
+            {repuData.map((item: ReputationLeaderBoardCardParam, index: number) => {
+              return (
+                <tr className="reputation-leader-board-card" key={index}>
+                  <td className="reputation-rank">
+                    <p>{item.rank}</p>
+                  </td>
+                  <td className="reputation-name">
+                    <p>{item.name}</p>
+                  </td>
+                  <td className="reputation-discriminator">
+                    <p>{item.discriminator}</p>
+                  </td>
+                  <td className="reputation-reputation">
+                    {typeof item.reputation === "string" ? (
+                      <p>{item.reputation}</p>
+                    ) : (
+                      <p>
+                        <span style={{ color: "#00DE3E" }}>{`+${item.reputation.total}`}</span>
+                        <span>{" / "}</span>
+                        <span
+                          style={{
+                            color:
+                              item.reputation.current < 0
+                                ? "#BE0000"
+                                : item.reputation.current > 0
+                                ? "#00DE3E"
+                                : "",
+                          }}
+                        >
+                          {item.reputation.current}
+                        </span>
+                      </p>
+                    )}
+                  </td>
+                  <td className="reputation-link">
+                    {item.link ? (
+                      <a href={item.link} target="_blank" rel="noreferrer">
+                        View Profile
+                      </a>
+                    ) : (
+                      <></>
+                    )}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   )

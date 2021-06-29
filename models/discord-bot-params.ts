@@ -20,12 +20,19 @@ export interface MenuListDataParam {
   logo?: string
   title?: string
   subtitle?: string[]
+  contentWithLink?: MenuListDataContentWithLinkParam[]
   link?: MenuListDataLinkParam
   content?: string
   child?: MenuListDataChildParam
   authCard?: AuthCardParam
   priceSetCard1?: PriceSetCard1Param
   priceSetCard2?: PriceSetCard2Param
+  repCard?: RepCardParam
+}
+
+export interface MenuListDataContentWithLinkParam {
+  text: string
+  link?: GeneralLinkParam
 }
 
 export interface MenuListDataLinkParam {
@@ -58,6 +65,22 @@ export interface PriceSetCard2Param {
   logo: string
   data: GeneralDataParam[]
   links: GeneralLinkParam[]
+}
+
+export interface RepCardParam {
+  title: string
+  content?: string
+  contentWithLink?: MenuListDataContentWithLinkParam[]
+  overview: OverviewParam
+  repsData: string[]
+  uniqueRepu: string
+  ranking: string
+  links: GeneralLinkParam[]
+}
+
+export interface OverviewParam {
+  positive: number
+  negative: number
 }
 
 export interface GeneralDataParam {
