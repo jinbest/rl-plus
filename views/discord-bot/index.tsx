@@ -4,12 +4,14 @@ import {
   MenuListParam,
   MenuListDataParam,
   DiscordBotMenuKeysParam,
+  MenuListDataContentWithLinkParam,
 } from "../../models/discord-bot-params"
 import config from "../../static/config.json"
 import DiscordAddmeCard from "../../components/discord-cards/DiscordAddmeCard"
 import DiscordAuthCard from "../../components/discord-cards/DiscordAuthCard"
 import PriceSetCard1 from "../../components/discord-cards/PriceSetCard1"
 import PriceSetCard2 from "../../components/discord-cards/PriceSetCard2"
+import RepCard from "../../components/discord-cards/RepCard"
 import _ from "lodash"
 
 const DiscordBot = () => {
@@ -93,6 +95,34 @@ const DiscordBot = () => {
                         })}
                       </>
                     )}
+                    {item.contentWithLink?.length && (
+                      <div className="flex flex-wrap align-center">
+                        {item.contentWithLink.map(
+                          (it: MenuListDataContentWithLinkParam, idx: number) => {
+                            return (
+                              <div key={`${index}-${idx}`} className="flex flex-wrap align-center">
+                                {it.text && (
+                                  <p
+                                    className="discord-main-subtitle"
+                                    style={{ marginRight: "5px" }}
+                                  >
+                                    {it.text}
+                                  </p>
+                                )}
+                                <a
+                                  className="discord-main-sublink"
+                                  href={it.link?.link}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  {it.link?.title}
+                                </a>
+                              </div>
+                            )
+                          }
+                        )}
+                      </div>
+                    )}
                     <div>
                       {menuList[menuIndex].key === ("addme" as DiscordBotMenuKeysParam) && (
                         <DiscordAddmeCard data={item} navData={navList[navIndex]} />
@@ -103,6 +133,8 @@ const DiscordBot = () => {
                         item.priceSetCard1 && <PriceSetCard1 data={item} />}
                       {menuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
                         item.priceSetCard2 && <PriceSetCard2 data={item} />}
+                      {menuList[menuIndex].key === ("rep" as DiscordBotMenuKeysParam) &&
+                        item.repCard && <RepCard data={item} />}
                     </div>
                   </div>
                 </div>

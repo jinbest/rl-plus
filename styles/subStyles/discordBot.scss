@@ -209,6 +209,18 @@
               color: #9e9e9e;
               font-family: "Montserrat";
             }
+            .discord-main-sublink {
+              color: #337ab7;
+              cursor: pointer;
+              font-size: 12px;
+              font-family: "Montserrat";
+              margin-right: 5px;
+              line-height: 11px !important;
+              &:hover {
+                text-decoration: underline;
+                opacity: 0.7;
+              }
+            }
             & > div {
               width: 100%;
               .discord-card {
@@ -377,6 +389,10 @@
                     }
                   }
                   .card-child-content {
+                    font-weight: 100;
+                    opacity: 0.7;
+                    padding: 3px 0;
+                    font-family: "Montserrat";
                     p {
                       font-weight: 100;
                       opacity: 0.7;
@@ -421,6 +437,35 @@
                     flex-direction: column;
                     margin-top: auto;
                     margin-bottom: 5px;
+                  }
+                  .rep-card-overview {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    font-family: "Montserrat";
+                    margin: 3px 0;
+                    p {
+                      color: #c4c4c4;
+                      font-size: 12px;
+                    }
+                  }
+                  .discord-code-pan {
+                    background: rgb(47, 49, 54);
+                    border: 1px solid #16181a;
+                    border-radius: 3px;
+                    margin: 5px 0;
+                    width: fit-content;
+                    max-width: 100%;
+                    padding: 8px;
+                    .rep-card-pre-code {
+                      padding: 0;
+                      margin: -4px 0 0;
+                      overflow: hidden;
+                      code {
+                        color: #859900;
+                        font-size: 11px;
+                      }
+                    }
                   }
                 }
               }

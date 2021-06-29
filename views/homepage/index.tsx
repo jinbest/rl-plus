@@ -11,8 +11,11 @@ const HomePage = () => {
         <Slider />
       </div>
       <div className="title">
-        <p>{thisPage.title[0]}</p>
-        <p>{thisPage.title[1]}</p>
+        <p>
+          {thisPage.title[0]}
+          <br />
+          {thisPage.title[1]}
+        </p>
       </div>
     </div>
   )

@@ -9,16 +9,22 @@ type Props = {
 
 const CustomSearchBar = (props: Props) => {
   return (
-    <div className="custom-search-bar">
+    <form
+      className="custom-search-bar"
+      onSubmit={(e) => {
+        e.preventDefault()
+        props.handleIconClick(e)
+      }}
+    >
       <input
         placeholder={props.placeholder ?? "Search by ID"}
         value={props.value ?? ""}
         onChange={props.handleChange}
       />
-      <button onClick={props.handleIconClick} className="custom-search-icon">
+      <button type="submit" className="custom-search-icon">
         <img src="img/reputation/search-icon.png" alt="custom-search-icon" />
       </button>
-    </div>
+    </form>
   )
 }
 
