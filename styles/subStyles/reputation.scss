@@ -209,9 +209,6 @@
     .reputation-leaderboard-container {
       width: 100%;
       margin-top: 10px;
-      table {
-        width: 100%;
-      }
       .reputation-filter-container {
         margin: 15px auto;
         max-width: 700px;
@@ -506,7 +503,8 @@
     padding: 10px 7px;
   }
   & > div,
-  & > td {
+  & > td,
+  & > th {
     padding: 0 5px;
     overflow: hidden;
   }
@@ -525,7 +523,9 @@
       color: #9e9e9e;
     }
   }
-  td {
+  td,
+  th {
+    text-align: left;
     p {
       white-space: inherit;
       word-break: break-word;

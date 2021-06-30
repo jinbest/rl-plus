@@ -28,6 +28,12 @@ export interface MenuListDataParam {
   priceSetCard1?: PriceSetCard1Param
   priceSetCard2?: PriceSetCard2Param
   repCard?: RepCardParam
+  statsCard?: StatsCardParam
+  statsPlayList?: StatsPlayListParam
+  meCard?: MeCardParam
+  verifyCard1?: VerifyCard1Param
+  verifyCard2?: VerifyCard2Param
+  reportCard?: ReportCardParam
 }
 
 export interface MenuListDataContentWithLinkParam {
@@ -76,6 +82,60 @@ export interface RepCardParam {
   uniqueRepu: string
   ranking: string
   links: GeneralLinkParam[]
+}
+
+export interface StatsCardParam {
+  links: GeneralLinkParam[]
+  contentWithLink?: MenuListDataContentWithLinkParam[]
+  img_src: string
+}
+
+export interface StatsPlayListParam {
+  due1: string
+  double: string
+  solo: string
+  standard: string
+}
+
+export interface MeCardParam {
+  title: string
+  contents: string[]
+  child: MeCardChildParam[]
+  links: GeneralLinkParam[]
+}
+
+export interface MeCardChildParam {
+  title: string
+  contents: MeCardChildContentParam[]
+}
+
+export interface MeCardChildContentParam {
+  text?: string
+  contentWithLink?: MenuListDataContentWithLinkParam[]
+}
+
+export interface VerifyCard1Param {
+  links: GeneralLinkParam[]
+  contentWithLink?: MenuListDataContentWithLinkParam[]
+  content: string
+  logo: string
+}
+
+export interface VerifyCard2Param {
+  title: string
+  content: string
+  links: GeneralLinkParam[]
+  child: VerifyCard2ChildParam[]
+}
+
+export interface VerifyCard2ChildParam {
+  main: GeneralLinkParam
+  sub: GeneralLinkParam
+}
+
+export interface ReportCardParam {
+  icon: string
+  text: string
 }
 
 export interface OverviewParam {
