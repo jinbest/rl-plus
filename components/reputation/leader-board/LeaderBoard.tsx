@@ -44,99 +44,56 @@ const LeaderBoard = () => {
   }
 
   return (
-    <div className="reputation-leaderboard-container">
-      <RepuLeaderBoardCard data={repuFieldData} />
-      <div className="reputation-filter-container">
-        <div className="filter-search">
-          <CustomSearchBar
-            value={repuSearchKey}
-            placeholder="Search by DiscordID"
-            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              handleRepuSearchChange(e)
-            }}
-            handleIconClick={handleRepuSearchIconClick}
-          />
-        </div>
-        <div className="filter-filter">
-          <button
-            onClick={() => {
-              setRepuFilter("daily")
-            }}
-            style={{ color: repuFilter === "daily" ? "white" : "" }}
-          >
-            Daily
-          </button>
-          <button
-            onClick={() => {
-              setRepuFilter("weekly")
-            }}
-            style={{ color: repuFilter === "weekly" ? "white" : "" }}
-          >
-            Weekly
-          </button>
-          <button
-            onClick={() => {
-              setRepuFilter("allTime")
-            }}
-            style={{ color: repuFilter === "allTime" ? "white" : "" }}
-          >
-            All-Time
-          </button>
-        </div>
-      </div>
-      <div style={{ width: "100%" }}>
-        <table>
-          <tbody>
-            {repuData.map((item: ReputationLeaderBoardCardParam, index: number) => {
-              return (
-                <tr className="reputation-leader-board-card" key={index}>
-                  <td className="reputation-rank">
-                    <p>{item.rank}</p>
-                  </td>
-                  <td className="reputation-name">
-                    <p>{item.name}</p>
-                  </td>
-                  <td className="reputation-discriminator">
-                    <p>{item.discriminator}</p>
-                  </td>
-                  <td className="reputation-reputation">
-                    {typeof item.reputation === "string" ? (
-                      <p>{item.reputation}</p>
-                    ) : (
-                      <p>
-                        <span style={{ color: "#00DE3E" }}>{`+${item.reputation.total}`}</span>
-                        <span>{" / "}</span>
-                        <span
-                          style={{
-                            color:
-                              item.reputation.current < 0
-                                ? "#BE0000"
-                                : item.reputation.current > 0
-                                ? "#00DE3E"
-                                : "",
-                          }}
-                        >
-                          {item.reputation.current}
-                        </span>
-                      </p>
-                    )}
-                  </td>
-                  <td className="reputation-link">
-                    {item.link ? (
-                      <a href={item.link} target="_blank" rel="noreferrer">
-                        View Profile
-                      </a>
-                    ) : (
-                      <></>
-                    )}
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <table className="reputation-leaderboard-container">
+      <tbody>
+        <RepuLeaderBoardCard data={repuFieldData} head />
+        <tr>
+          <td>
+            <div className="reputation-filter-container">
+              <div className="filter-search">
+                <CustomSearchBar
+                  value={repuSearchKey}
+                  placeholder="Search by DiscordID"
+                  handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    handleRepuSearchChange(e)
+                  }}
+                  handleIconClick={handleRepuSearchIconClick}
+                />
+              </div>
+              <div className="filter-filter">
+                <button
+                  onClick={() => {
+                    setRepuFilter("daily")
+                  }}
+                  style={{ color: repuFilter === "daily" ? "white" : "" }}
+                >
+                  Daily
+                </button>
+                <button
+                  onClick={() => {
+                    setRepuFilter("weekly")
+                  }}
+                  style={{ color: repuFilter === "weekly" ? "white" : "" }}
+                >
+                  Weekly
+                </button>
+                <button
+                  onClick={() => {
+                    setRepuFilter("allTime")
+                  }}
+                  style={{ color: repuFilter === "allTime" ? "white" : "" }}
+                >
+                  All-Time
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {repuData.map((item: ReputationLeaderBoardCardParam, index: number) => {
+          return <RepuLeaderBoardCard data={item} key={index} />
+        })}
+      </tbody>
+    </table>
   )
 }
 

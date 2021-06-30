@@ -12,7 +12,12 @@ import DiscordAuthCard from "../../components/discord-cards/DiscordAuthCard"
 import PriceSetCard1 from "../../components/discord-cards/PriceSetCard1"
 import PriceSetCard2 from "../../components/discord-cards/PriceSetCard2"
 import RepCard from "../../components/discord-cards/RepCard"
-import _ from "lodash"
+import StatsCard from "../../components/discord-cards/StatsCard"
+import MeCard from "../../components/discord-cards/MeCard"
+import VerifyCard1 from "../../components/discord-cards/VerifyCard1"
+import VerifyCard2 from "../../components/discord-cards/VerifyCard2"
+import ReportCard from "../../components/discord-cards/ReportCard"
+import _, { isEmpty } from "lodash"
 
 const DiscordBot = () => {
   const navList: NavItemParam[] = config.discordBot.navList
@@ -96,7 +101,14 @@ const DiscordBot = () => {
                       </>
                     )}
                     {item.contentWithLink?.length && (
-                      <div className="flex flex-wrap align-center">
+                      <div
+                        className={
+                          menuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) ||
+                          menuList[menuIndex].key === ("scam" as DiscordBotMenuKeysParam)
+                            ? ""
+                            : "flex flex-wrap align-center"
+                        }
+                      >
                         {item.contentWithLink.map(
                           (it: MenuListDataContentWithLinkParam, idx: number) => {
                             return (
@@ -123,6 +135,25 @@ const DiscordBot = () => {
                         )}
                       </div>
                     )}
+                    {item.statsPlayList && !isEmpty(item.statsPlayList) && (
+                      <div className="discord-code-pan">
+                        <pre className="stats-pre-code">
+                          <code style={{ textDecoration: "underline" }}>Playlists:</code>
+                        </pre>
+                        <pre className="stats-pre-code">
+                          <code>{`Due1: ${item.statsPlayList.due1}`}</code>
+                        </pre>
+                        <pre className="stats-pre-code">
+                          <code>{`Double: ${item.statsPlayList.double}`}</code>
+                        </pre>
+                        <pre className="stats-pre-code">
+                          <code>{`Solo Standard: ${item.statsPlayList.solo}`}</code>
+                        </pre>
+                        <pre className="stats-pre-code">
+                          <code>{`Standard: ${item.statsPlayList.standard}`}</code>
+                        </pre>
+                      </div>
+                    )}
                     <div>
                       {menuList[menuIndex].key === ("addme" as DiscordBotMenuKeysParam) && (
                         <DiscordAddmeCard data={item} navData={navList[navIndex]} />
@@ -135,6 +166,16 @@ const DiscordBot = () => {
                         item.priceSetCard2 && <PriceSetCard2 data={item} />}
                       {menuList[menuIndex].key === ("rep" as DiscordBotMenuKeysParam) &&
                         item.repCard && <RepCard data={item} />}
+                      {menuList[menuIndex].key === ("stats" as DiscordBotMenuKeysParam) &&
+                        item.statsCard && <StatsCard data={item} />}
+                      {menuList[menuIndex].key === ("me" as DiscordBotMenuKeysParam) &&
+                        item.meCard && <MeCard data={item} />}
+                      {menuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) &&
+                        item.verifyCard1 && <VerifyCard1 data={item} />}
+                      {menuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) &&
+                        item.verifyCard2 && <VerifyCard2 data={item} />}
+                      {menuList[menuIndex].key === ("report" as DiscordBotMenuKeysParam) &&
+                        item.reportCard && <ReportCard data={item} />}
                     </div>
                   </div>
                 </div>

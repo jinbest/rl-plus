@@ -415,7 +415,29 @@
           },
           {
             "name": "RL.Plus",
-            "logo": "/img/discord-bot/logo.png"
+            "logo": "/img/discord-bot/logo.png",
+            "statsCard": {
+              "contentWithLink": [
+                {
+                  "text": "Results for",
+                  "link": {
+                    "title": "https://rltracker.pro/profiles/yixn/steam",
+                    "link": "https://rltracker.pro/profiles/yixn/steam"
+                  }
+                }
+              ],
+              "links": [
+                {
+                  "title": "More stats",
+                  "link": "https://rltracker.pro/profiles/yixn/Steam"
+                },
+                {
+                  "title": "Live Tracker",
+                  "link": "https://rltracker.pro/live_tracker?player%5B%5D=#1"
+                }
+              ],
+              "img_src": "/img/discord-bot/stats/yixn-logos.png"
+            }
           },
           {
             "name": "Yixn",
@@ -423,11 +445,30 @@
             "subtitle": [
               "!rankup steam nielzschwein 2vs2",
               "(!rankup {steam|ps4|xbox} {userID} {playlist})"
-            ]
+            ],
+            "statsPlayList": {
+              "due1": "[solo|1vs1|1v1|1on1|duell|duel|10|duels|salty_mode]",
+              "double": "[double|doubles|2on2|2v2|2vs2|11|easy_gc]",
+              "solo": "[solo_standard|3v3s|3vs3s|3on3s|12|worst_mode|1vs5]",
+              "standard": "[standard|3vs3|3v3|3on3|13|completely_overrated_tourney_mode]"
+            }
           },
           {
             "name": "RL.Plus",
-            "logo": "/img/discord-bot/logo.png"
+            "logo": "/img/discord-bot/logo.png",
+            "statsCard": {
+              "links": [
+                {
+                  "title": "More stats",
+                  "link": "https://rltracker.pro/profiles/yixn/Steam"
+                },
+                {
+                  "title": "Live Tracker",
+                  "link": "https://rltracker.pro/live_tracker?player%5B%5D=#1"
+                }
+              ],
+              "img_src": "/img/discord-bot/stats/not-possible.png"
+            }
           }
         ]
       },
@@ -438,7 +479,70 @@
         },
         "order": 6,
         "key": "me",
-        "data": []
+        "data": [
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "meCard": {
+              "title": "How does !me work?",
+              "contents": [
+                "!me works exactly as !stats and !rankup, but without the player platform and the UserID",
+                "I check your Discord account for a connected RLTracker account and when i got this, i have your connected Player Profile"
+              ],
+              "child": [
+                {
+                  "title": "So what do you have to do?",
+                  "contents": [
+                    {
+                      "contentWithLink": [
+                        {
+                          "text": "1. Go to the",
+                          "link": {
+                            "title": "Connect Accounts Page",
+                            "link": "https://rltracker.pro/connect_accounts"
+                          }
+                        },
+                        {
+                          "text": "(While logged in)"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "2. Connect Discord"
+                    },
+                    {
+                      "text": "3. Connect your Player profile (Steam/PSN/Xbox)"
+                    },
+                    {
+                      "text": "4. ???"
+                    },
+                    {
+                      "text": "5. Profit"
+                    }
+                  ]
+                },
+                {
+                  "title": "You connected Discord and Steam, but !me isnt working?",
+                  "contents": [
+                    {
+                      "text": "Make sure that you are logged into the same account on the browser AND on the App! Then try connecting it again."
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "title": "Connect Accounts",
+                  "link": "https://rltracker.pro/connect_accounts"
+                },
+                {
+                  "title": "Connect Discord",
+                  "link": "https://rltracker.pro/connect_accounts?tab=discord"
+                }
+              ]
+            }
+          }
+        ]
       },
       {
         "title": {
@@ -447,7 +551,155 @@
         },
         "order": 7,
         "key": "verify",
-        "data": []
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "contentWithLink": [
+              {
+                "text": "!verify",
+                "link": {
+                  "title": "https://rltracker.pro/profiles/yixn/steam",
+                  "link": "https://rltracker.pro/profiles/yixn/steam"
+                }
+              },
+              {
+                "text": "!v",
+                "link": {
+                  "title": "https://rltracker.pro/profiles/yixn/steam",
+                  "link": "https://rltracker.pro/profiles/yixn/steam"
+                }
+              }
+            ]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "verifyCard1": {
+              "contentWithLink": [
+                {
+                  "text": "Results for",
+                  "link": {
+                    "title": "https://rltracker.pro/profiles/yixn/steam",
+                    "link": "https://rltracker.pro/profiles/yixn/steam"
+                  }
+                }
+              ],
+              "links": [
+                {
+                  "title": "Scam List",
+                  "link": "https://rltracker.pro/scam_list"
+                }
+              ],
+              "content": "Nothing found :)",
+              "logo": "/img/discord-bot/verify-logo.png"
+            }
+          },
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "contentWithLink": [
+              {
+                "text": "!friend_check",
+                "link": {
+                  "title": "https://steamcommunity.com/id/HindoG/",
+                  "link": "https://steamcommunity.com/id/HindoG/"
+                }
+              },
+              {
+                "text": "!fc",
+                "link": {
+                  "title": "https://steamcommunity.com/id/HindoG/",
+                  "link": "https://steamcommunity.com/id/HindoG/"
+                }
+              }
+            ]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "verifyCard2": {
+              "title": "Check complete",
+              "content": "We found 27 (7%) scammers on the friendlist of h i n d o",
+              "links": [
+                {
+                  "title": "Trading",
+                  "link": "https://rltracker.pro/trades"
+                },
+                {
+                  "title": "Price List",
+                  "link": "https://rltracker.pro/prices"
+                },
+                {
+                  "title": "Scam List",
+                  "link": "https://rltracker.pro/scam_list"
+                }
+              ],
+              "child": [
+                {
+                  "main": {
+                    "title": "76561198174511842",
+                    "link": "https://steamcommunity.com/profiles/76561198174511842"
+                  },
+                  "sub": {
+                    "title": "Entry",
+                    "link": "https://rltracker.pro/scam_list?q=76561198174511842"
+                  }
+                },
+                {
+                  "main": {
+                    "title": "76561198306386013",
+                    "link": "https://steamcommunity.com/profiles/76561198306386013"
+                  },
+                  "sub": {
+                    "title": "Entry",
+                    "link": "https://rltracker.pro/scam_list?q=76561198306386013"
+                  }
+                },
+                {
+                  "main": {
+                    "title": "76561198314197569",
+                    "link": "https://steamcommunity.com/profiles/76561198314197569"
+                  },
+                  "sub": {
+                    "title": "Entry",
+                    "link": "https://rltracker.pro/scam_list?q=76561198314197569"
+                  }
+                },
+                {
+                  "main": {
+                    "title": "76561198207768236",
+                    "link": "https://steamcommunity.com/profiles/76561198207768236"
+                  },
+                  "sub": {
+                    "title": "Entry",
+                    "link": "https://rltracker.pro/scam_list?q=76561198207768236"
+                  }
+                },
+                {
+                  "main": {
+                    "title": "76561198071002928",
+                    "link": "https://steamcommunity.com/profiles/76561198071002928"
+                  },
+                  "sub": {
+                    "title": "Entry",
+                    "link": "https://rltracker.pro/scam_list?q=76561198071002928"
+                  }
+                },
+                {
+                  "main": {
+                    "title": "76561198311235173",
+                    "link": "https://steamcommunity.com/profiles/76561198311235173"
+                  },
+                  "sub": {
+                    "title": "Entry",
+                    "link": "https://rltracker.pro/scam_list?q=76561198311235173"
+                  }
+                }
+              ]
+            }
+          }
+        ]
       },
       {
         "title": {
@@ -456,7 +708,37 @@
         },
         "order": 8,
         "key": "scam",
-        "data": []
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": ["!scam_check"]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "subtitle": ["Starting to check your Server, this could take some time!"],
+            "contentWithLink": [
+              {
+                "text": "Found user",
+                "link": {
+                  "title": "@William_J",
+                  "link": "https://rltracker.pro/discord#"
+                }
+              },
+              {
+                "text": "",
+                "link": {
+                  "title": "https://rltracker.pro/scam_list?q=271040426188865547",
+                  "link": "https://rltracker.pro/scam_list?q=271040426188865547"
+                }
+              },
+              {
+                "text": "1 entry found."
+              }
+            ]
+          }
+        ]
       },
       {
         "title": {
@@ -465,7 +747,21 @@
         },
         "order": 9,
         "key": "report",
-        "data": []
+        "data": [
+          {
+            "name": "Yixn",
+            "logo": "/img/discord-bot/auth/yixn.png",
+            "subtitle": ["!report"]
+          },
+          {
+            "name": "RL.Plus",
+            "logo": "/img/discord-bot/logo.png",
+            "reportCard": {
+              "icon": "💌",
+              "text": "Opened a private conversation to guide you through the report process."
+            }
+          }
+        ]
       }
     ]
   },
