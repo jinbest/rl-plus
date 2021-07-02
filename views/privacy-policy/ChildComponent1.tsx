@@ -4,13 +4,14 @@ import {
   ContentWithLinkParam,
   ListContentChildParam,
   ChildTableParam,
+  ChildDataParam,
 } from "../../models/privacy-modal-params"
 import { isExternal } from "../../service/helper"
 import { isEmpty } from "lodash"
 
 type Props = {
   title: string
-  data?: any[]
+  data?: ChildDataParam[]
   index: number
 }
 
@@ -20,7 +21,7 @@ const ChildComponent1 = ({ title, data, index }: Props) => {
       <a href={`#question-${index}`} className="bold" style={{ marginBottom: "20px" }}>
         {title}
       </a>
-      {data?.map((item: any, index: number) => {
+      {data?.map((item: ChildDataParam, index: number) => {
         return (
           <div key={index}>
             {item.title && (
