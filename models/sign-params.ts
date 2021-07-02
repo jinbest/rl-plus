@@ -1,9 +1,5 @@
-export interface RegisterResParams {
+export interface SignResParam {
   success: boolean
-  token: string
-}
-
-export interface LoginResParams {
-  success: boolean
-  token: string
+  token?: string
+  message?: string
 }
