@@ -10,7 +10,7 @@ import { isEmpty } from "lodash"
 
 type Props = {
   title: string
-  data?: any[]
+  data?: any[] | undefined
   index: number
 }
 

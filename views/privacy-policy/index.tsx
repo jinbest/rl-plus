@@ -29,6 +29,7 @@ const PrivacyPolicy = () => {
               </div>
             )
           })}
+
           {[1, 2, 3].map((item: number) => {
             return (
               <ChildComponent1
@@ -43,17 +44,7 @@ const PrivacyPolicy = () => {
             title={config.data.childData[3].title}
             data={config.data.childData[3].data}
           />
-          {[5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item: number) => {
-            return (
-              <ChildComponent1
-                title={config.data.childData[item - 1].title}
-                data={config.data.childData[item - 1].data}
-                index={item}
-                key={item - 1}
-              />
-            )
-          })}
-          {[16].map((item: number) => {
+          {[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16].map((item: number) => {
             return (
               <ChildComponent1
                 title={config.data.childData[item - 1].title}
