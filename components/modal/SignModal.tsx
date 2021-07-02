@@ -163,12 +163,14 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
       console.log("event.data", event.data)
 
       if (mode === "discord") {
-        if (ok && token) {
-          localStorage.setItem("token", token)
-          setToastParam({
-            msg: "You've signed with Discord account successfully.",
-            isSuccess: true,
-          })
+        if (ok) {
+          if (token) {
+            localStorage.setItem("token", token)
+            setToastParam({
+              msg: "You've signed with Discord account successfully.",
+              isSuccess: true,
+            })
+          }
           setOpen(false)
         } else {
           const discordID = event.data.id,
@@ -177,12 +179,14 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
           signSocialAccount(discordID, username, discrim)
         }
       } else if (mode === "steam") {
-        if (ok && token) {
-          localStorage.setItem("token", token)
-          setToastParam({
-            msg: "You've signed with Steam account successfully.",
-            isSuccess: true,
-          })
+        if (ok) {
+          if (token) {
+            localStorage.setItem("token", token)
+            setToastParam({
+              msg: "You've signed with Steam account successfully.",
+              isSuccess: true,
+            })
+          }
           setOpen(false)
         } else {
           const steamId = event.data.id,
