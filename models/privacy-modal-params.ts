@@ -1,3 +1,14 @@
+export interface MainDataParam {
+  title: string
+  data: ChildDataParam
+}
+
+export interface ChildDataParam {
+  title?: string
+  itext?: string
+  child: ChildTextContent[]
+}
+
 export interface ChildTextContent {
   text?: string
   textWithLink?: ContentWithLinkParam[]
