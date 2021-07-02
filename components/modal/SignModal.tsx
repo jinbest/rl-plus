@@ -6,10 +6,11 @@ import { ValidateEmail, CheckPassword } from "../../service/helper"
 import Loading from "../Loading"
 import APIClient from "../../service/api-clients"
 import apiConfig from "../../config/config"
-import { RegisterResParams, LoginResParams } from "../../models/sign-params"
+import { SignResParam } from "../../models/sign-params"
 import { ToastMsgParams } from "../toast/toast-msg-params"
 import { CheckPassParam } from "../../models/check-pass-param"
 import { useRouter } from "next/router"
+import GoogleAuth from "./oauth-comp/GoogleAuth"
 
 const apiClient = APIClient.getInstance()
 
@@ -45,21 +46,21 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
       isFailed = false
     try {
       if (signKey) {
-        const res = await apiClient.post<RegisterResParams>(apiConfig.REGISTER_API_URL, {
+        const res = await apiClient.post<SignResParam>(apiConfig.REGISTER_API_URL, {
           email: email,
           password: pass,
           username: username,
         })
-        if (res && res.success) {
+        if (res && res.success && res.token) {
           window.localStorage.setItem("token", res.token)
           setOpen(false)
         }
       } else {
-        const logRes = await apiClient.post<LoginResParams>(apiConfig.LOGIN_API_URL, {
+        const logRes = await apiClient.post<SignResParam>(apiConfig.LOGIN_API_URL, {
           email: email,
           password: pass,
         })
-        if (logRes.success) {
+        if (logRes.success && logRes.token) {
           window.localStorage.setItem("token", logRes.token)
           msg = "You've logged in successfully."
           setOpen(false)
@@ -138,6 +139,96 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
   const handleChangePassword = (val: string) => {
     setPass(val)
     setCheckPass(CheckPassword(val))
+  }
+
+  const signWithSteam = () => {
+    const popupWindow = window.open(apiConfig.STEAM_URL)
+    if (typeof window !== "undefined" && window.focus && popupWindow) {
+      popupWindow.focus()
+    }
+  }
+
+  const signWithDiscord = () => {
+    const popupWindow = window.open(apiConfig.DISCORD_URL)
+    if (typeof window !== "undefined" && window.focus && popupWindow) {
+      popupWindow.focus()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("message", async (event) => {
+      if (event.origin !== apiConfig.API_URL) return
+      const { token, ok, mode } = event.data
+
+      console.log("event.data", event.data)
+
+      if (mode === "discord") {
+        if (ok && token) {
+          localStorage.setItem("token", token)
+          setToastParam({
+            msg: "You've signed with Discord account successfully.",
+            isSuccess: true,
+          })
+          setOpen(false)
+        } else {
+          const discordID = event.data.id,
+            username = event.data.name,
+            discrim = event.data.discrim
+          signSocialAccount(discordID, username, discrim)
+        }
+      } else if (mode === "steam") {
+        if (ok && token) {
+          localStorage.setItem("token", token)
+          setToastParam({
+            msg: "You've signed with Steam account successfully.",
+            isSuccess: true,
+          })
+          setOpen(false)
+        } else {
+          const steamId = event.data.id,
+            username = event.data.name
+          signSocialAccount(steamId, username)
+        }
+      }
+    })
+  }, [])
+
+  const signSocialAccount = async (id: number, username: string, discrim?: string) => {
+    const API_URL = discrim ? apiConfig.DISCORD_SIGN_UP : apiConfig.STEAM_SIGN_UP
+
+    let msg = discrim
+        ? "You've signed with Discord account successfully."
+        : "You've signed with Steam account successfully.",
+      isFailed = false
+
+    try {
+      const res = discrim
+        ? await apiClient.post<SignResParam>(API_URL, {
+            discordId: id,
+            username: username,
+            discrim: discrim,
+          })
+        : await apiClient.post<SignResParam>(API_URL, {
+            steamId: id,
+            username: username,
+          })
+      if (res.success && res.token) {
+        window.localStorage.setItem("token", res.token)
+        setOpen(false)
+      } else if (res.message) {
+        msg = res.message
+        isFailed = true
+      }
+    } catch (error) {
+      msg = "Something went wrong."
+      isFailed = true
+    } finally {
+      setToastParam({
+        msg,
+        isSuccess: !isFailed,
+        isError: isFailed,
+      })
+    }
   }
 
   return (
@@ -276,25 +367,8 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
               <div className="horizontal-line" />
             </div>
             <div className="sign-with-social">
-              <button
-                type="button"
-                onClick={() => {
-                  console.log("Google-OAuth-Login")
-                }}
-              >
-                <span className="sign-with-social-logo" style={{ background: "white" }}>
-                  <img src="/img/modal/google.png" alt="google-logo" />
-                </span>
-                <span className="sign-with-social-button">
-                  {signKey ? <span>SIGN UP WITH GOOGLE</span> : <span>SIGN IN WITH GOOGLE</span>}
-                </span>
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  console.log("Discord-OAuth-Login")
-                }}
-              >
+              <GoogleAuth signKey={signKey} setOpen={setOpen} setToastParam={setToastParam} />
+              <button type="button" onClick={signWithDiscord}>
                 <span className="sign-with-social-logo" style={{ background: "#8697F6" }}>
                   <img src="/img/modal/discord.png" alt="discord-logo" />
                 </span>
@@ -302,12 +376,7 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
                   {signKey ? <span>SIGN UP WITH DISCORD</span> : <span>SIGN IN WITH DISCORD</span>}
                 </span>
               </button>
-              <button
-                type="button"
-                onClick={() => {
-                  console.log("Steam-OAuth-Login")
-                }}
-              >
+              <button type="button" onClick={signWithSteam}>
                 <span className="sign-with-social-logo" style={{ background: "#115C93" }}>
                   <img src="/img/modal/steam.png" alt="steam-logo" />
                 </span>

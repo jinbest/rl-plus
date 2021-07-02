@@ -21,7 +21,8 @@ module.exports = {
     "@typescript-eslint/no-unsafe-return": "off",
     "no-useless-escape": "off",
     "@typescript-eslint/prefer-regexp-exec": "off",
-    // "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/require-await": "off",
   },
   parserOptions: {
     project: "./tsconfig.json",
