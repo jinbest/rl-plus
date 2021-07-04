@@ -44,10 +44,34 @@ const pageRoutes = [
     visible: true,
   },
   {
-    path: "/rank-stats",
-    name: "RANK STATS",
-    component: () => <RankStats />,
+    path: "/rank-home",
+    name: "RANK HOME",
+    component: () => <RankStats tabIndex={0} />,
     visible: true,
+  },
+  {
+    path: "/rank-search",
+    name: "RANK SEARCH",
+    component: () => <RankStats tabIndex={1} />,
+    visible: false,
+  },
+  {
+    path: "/rank-leader-boards",
+    name: "RANK LEADERBOARDS",
+    component: () => <RankStats tabIndex={2} />,
+    visible: false,
+  },
+  {
+    path: "/rank-live-tracker",
+    name: "RANK TRACKER",
+    component: () => <RankStats tabIndex={3} />,
+    visible: false,
+  },
+  {
+    path: "/your-stats",
+    name: "YOUR STATS",
+    component: () => <RankStats tabIndex={4} />,
+    visible: false,
   },
   {
     path: "/trading",
@@ -69,7 +93,7 @@ const pageRoutes = [
   },
 ]
 
-const TabRouters = [
+const ReputationTabRouters = [
   {
     index: 0,
     link: "/reputation",
@@ -88,4 +112,27 @@ const TabRouters = [
   },
 ]
 
-export { pageRoutes, TabRouters }
+const RankStatsTabRouters = [
+  {
+    index: 0,
+    link: "/rank-home",
+  },
+  {
+    index: 1,
+    link: "/rank-search",
+  },
+  {
+    index: 2,
+    link: "/rank-leader-boards",
+  },
+  {
+    index: 3,
+    link: "/rank-live-tracker",
+  },
+  {
+    index: 4,
+    link: "/your-stats",
+  },
+]
+
+export { pageRoutes, ReputationTabRouters, RankStatsTabRouters }
