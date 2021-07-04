@@ -1121,5 +1121,176 @@
       "img_src": "",
       "btnTitle": "Login"
     }
+  },
+  "rankStats": {
+    "home": {
+      "leaderBoards": [
+        {
+          "title": "1v1 (Duel) Leaderboard",
+          "data": [
+            {
+              "rank": 1,
+              "player": "MADTV91",
+              "rating": 2475
+            },
+            {
+              "rank": 2,
+              "player": "MONkey MooN-",
+              "rating": 2317
+            },
+            {
+              "rank": 3,
+              "player": "DanielRL...",
+              "rating": 2166
+            },
+            {
+              "rank": 4,
+              "player": "Sypical",
+              "rating": 2072
+            },
+            {
+              "rank": 5,
+              "player": "WONderTrip",
+              "rating": 1964
+            },
+            {
+              "rank": 6,
+              "player": "OkHALii",
+              "rating": 1959
+            },
+            {
+              "rank": 7,
+              "player": "valid",
+              "rating": 1913
+            },
+            {
+              "rank": 8,
+              "player": "trk182",
+              "rating": 1877
+            },
+            {
+              "rank": 9,
+              "player": "Kinish",
+              "rating": 1838
+            },
+            {
+              "rank": 10,
+              "player": "Wooshed712",
+              "rating": 1801
+            }
+          ]
+        },
+        {
+          "title": "2v2 (Duos) Leaderboard",
+          "data": [
+            {
+              "rank": 1,
+              "player": "Trooper",
+              "rating": 2475
+            },
+            {
+              "rank": 2,
+              "player": "Funni3",
+              "rating": 2317
+            },
+            {
+              "rank": 3,
+              "player": "Openleads",
+              "rating": 2166
+            },
+            {
+              "rank": 4,
+              "player": "Xiw",
+              "rating": 2072
+            },
+            {
+              "rank": 5,
+              "player": "MostlyClear",
+              "rating": 1964
+            },
+            {
+              "rank": 6,
+              "player": "Loonser",
+              "rating": 1959
+            },
+            {
+              "rank": 7,
+              "player": "justIT",
+              "rating": 1913
+            },
+            {
+              "rank": 8,
+              "player": "ControlFr3ak",
+              "rating": 1877
+            },
+            {
+              "rank": 9,
+              "player": "Kuewpid",
+              "rating": 1838
+            },
+            {
+              "rank": 10,
+              "player": "WhoTheH",
+              "rating": 1801
+            }
+          ]
+        },
+        {
+          "title": "3v3 (Standard) Leaderboard",
+          "data": [
+            {
+              "rank": 1,
+              "player": "Awesm3Ness",
+              "rating": 2475
+            },
+            {
+              "rank": 2,
+              "player": "XAVIER",
+              "rating": 2317
+            },
+            {
+              "rank": 3,
+              "player": "TYrenical",
+              "rating": 2166
+            },
+            {
+              "rank": 4,
+              "player": "LOop",
+              "rating": 2072
+            },
+            {
+              "rank": 5,
+              "player": "Octane",
+              "rating": 1964
+            },
+            {
+              "rank": 6,
+              "player": "OkHALii",
+              "rating": 1959
+            },
+            {
+              "rank": 7,
+              "player": "valid",
+              "rating": 1913
+            },
+            {
+              "rank": 8,
+              "player": "trk182",
+              "rating": 1877
+            },
+            {
+              "rank": 9,
+              "player": "Kinish",
+              "rating": 1838
+            },
+            {
+              "rank": 10,
+              "player": "Oawn123",
+              "rating": 1801
+            }
+          ]
+        }
+      ]
+    }
   }
 }

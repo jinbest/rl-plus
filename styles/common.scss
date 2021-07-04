@@ -70,6 +70,14 @@ textarea {
   justify-content: space-between;
 }
 
+.center {
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 .custom-scroll-bar {
   &::-webkit-scrollbar {
     width: 3px;
