@@ -6,7 +6,7 @@ import UserSearch from "../../components/reputation/user-search/UserSearch"
 import Communities from "../../components/reputation/communities/Communities"
 import ReportScammer from "../../components/reputation/report-scammer/ReportScammer"
 import { useRouter } from "next/router"
-import { TabRouters } from "../../routes"
+import { ReputationTabRouters } from "../../routes"
 import _ from "lodash"
 
 type Props = {
@@ -69,9 +69,9 @@ const Reputation = ({ tabIndex }: Props) => {
   }
 
   const handleTabChange = ({ activeIndex }: TabProps) => {
-    const tab = _.findIndex(TabRouters, (o) => o.index === activeIndex)
+    const tab = _.findIndex(ReputationTabRouters, (o) => o.index === activeIndex)
     if (tab > -1) {
-      router.push(TabRouters[tab].link)
+      router.push(ReputationTabRouters[tab].link)
     }
   }
 
