@@ -45,7 +45,7 @@ const pageRoutes = [
   },
   {
     path: "/rank-home",
-    name: "RANK HOME",
+    name: "RANK STATS",
     component: () => <RankStats tabIndex={0} />,
     visible: true,
   },
