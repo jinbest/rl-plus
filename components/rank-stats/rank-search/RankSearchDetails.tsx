@@ -169,7 +169,9 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                 </tbody>
               </table>
             </div>
-            <div className="history-details-lifetime-stats">history-lifetime-stats-details</div>
+            {pageName === ("liveTracker" as PageNameParam) && (
+              <div className="history-details-lifetime-stats">history-lifetime-stats-details</div>
+            )}
           </div>
 
           {pageName === ("rankSearch" as PageNameParam) && (
