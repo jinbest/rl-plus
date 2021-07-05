@@ -4,6 +4,8 @@ import { getWidth } from "../../service/helper"
 import { useRouter } from "next/router"
 import { RankStatsTabRouters } from "../../routes"
 import RankHome from "../../components/rank-stats/home/RankHome"
+import RankSearch from "../../components/rank-stats/rank-search/RankSearch"
+import LiveTracker from "../../components/rank-stats/live-tracker/LiveTracker"
 import _ from "lodash"
 
 type Props = {
@@ -25,7 +27,11 @@ const RankStats = ({ tabIndex }: Props) => {
     },
     {
       menuItem: "RANK SEARCH",
-      render: () => <Tab.Pane attached={false}>RANK SEARCH</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <RankSearch />
+        </Tab.Pane>
+      ),
     },
     {
       menuItem: "LEADERBOARDS",
@@ -33,7 +39,11 @@ const RankStats = ({ tabIndex }: Props) => {
     },
     {
       menuItem: "LIVE TRACKER",
-      render: () => <Tab.Pane attached={false}>LIVE TRACKER</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <LiveTracker />
+        </Tab.Pane>
+      ),
     },
     {
       menuItem: "YOUR STATS",
