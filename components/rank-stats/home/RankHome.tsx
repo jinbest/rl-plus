@@ -35,7 +35,7 @@ const RankHome = () => {
                   <img
                     src={rankSelect[selected].logo}
                     alt={`${rankSelect[selected].key}-logo`}
-                    style={{ marginLeft: "7px" }}
+                    style={{ marginLeft: "7px", width: "24px" }}
                   />
                   <img src="/img/rank-stats/home/arrow-down.png" alt="arrow-down" />
                 </div>
