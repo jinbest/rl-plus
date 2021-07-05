@@ -82,13 +82,13 @@ const AddPlayerModal = ({ open, setOpen }: Props) => {
       <div className="rank-card-1-buttons-between">
         <button type="button">
           <span className="rank-player-modal-button-logo" style={{ background: "#115C93" }}>
-            <img src="/img/rank-stats/home/steam.png" alt="discord-logo" />
+            <img src="/img/rank-stats/home/steam.svg" alt="discord-logo" />
           </span>
           <span className="rank-player-modal-button">SIGN UP WITH STEAM</span>
         </button>
         <button type="button">
           <span className="rank-player-modal-button-logo" style={{ background: "#000000" }}>
-            <img src="/img/rank-stats/home/epic.png" alt="discord-logo" />
+            <img src="/img/rank-stats/home/epic.svg" alt="discord-logo" />
           </span>
           <span className="rank-player-modal-button">SIGN UP WITH EPIC GAMES</span>
         </button>
