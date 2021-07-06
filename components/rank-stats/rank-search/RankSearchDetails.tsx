@@ -5,6 +5,8 @@ import {
   RankSearchDataParam,
   RankSearchChildDataParam,
   RankSearchChildLifeTimeStatsParam,
+  RankSearchDataHistoryParam,
+  RankSearchDataHistoryChildParam,
 } from "../../../models/rank-stats-params"
 import config from "../../../static/config.json"
 
@@ -28,7 +30,7 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
 
   useEffect(() => {
     if (!isEmpty(thisPage[type])) {
-      const cntAllData = _.cloneDeep(thisPage[type])
+      const cntAllData = _.cloneDeep(thisPage[type]) as RankSearchDataParam
       if (!searchKey) {
         setData(cntAllData)
       } else {
@@ -38,6 +40,9 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
           logo: cntAllData.logo,
           data: [],
           lifetimeStats: cntAllData.lifetimeStats,
+        }
+        if (cntAllData.history) {
+          temp["history"] = cntAllData.history
         }
         cntAllData.data.forEach((item: RankSearchChildDataParam) => {
           if (item.playlist.main.toLowerCase().includes(searchKey.toLowerCase())) {
@@ -73,40 +78,60 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
         <div className="rank-search-details-container">
           <div className="details-main-table-container">
             <div className="details-table">
-              <div className="details-table-title">
-                <img src={data.logo} alt="rank-search-details-logo" />
-                <p>{data.title}</p>
-              </div>
-              <div className="details-table-subtitle">
-                <p>{data.subTitle}</p>
-                <div className="rank-stats-filter">
-                  <button
-                    onClick={() => {
-                      setRankFilter("s3")
-                    }}
-                    style={{ color: rankFilter === "s3" ? "white" : "" }}
-                  >
-                    S3
-                  </button>
-                  <button
-                    onClick={() => {
-                      setRankFilter("s2")
-                    }}
-                    style={{ color: rankFilter === "s2" ? "white" : "" }}
-                  >
-                    S2
-                  </button>
-                  <button
-                    onClick={() => {
-                      setRankFilter("s1")
-                    }}
-                    style={{ color: rankFilter === "s1" ? "white" : "" }}
-                  >
-                    S1
-                  </button>
-                  <img src="img/rank-stats/home/arrow-down.png" alt="arrow-down-filter" />
+              <div
+                className="flex align-center justify-between"
+                style={{
+                  borderBottom:
+                    pageName === ("liveTracker" as PageNameParam) ? "2px solid #FAC800" : "none",
+                  paddingBottom: pageName === ("liveTracker" as PageNameParam) ? "10px" : "inherit",
+                  background: "rgba(23, 23, 23, 0.75)",
+                }}
+              >
+                <div className="details-table-title">
+                  <img src={data.logo} alt="rank-search-details-logo" />
+                  <p>{data.title}</p>
                 </div>
+                {pageName === ("liveTracker" as PageNameParam) && (
+                  <button type="button" className="add-to-home">
+                    Add To Homepage
+                  </button>
+                )}
               </div>
+              {pageName === ("rankSearch" as PageNameParam) && (
+                <div
+                  className="details-table-subtitle"
+                  style={{ background: "rgba(23, 23, 23, 0.75)" }}
+                >
+                  <p>{data.subTitle}</p>
+                  <div className="rank-stats-filter">
+                    <button
+                      onClick={() => {
+                        setRankFilter("s3")
+                      }}
+                      style={{ color: rankFilter === "s3" ? "white" : "" }}
+                    >
+                      S3
+                    </button>
+                    <button
+                      onClick={() => {
+                        setRankFilter("s2")
+                      }}
+                      style={{ color: rankFilter === "s2" ? "white" : "" }}
+                    >
+                      S2
+                    </button>
+                    <button
+                      onClick={() => {
+                        setRankFilter("s1")
+                      }}
+                      style={{ color: rankFilter === "s1" ? "white" : "" }}
+                    >
+                      S1
+                    </button>
+                    <img src="img/rank-stats/home/arrow-down.png" alt="arrow-down-filter" />
+                  </div>
+                </div>
+              )}
               <table>
                 <tbody>
                   <tr style={{ borderBottom: "2px solid #3e3e3e" }}>
@@ -120,7 +145,10 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                   </tr>
                   {data.data.map((item: RankSearchChildDataParam, index: number) => {
                     return (
-                      <tr key={index}>
+                      <tr
+                        key={index}
+                        style={{ background: index % 2 === 0 ? "rgba(23, 23, 23, 0.75)" : "" }}
+                      >
                         <td className="play-list-rank">
                           <div className="flex">
                             <img src={item.playlist.logo} alt="details-rank-logo" />
@@ -169,7 +197,25 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                 </tbody>
               </table>
             </div>
-            <div className="history-details-lifetime-stats">history-lifetime-stats-details</div>
+            {pageName === ("liveTracker" as PageNameParam) && (
+              <div className="history-details-lifetime-stats">
+                {data.lifetimeStats.map(
+                  (item: RankSearchChildLifeTimeStatsParam, index: number) => {
+                    return (
+                      <div key={index}>
+                        <p className="main-text" style={{ color: "#9E9E9E" }}>
+                          {item.label}
+                        </p>
+                        <p className="larger-text">{item.total.toLocaleString()}</p>
+                        <p className="sub-text" style={{ color: "#FAC800" }}>
+                          {item.sub}
+                        </p>
+                      </div>
+                    )
+                  }
+                )}
+              </div>
+            )}
           </div>
 
           {pageName === ("rankSearch" as PageNameParam) && (
@@ -185,7 +231,7 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                         <p className="main-text" style={{ color: "#9E9E9E" }}>
                           {item.label}
                         </p>
-                        <p className="larger-text">{item.total}</p>
+                        <p className="larger-text">{item.total.toLocaleString()}</p>
                         <p className="sub-text" style={{ color: "#FAC800" }}>
                           {item.sub}
                         </p>
@@ -194,6 +240,38 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                   }
                 )}
               </div>
+            </div>
+          )}
+
+          {pageName === ("liveTracker" as PageNameParam) && (
+            <div className="details-lifetime-stats" style={{ maxWidth: "250px" }}>
+              <div className="lifetime-stats-title">
+                <p>History</p>
+              </div>
+              {data.history && data.history.length && (
+                <div>
+                  {data.history.map((item: RankSearchDataHistoryParam, index: number) => {
+                    return (
+                      <div key={index} className="history-item">
+                        <p>{item.title}</p>
+                        {item.child.map((it: RankSearchDataHistoryChildParam, idx: number) => {
+                          return (
+                            <React.Fragment key={`${index}-${idx}`}>
+                              <p className="main-text">
+                                <span style={{ color: "#9e9e9e" }}>{it.name}</span>
+                                <span>{it.total.toLocaleString()}</span>
+                                <span style={{ color: it.level > 0 ? "#00DE3E" : "#BE0000" }}>
+                                  ({it.level > 0 ? `+${it.level}` : it.level})
+                                </span>
+                              </p>
+                            </React.Fragment>
+                          )
+                        })}
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
             </div>
           )}
         </div>

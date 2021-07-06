@@ -22,7 +22,7 @@ const RankHome = () => {
     <div className="rank-stats-home-container">
       <div className="rank-search-tracker-container">
         <div className="rank-home-search">
-          <p className="rank-title">RANK SEARCH</p>
+          <h1 className="rank-title">RANK SEARCH</h1>
           <div className="rank-card-1">
             <div className="rank-search-select-form">
               <div className="rank-selector-container">
@@ -83,7 +83,7 @@ const RankHome = () => {
           </div>
         </div>
         <div className="home-live-tracker">
-          <p className="rank-title">LIVE TRACKER</p>
+          <h1 className="rank-title">LIVE TRACKER</h1>
           <div className="rank-card-1">
             <div className="add-player-button">
               <button
@@ -100,13 +100,15 @@ const RankHome = () => {
         <AddPlayerModal open={openModal} setOpen={setOpenModal} />
       </div>
       <div className="rank-home-leaderboard">
-        <p className="rank-title center">LEADERBOARDS</p>
+        <h1 className="rank-title center">LEADERBOARDS</h1>
         <p className="center underline">View Full Leaderboard</p>
         <div style={{ marginTop: "10px" }}>
           {thisData.leaderBoards.map((item: any, index: number) => {
             return (
               <div className="rank-card-2" key={index}>
-                <p className="rank-card-2-title">{item.title}</p>
+                <h2 className="rank-card-2-title" style={{ background: "rgba(23, 23, 23, 0.75)" }}>
+                  {item.title}
+                </h2>
                 <table>
                   <tbody>
                     <tr style={{ borderBottom: "2px solid #3e3e3e" }}>
@@ -116,10 +118,13 @@ const RankHome = () => {
                     </tr>
                     {item.data.map((it: LeaderBoardCardChildParams, idx: number) => {
                       return (
-                        <tr key={`${index}-${idx}`}>
+                        <tr
+                          key={`${index}-${idx}`}
+                          style={{ background: idx % 2 === 0 ? "rgba(23, 23, 23, 0.75)" : "" }}
+                        >
                           <td className="rank">{it.rank}</td>
                           <td className="player">{it.player}</td>
-                          <td className="rating">{it.rating}</td>
+                          <td className="rating">{it.rating.toLocaleString()}</td>
                         </tr>
                       )
                     })}

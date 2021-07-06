@@ -55,3 +55,52 @@ export interface RankSearchDataHistoryChildParam {
 }
 
 export type RankSelectKeyParams = "epic" | "steam" | "xbox" | "playstation" | "nintendo"
+
+export type Filter1Params = "overall" | "rating"
+
+export type OverallOptionParam =
+  | "wins"
+  | "goals"
+  | "saves"
+  | "shots"
+  | "assists"
+  | "mvps"
+  | "goalShotRatio"
+
+export type RatingOptionParam =
+  | "ranked1v1"
+  | "ranked2v2"
+  | "ranked3v3"
+  | "tournament"
+  | "casual"
+  | "rumble"
+  | "hoops"
+  | "dropshot"
+  | "snowday"
+
+export type Filter2Param = "daily" | "weekly" | "allTime"
+
+export type MenuParam = {
+  label: string
+  code: OverallOptionParam | RatingOptionParam
+}
+
+export type Filter1OptionsParam = {
+  title: string
+  options: MenuParam[]
+}
+
+export interface RankLeaderBoardParam {
+  optionType: RatingOptionParam | OverallOptionParam
+  title: string
+  data: RankLeaderBoardDataParam[]
+}
+
+export interface RankLeaderBoardDataParam {
+  rank: number
+  player: string
+  type: RankSelectKeyParams
+  logo: string
+  rating: number
+  played: number
+}
