@@ -24,7 +24,7 @@ const RankSearchComponent = ({
 }: Props) => {
   return (
     <div className="rank-search-container-1">
-      <p className="rank-search-title">{title || "RANK SEARCH"}</p>
+      <h1 className="rank-search-title">{title || "RANK SEARCH"}</h1>
       <div className="rank-search-card-container">
         <div className="rank-search-select-form">
           <div className="rank-selector-container">
