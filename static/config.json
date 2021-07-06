@@ -1576,6 +1576,184 @@
         ]
       }
     },
+    "rankLeaderBoard": [
+      {
+        "optionType": "ranked1v1",
+        "title": "Ranked 1v1 (Duel) Leaderboard",
+        "data": [
+          {
+            "rank": 1,
+            "player": "MADTV91",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 2475,
+            "played": 475
+          },
+          {
+            "rank": 2,
+            "player": "MONkey MooN-",
+            "type": "steam",
+            "logo": "/img/rank-stats/home/steam.svg",
+            "rating": 2317,
+            "played": 317
+          },
+          {
+            "rank": 3,
+            "player": "DanielRL_",
+            "type": "xbox",
+            "logo": "/img/rank-stats/home/xbox.svg",
+            "rating": 2166,
+            "played": 166
+          },
+          {
+            "rank": 4,
+            "player": "Sypical",
+            "type": "playstation",
+            "logo": "/img/rank-stats/home/playstation.svg",
+            "rating": 2072,
+            "played": 872
+          },
+          {
+            "rank": 5,
+            "player": "WONderTrip",
+            "type": "nintendo",
+            "logo": "/img/rank-stats/home/nintendo.svg",
+            "rating": 1964,
+            "played": 964
+          },
+          {
+            "rank": 6,
+            "player": "OkHALii",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 1959,
+            "played": 959
+          },
+          {
+            "rank": 7,
+            "player": "valid",
+            "type": "steam",
+            "logo": "/img/rank-stats/home/steam.svg",
+            "rating": 1913,
+            "played": 913
+          },
+          {
+            "rank": 8,
+            "player": "trk182",
+            "type": "xbox",
+            "logo": "/img/rank-stats/home/xbox.svg",
+            "rating": 1877,
+            "played": 877
+          },
+          {
+            "rank": 9,
+            "player": "Kinish",
+            "type": "playstation",
+            "logo": "/img/rank-stats/home/playstation.svg",
+            "rating": 1838,
+            "played": 838
+          },
+          {
+            "rank": 10,
+            "player": "Wooshed712",
+            "type": "nintendo",
+            "logo": "/img/rank-stats/home/nintendo.svg",
+            "rating": 1801,
+            "played": 1100
+          },
+          {
+            "rank": 11,
+            "player": "MADTV91",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 2475,
+            "played": 475
+          },
+          {
+            "rank": 12,
+            "player": "MONKey MooN-",
+            "type": "steam",
+            "logo": "/img/rank-stats/home/steam.svg",
+            "rating": 2317,
+            "played": 317
+          },
+          {
+            "rank": 13,
+            "player": "DanielRL_",
+            "type": "xbox",
+            "logo": "/img/rank-stats/home/xbox.svg",
+            "rating": 2166,
+            "played": 166
+          },
+          {
+            "rank": 14,
+            "player": "Sypical",
+            "type": "playstation",
+            "logo": "/img/rank-stats/home/playstation.svg",
+            "rating": 2072,
+            "played": 872
+          },
+          {
+            "rank": 15,
+            "player": "WONderTrip",
+            "type": "nintendo",
+            "logo": "/img/rank-stats/home/nintendo.svg",
+            "rating": 1964,
+            "played": 964
+          },
+          {
+            "rank": 17,
+            "player": "OkHALii",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 1959,
+            "played": 959
+          }
+        ]
+      },
+      {
+        "optionType": "ranked2v2",
+        "title": "Ranked 2v2 (Doubles) Leaderboard",
+        "data": [
+          {
+            "rank": 1,
+            "player": "MADTV91",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 2475,
+            "played": 475
+          }
+        ]
+      },
+      {
+        "optionType": "ranked3v3",
+        "title": "Ranked 3v3 (Standard) Leaderboard",
+        "data": [
+          {
+            "rank": 1,
+            "player": "MADTV91",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 2475,
+            "played": 475
+          }
+        ]
+      },
+      {
+        "optionType": "tournament",
+        "title": "Tournament Matches Leaderboard",
+        "data": [
+          {
+            "rank": 1,
+            "player": "MADTV91",
+            "type": "epic",
+            "logo": "/img/rank-stats/home/epic.svg",
+            "rating": 2475,
+            "played": 475
+          }
+        ]
+      }
+    ],
     "liveTracker": {
       "epic": {
         "title": "TestEpicName",
@@ -1745,6 +1923,118 @@
             "total": 41.6,
             "sub": "Top 3.7% #46,019"
           }
+        ],
+        "history": [
+          {
+            "title": "Just Now",
+            "child": [
+              {
+                "name": "Unranked",
+                "total": 5417,
+                "level": 24
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              }
+            ]
+          },
+          {
+            "title": "7 hours ago",
+            "child": [
+              {
+                "name": "Hoops",
+                "total": 5417,
+                "level": -8
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              },
+              {
+                "name": "Shots",
+                "total": 5417,
+                "level": 19
+              },
+              {
+                "name": "Wins",
+                "total": 5417,
+                "level": 123
+              }
+            ]
+          },
+          {
+            "title": "1 day ago",
+            "child": [
+              {
+                "name": "Hoops",
+                "total": 5417,
+                "level": -8
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              },
+              {
+                "name": "Shots",
+                "total": 5417,
+                "level": 19
+              },
+              {
+                "name": "Wins",
+                "total": 5417,
+                "level": 123
+              }
+            ]
+          },
+          {
+            "title": "1 week ago",
+            "child": [
+              {
+                "name": "Hoops",
+                "total": 5417,
+                "level": -8
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              },
+              {
+                "name": "Shots",
+                "total": 5417,
+                "level": 19
+              },
+              {
+                "name": "Wins",
+                "total": 5417,
+                "level": 123
+              }
+            ]
+          }
         ]
       },
       "steam": {
@@ -1772,6 +2062,28 @@
             "label": "Wins",
             "total": 5204,
             "sub": "Top 3.7% #46,019"
+          }
+        ],
+        "history": [
+          {
+            "title": "Just Now",
+            "child": [
+              {
+                "name": "Unranked",
+                "total": 5417,
+                "level": 24
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              }
+            ]
           }
         ]
       },
@@ -1801,6 +2113,28 @@
             "total": 5204,
             "sub": "Top 3.7% #46,019"
           }
+        ],
+        "history": [
+          {
+            "title": "Just Now",
+            "child": [
+              {
+                "name": "Unranked",
+                "total": 5417,
+                "level": 24
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              }
+            ]
+          }
         ]
       },
       "playstation": {
@@ -1829,6 +2163,28 @@
             "total": 5204,
             "sub": "Top 3.7% #46,019"
           }
+        ],
+        "history": [
+          {
+            "title": "Just Now",
+            "child": [
+              {
+                "name": "Unranked",
+                "total": 5417,
+                "level": 24
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              }
+            ]
+          }
         ]
       },
       "nintendo": {
@@ -1856,6 +2212,28 @@
             "label": "Wins",
             "total": 5204,
             "sub": "Top 3.7% #46,019"
+          }
+        ],
+        "history": [
+          {
+            "title": "Just Now",
+            "child": [
+              {
+                "name": "Unranked",
+                "total": 5417,
+                "level": 24
+              },
+              {
+                "name": "Saves",
+                "total": 3459,
+                "level": 5
+              },
+              {
+                "name": "Assists",
+                "total": 5417,
+                "level": 19
+              }
+            ]
           }
         ]
       }
