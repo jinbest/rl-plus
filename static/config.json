@@ -1290,7 +1290,40 @@
             }
           ]
         }
-      ]
+      ],
+      "tracker": {
+        "title": "TestEpicName",
+        "logo": "/img/rank-stats/home/epic.svg",
+        "data": [
+          {
+            "title": "Ranked 1v1 (Duel)",
+            "img_src": "img/rank-stats/home/diamond.svg",
+            "subTitle": "Champion I Division III",
+            "rating": 951,
+            "analysis": "Top 3.7% #46,019",
+            "divUp": 14,
+            "divDown": 25
+          },
+          {
+            "title": "Ranked 2v2 (Doubles)",
+            "img_src": "img/rank-stats/home/diamond.svg",
+            "subTitle": "Champion I Division III",
+            "rating": 951,
+            "analysis": "Top 3.7% #46,019",
+            "divUp": 14,
+            "divDown": 25
+          },
+          {
+            "title": "Ranked 3v3 (Standard)",
+            "img_src": "img/rank-stats/home/diamond.svg",
+            "subTitle": "Champion I Division III",
+            "rating": 951,
+            "analysis": "Top 3.7% #46,019",
+            "divUp": 14,
+            "divDown": 25
+          }
+        ]
+      }
     },
     "rankSearch": {
       "epic": {
