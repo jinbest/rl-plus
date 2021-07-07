@@ -104,3 +104,13 @@ export interface RankLeaderBoardDataParam {
   rating: number
   played: number
 }
+
+export interface RankHomeTrackerDataParam {
+  title: string
+  img_src: string
+  subTitle: string
+  rating: number
+  analysis: string
+  divUp: number
+  divDown: number
+}
