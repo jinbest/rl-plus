@@ -94,7 +94,9 @@
       .rank-card-1 {
         background: rgba(16, 16, 16, 0.75);
         border-radius: 5px;
-        height: 186px;
+        // height: auto;
+        height: calc(100% - 35px);
+        min-height: 186px;
         width: 100%;
         max-width: 620px;
         margin-top: 5px;
@@ -125,6 +127,72 @@
             &:hover {
               opacity: 0.7;
             }
+          }
+        }
+        .rank-home-tracker {
+          & > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            // flex-wrap: wrap;
+            @media (max-width: 900px) {
+              flex-wrap: wrap;
+            }
+          }
+          .rank-stats-tracker-logo {
+            width: 25px;
+            margin-right: 10px;
+          }
+          .rank-stats-tracker-title {
+            font-size: 16px;
+            line-height: 24px;
+            color: #fac800;
+            font-family: "Poppins";
+            font-weight: 600;
+            letter-spacing: 1px;
+          }
+          .view-full-stats-btn {
+            border: none;
+            outline: none;
+            background: transparent;
+            text-decoration: underline;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            color: white;
+            font-family: "Poppins";
+            font-weight: 600;
+            &:hover {
+              opacity: 0.7;
+            }
+            @media (max-width: 768px) {
+              margin-left: auto;
+            }
+          }
+          .rank-tracker-child-data-title {
+            font-size: 14px;
+            font-family: "Poppins";
+            font-weight: 600;
+            line-height: 21px;
+            letter-spacing: 1px;
+            color: #9e9e9e;
+          }
+          .rank-tracker-child-data-text {
+            font-size: 10px;
+            font-family: "Poppins";
+            font-weight: 600;
+            line-height: 15px;
+            letter-spacing: 1px;
+            color: white;
+          }
+          .rank-tracker-child-data-analysis {
+            font-size: 9px;
+            font-family: "Poppins";
+            font-weight: 600;
+            line-height: 13px;
+            letter-spacing: 1px;
+            color: #fac800;
           }
         }
       }

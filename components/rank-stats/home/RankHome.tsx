@@ -4,6 +4,7 @@ import config from "../../../static/config.json"
 import { LeaderBoardCardChildParams } from "../../../models/rank-stats-params"
 import AddPlayerModal from "./AddPlayerModal"
 import _ from "lodash"
+import RankHomeTracker from "./RankHomeTrackerCard"
 
 const RankHome = () => {
   const thisData = _.cloneDeep(config.rankStats.home)
@@ -12,6 +13,7 @@ const RankHome = () => {
   const [selected, setSelected] = useState(0)
   const [optionVisible, setOptionVisible] = useState(false)
   const [openModal, setOpenModal] = useState(false)
+  const [trackerVisible, setTrackerVisible] = useState(false)
 
   const handleSearch = (e: any) => {
     e.preventDefault()
@@ -85,16 +87,21 @@ const RankHome = () => {
         <div className="home-live-tracker">
           <h1 className="rank-title">LIVE TRACKER</h1>
           <div className="rank-card-1">
-            <div className="add-player-button">
-              <button
-                type="button"
-                onClick={() => {
-                  setOpenModal(true)
-                }}
-              >
-                Add Player
-              </button>
-            </div>
+            {!trackerVisible ? (
+              <div className="add-player-button">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpenModal(true)
+                    setTrackerVisible(true)
+                  }}
+                >
+                  Add Player
+                </button>
+              </div>
+            ) : (
+              <RankHomeTracker />
+            )}
           </div>
         </div>
         <AddPlayerModal open={openModal} setOpen={setOpenModal} />
