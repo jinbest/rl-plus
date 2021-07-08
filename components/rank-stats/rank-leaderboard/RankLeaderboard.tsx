@@ -198,7 +198,7 @@ const RankLeaderBoard = () => {
               type="button"
             >
               <span>
-                <p>All PlatForms</p>
+                <p>All Platforms</p>
               </span>
             </button>
             <button

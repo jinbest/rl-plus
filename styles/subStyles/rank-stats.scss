@@ -213,12 +213,22 @@
   }
   .rank-home-leaderboard {
     width: 100%;
+    text-align: center;
+    a {
+      color: white;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+      }
+    }
     & > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
       margin-top: 5px;
+      text-align: left;
       .rank-card-2 {
         width: 32.7%;
         max-width: 420px;
