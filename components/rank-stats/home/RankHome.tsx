@@ -5,6 +5,7 @@ import { LeaderBoardCardChildParams } from "../../../models/rank-stats-params"
 import AddPlayerModal from "./AddPlayerModal"
 import _ from "lodash"
 import RankHomeTracker from "./RankHomeTrackerCard"
+import Link from "next/link"
 
 const RankHome = () => {
   const thisData = _.cloneDeep(config.rankStats.home)
@@ -108,7 +109,9 @@ const RankHome = () => {
       </div>
       <div className="rank-home-leaderboard">
         <h1 className="rank-title center">LEADERBOARDS</h1>
-        <p className="center underline">View Full Leaderboard</p>
+        <Link href="/rank-leader-boards">
+          <a className="underline">View Full Leaderboard</a>
+        </Link>
         <div style={{ marginTop: "10px" }}>
           {thisData.leaderBoards.map((item: any, index: number) => {
             return (
