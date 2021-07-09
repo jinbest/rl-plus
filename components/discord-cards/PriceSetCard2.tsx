@@ -6,6 +6,7 @@ import {
   GeneralLinkParam,
   GeneralDataParam,
 } from "../../models/discord-bot-params"
+import Image from "next/image"
 
 type Props = {
   data: MenuListDataParam
@@ -21,7 +22,7 @@ const PriceSetCard2 = ({ data }: Props) => {
         {!isEmpty(thisData) && (
           <>
             <div className="flex justify-between" style={{ marginBottom: "10px" }}>
-              <div className="flex flex-wrap">
+              <div className="flex flex-wrap" style={{ width: "calc(100% - 70px)" }}>
                 <div className="price-set-2-child-data">
                   <p>{thisData.title}</p>
                   <div className="card-child-content">
@@ -40,8 +41,14 @@ const PriceSetCard2 = ({ data }: Props) => {
                   )
                 })}
               </div>
-              <div>
-                <img className="price-set-1-logo" src={thisData.logo} alt="price-set-1-logo" />
+              <div className="image-tag-container" style={{ width: "70px", height: "70px" }}>
+                <Image
+                  width="70"
+                  height="70"
+                  className="price-set-1-logo"
+                  src={thisData.logo}
+                  alt="price-set-1-logo"
+                />
               </div>
             </div>
             <p>Links</p>

@@ -1,6 +1,7 @@
 import React from "react"
 import config from "../../../static/config.json"
 import _ from "lodash"
+import Image from "next/image"
 
 const Communities = () => {
   const thisPage = _.cloneDeep(config.reputation.communities)
@@ -17,7 +18,7 @@ const Communities = () => {
         {thisPage.data.map((item: any, index: number) => {
           return (
             <a key={index} href={item.link} target="_blank" rel="noreferrer">
-              <img src={item.img_src} alt={`communities-logo-${index}`} />
+              <Image width="400" height="80" src={item.img_src} alt={`communities-logo-${index}`} />
             </a>
           )
         })}

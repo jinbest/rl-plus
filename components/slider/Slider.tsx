@@ -5,6 +5,7 @@ import { SliderItemParams } from "../../models/slider-item-params"
 import SliderItem from "./SliderItem"
 import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
+import Image from "next/image"
 
 const Slider = () => {
   const ref = useRef<any>(null)
@@ -72,7 +73,7 @@ const Slider = () => {
             trailColor: "#C4C4C4",
           })}
         >
-          <img src="img/home/arrow-left.svg" alt="arrow-left" />
+          <Image width="25" height="20" src="/img/home/arrow-left.svg" alt="arrow-left" />
         </CircularProgressbarWithChildren>
       </button>
       <Swiper ref={ref} {...swiperParams}>
@@ -92,7 +93,7 @@ const Slider = () => {
             trailColor: "#C4C4C4",
           })}
         >
-          <img src="img/home/arrow-right.svg" alt="arrow-right" />
+          <Image width="25" height="20" src="/img/home/arrow-right.svg" alt="arrow-right" />
         </CircularProgressbarWithChildren>
       </button>
     </div>

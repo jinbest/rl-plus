@@ -81,6 +81,13 @@ textarea {
   text-decoration: underline;
 }
 
+.image-tag-container {
+  & > div {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
 .custom-scroll-bar {
   &::-webkit-scrollbar {
     width: 3px;

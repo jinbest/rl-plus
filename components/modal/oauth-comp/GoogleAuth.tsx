@@ -5,6 +5,7 @@ import apiConfig from "../../../config/config"
 import { SignResParam } from "../../../models/sign-params"
 import { ToastMsgParams } from "../../toast/toast-msg-params"
 import APIClient from "../../../service/api-clients"
+import Image from "next/image"
 
 const apiClient = APIClient.getInstance()
 
@@ -54,7 +55,9 @@ const GoogleAuth = ({ signKey, setOpen, setToastParam }: Props) => {
       render={(renderProps) => (
         <button type="button" onClick={renderProps.onClick} disabled={renderProps.disabled}>
           <span className="sign-with-social-logo" style={{ background: "white" }}>
-            <img src="/img/modal/google.png" alt="google-logo" />
+            <div style={{ margin: "auto" }}>
+              <Image width="24" height="24" src="/img/modal/google.png" alt="google-logo" />
+            </div>
           </span>
           <span className="sign-with-social-button">
             {signKey ? <span>SIGN UP WITH GOOGLE</span> : <span>SIGN IN WITH GOOGLE</span>}

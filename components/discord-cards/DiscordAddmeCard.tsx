@@ -1,5 +1,6 @@
 import React from "react"
 import { MenuListDataParam, NavItemParam } from "../../models/discord-bot-params"
+import Image from "next/image"
 
 type Props = {
   data: MenuListDataParam
@@ -24,7 +25,12 @@ const DiscordAddmeCard = ({ data, navData }: Props) => {
           <div>
             <div>
               <div className="child-img-container">
-                <img src={data.logo ? data.logo : navData.logo} alt="discord-card-child-logo" />
+                <Image
+                  width="45"
+                  height="45"
+                  src={data.logo ? data.logo : navData.logo}
+                  alt="discord-card-child-logo"
+                />
               </div>
               <div className="child-data-container">
                 <p className="child-card-data-title">{data.name ? data.name : navData.name}</p>
