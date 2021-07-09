@@ -5,6 +5,7 @@ import {
   AuthCardContentsParam,
 } from "../../models/discord-bot-params"
 import { isEmpty } from "lodash"
+import Image from "next/image"
 
 type Props = {
   data: MenuListDataParam
@@ -31,7 +32,14 @@ const DiscordAuthCard = ({ data }: Props) => {
                 </React.Fragment>
               )
             })}
-            <img className="card-child-img" src={cardData.img_src} alt="auth-card" />
+            <Image
+              layout="responsive"
+              width="483"
+              height="220"
+              className="card-child-img"
+              src={cardData.img_src}
+              alt="auth-card"
+            />
           </>
         )}
       </div>

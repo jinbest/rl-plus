@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Modal } from "semantic-ui-react"
 import { rankSelect } from "../../../static/mock-data"
+import Image from "next/image"
 
 type Props = {
   open: boolean
@@ -33,12 +34,23 @@ const AddPlayerModal = ({ open, setOpen }: Props) => {
               setOptionVisible(!optionVisible)
             }}
           >
-            <img
-              src={rankSelect[selected].logo}
-              alt={`${rankSelect[selected].key}-logo`}
-              className="rank-select-logo"
-            />
-            <img src="/img/rank-stats/home/arrow-down.png" alt="arrow-down" />
+            <div className="rank-select-logo">
+              <Image
+                src={rankSelect[selected].logo}
+                alt={`${rankSelect[selected].key}-logo`}
+                width="35"
+                height="43"
+              />
+            </div>
+
+            <div>
+              <Image
+                width="10"
+                height="6"
+                src="/img/rank-stats/home/arrow-down.png"
+                alt="arrow-down"
+              />
+            </div>
           </div>
           {optionVisible && (
             <div className="rank-select-options">
@@ -51,7 +63,7 @@ const AddPlayerModal = ({ open, setOpen }: Props) => {
                       setOptionVisible(false)
                     }}
                   >
-                    <img src={item.logo} alt={`${index}-rank-select`} />
+                    <Image width="20" height="20" src={item.logo} alt={`${index}-rank-select`} />
                     <p style={{ color: "white" }}>{item.label}</p>
                   </div>
                 )
@@ -82,13 +94,27 @@ const AddPlayerModal = ({ open, setOpen }: Props) => {
       <div className="rank-card-1-buttons-between">
         <button type="button">
           <span className="rank-player-modal-button-logo" style={{ background: "#115C93" }}>
-            <img src="/img/rank-stats/home/steam.svg" alt="discord-logo" />
+            <div style={{ margin: "auto" }}>
+              <Image
+                width="24"
+                height="24"
+                src="/img/rank-stats/home/steam.svg"
+                alt="discord-logo"
+              />
+            </div>
           </span>
           <span className="rank-player-modal-button">SIGN UP WITH STEAM</span>
         </button>
         <button type="button">
           <span className="rank-player-modal-button-logo" style={{ background: "#000000" }}>
-            <img src="/img/rank-stats/home/epic.svg" alt="discord-logo" />
+            <div style={{ margin: "auto" }}>
+              <Image
+                width="24"
+                height="24"
+                src="/img/rank-stats/home/epic.svg"
+                alt="discord-logo"
+              />
+            </div>
           </span>
           <span className="rank-player-modal-button">SIGN UP WITH EPIC GAMES</span>
         </button>

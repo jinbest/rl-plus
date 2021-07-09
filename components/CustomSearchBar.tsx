@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 
 type Props = {
   value?: string
@@ -22,7 +23,12 @@ const CustomSearchBar = (props: Props) => {
         onChange={props.handleChange}
       />
       <button type="submit" className="custom-search-icon">
-        <img src="img/reputation/search-icon.png" alt="custom-search-icon" />
+        <Image
+          src={require("../public/img/reputation/search-icon.png")}
+          alt="custom-search-icon"
+          width="22"
+          height="22"
+        />
       </button>
     </form>
   )

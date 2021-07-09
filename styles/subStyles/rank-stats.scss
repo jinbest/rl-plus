@@ -150,6 +150,7 @@
             font-family: "Poppins";
             font-weight: 600;
             letter-spacing: 1px;
+            margin-top: -5px;
           }
           .view-full-stats-btn {
             border: none;
@@ -586,6 +587,7 @@
       }
       .rank-select-logo {
         margin-left: 15px;
+        margin-top: 3px;
         width: 35px;
       }
       .rank-select-options {
@@ -650,13 +652,17 @@
       img {
         width: 35px;
       }
-      p {
+      h2 {
         color: #fac800;
         font-size: 24px;
         line-height: 36px;
         letter-spacing: 1px;
         margin-left: 10px;
         font-family: "Montserrat Bold";
+        @media (max-width: 425px) {
+          font-size: 18px;
+          line-height: 22px;
+        }
       }
     }
     .add-to-home {
@@ -678,7 +684,7 @@
       display: flex;
       align-items: center;
       border-bottom: 2px solid #fac800;
-      p {
+      h2 {
         font-size: 24px;
         font-family: "Montserrat Bold";
         line-height: 29px;
@@ -773,7 +779,7 @@
     .lifetime-stats-title {
       border-bottom: 2px solid #fac800;
       padding: 15px;
-      p {
+      h3 {
         font-size: 18px;
         line-height: 22px;
       }
@@ -852,6 +858,8 @@
       padding: 0 25px;
       button {
         background: transparent;
+        font-family: "Montserrat";
+        font-weight: 600;
         outline: none;
         border: none;
         color: white;
@@ -1064,6 +1072,28 @@
     }
     &:hover {
       opacity: 0.8;
+    }
+  }
+}
+
+.your-stats {
+  width: 100%;
+  & > h3 {
+    font-family: "Montserrat";
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    @media (max-width: 425px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    span {
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 }

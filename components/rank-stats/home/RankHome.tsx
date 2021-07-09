@@ -6,6 +6,7 @@ import AddPlayerModal from "./AddPlayerModal"
 import _ from "lodash"
 import RankHomeTracker from "./RankHomeTrackerCard"
 import Link from "next/link"
+import Image from "next/image"
 
 const RankHome = () => {
   const thisData = _.cloneDeep(config.rankStats.home)
@@ -35,12 +36,20 @@ const RankHome = () => {
                     setOptionVisible(!optionVisible)
                   }}
                 >
-                  <img
-                    src={rankSelect[selected].logo}
-                    alt={`${rankSelect[selected].key}-logo`}
-                    style={{ marginLeft: "7px", width: "24px" }}
+                  <div style={{ marginLeft: "7px", marginTop: "2px" }}>
+                    <Image
+                      src={rankSelect[selected].logo}
+                      alt={`${rankSelect[selected].key}-logo`}
+                      width="24"
+                      height="29"
+                    />
+                  </div>
+                  <Image
+                    width="10"
+                    height="6"
+                    src="/img/rank-stats/home/arrow-down.png"
+                    alt="arrow-down"
                   />
-                  <img src="/img/rank-stats/home/arrow-down.png" alt="arrow-down" />
                 </div>
                 {optionVisible && (
                   <div className="rank-select-options">
@@ -53,7 +62,12 @@ const RankHome = () => {
                             setOptionVisible(false)
                           }}
                         >
-                          <img src={item.logo} alt={`${index}-rank-select`} />
+                          <Image
+                            width="20"
+                            height="20"
+                            src={item.logo}
+                            alt={`${index}-rank-select`}
+                          />
                           <p>{item.label}</p>
                         </div>
                       )

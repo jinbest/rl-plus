@@ -18,6 +18,7 @@ import VerifyCard1 from "../../components/discord-cards/VerifyCard1"
 import VerifyCard2 from "../../components/discord-cards/VerifyCard2"
 import ReportCard from "../../components/discord-cards/ReportCard"
 import _, { isEmpty } from "lodash"
+import Image from "next/image"
 
 const DiscordBot = () => {
   const navList: NavItemParam[] = config.discordBot.navList
@@ -45,7 +46,7 @@ const DiscordBot = () => {
                   setNavIndex(index)
                 }}
               >
-                <img src={item.logo} alt={`nav-logo-${index}`} />
+                <Image width="55" height="55" src={item.logo} alt={`nav-logo-${index}`} />
               </div>
             )
           })}
@@ -57,7 +58,7 @@ const DiscordBot = () => {
         </div>
         <div className="discord-list">
           <div className="discord-list-header">
-            <p>{navList[navIndex].name}</p>
+            <h3>{navList[navIndex].name}</h3>
           </div>
           <div className="discord-list-container">
             {menuList.map((item: MenuListParam, index: number) => {
@@ -77,18 +78,22 @@ const DiscordBot = () => {
         </div>
         <div className="discord-main">
           <div className="discord-main-header">
-            <p>{menuList[menuIndex].title.label2}</p>
+            <h3>{menuList[menuIndex].title.label2}</h3>
           </div>
           <div className="discord-main-container">
             {menuList[menuIndex].data.map((item: MenuListDataParam, index: number) => {
               return (
                 <div key={index}>
-                  <img
-                    src={item.logo ? item.logo : navList[navIndex].logo}
-                    alt={`discord-main-logo-${index}`}
-                  />
+                  <div style={{ width: "45px", height: "45px" }}>
+                    <Image
+                      width="45"
+                      height="45"
+                      src={item.logo ? item.logo : navList[navIndex].logo}
+                      alt={`discord-main-logo-${index}`}
+                    />
+                  </div>
                   <div className="discord-main-data">
-                    <p>{item.name ? item.name : navList[navIndex].name}</p>
+                    <h3>{item.name ? item.name : navList[navIndex].name}</h3>
                     {item.subtitle?.length && (
                       <>
                         {item.subtitle.map((it: string, idx: number) => {

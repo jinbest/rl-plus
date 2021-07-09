@@ -9,6 +9,7 @@ import {
   RankSearchDataHistoryChildParam,
 } from "../../../models/rank-stats-params"
 import config from "../../../static/config.json"
+import Image from "next/image"
 
 type filterParam = "s1" | "s2" | "s3"
 type PageNameParam = "rankSearch" | "liveTracker"
@@ -66,11 +67,11 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
     }
   }, [type])
 
-  useEffect(() => {
-    if (!isEmpty(data)) {
-      console.log("rankSearch-Details", data, searchKey)
-    }
-  }, [data])
+  // useEffect(() => {
+  //   if (!isEmpty(data)) {
+  //     console.log("rankSearch-Details", data, searchKey)
+  //   }
+  // }, [data])
 
   return (
     <>
@@ -88,8 +89,8 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                 }}
               >
                 <div className="details-table-title">
-                  <img src={data.logo} alt="rank-search-details-logo" />
-                  <p>{data.title}</p>
+                  <Image width="35" height="35" src={data.logo} alt="rank-search-details-logo" />
+                  <h2>{data.title}</h2>
                 </div>
                 {pageName === ("liveTracker" as PageNameParam) && (
                   <button type="button" className="add-to-home">
@@ -102,7 +103,7 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                   className="details-table-subtitle"
                   style={{ background: "rgba(23, 23, 23, 0.75)" }}
                 >
-                  <p>{data.subTitle}</p>
+                  <h2>{data.subTitle}</h2>
                   <div className="rank-stats-filter">
                     <button
                       onClick={() => {
@@ -128,7 +129,12 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                     >
                       S1
                     </button>
-                    <img src="img/rank-stats/home/arrow-down.png" alt="arrow-down-filter" />
+                    <Image
+                      width="10"
+                      height="6"
+                      src="/img/rank-stats/home/arrow-down.png"
+                      alt="arrow-down-filter"
+                    />
                   </div>
                 </div>
               )}
@@ -151,7 +157,12 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                       >
                         <td className="play-list-rank">
                           <div className="flex">
-                            <img src={item.playlist.logo} alt="details-rank-logo" />
+                            <Image
+                              width="40"
+                              height="40"
+                              src={item.playlist.logo}
+                              alt="details-rank-logo"
+                            />
                             <div>
                               <p className="main-text">{item.playlist.main}</p>
                               <p className="sub-text" style={{ color: "#9E9E9E" }}>
@@ -169,9 +180,11 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                         <td className="details-div-up" style={{ color: "#00DE3E" }}>
                           <p className="main-text">
                             {item.divUp}
-                            <span>
-                              <img
-                                src="img/rank-stats/home/arrow-green-up.png"
+                            <span style={{ marginLeft: "5px" }}>
+                              <Image
+                                width="8"
+                                height="5"
+                                src="/img/rank-stats/home/arrow-green-up.png"
                                 alt="arrow-green-up"
                               />
                             </span>
@@ -180,9 +193,11 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
                         <td className="details-div-down" style={{ color: "#BE0000" }}>
                           <p className="main-text">
                             {item.divDown}
-                            <span>
-                              <img
-                                src="img/rank-stats/home/arrow-red-down.png"
+                            <span style={{ marginLeft: "5px" }}>
+                              <Image
+                                width="8"
+                                height="5"
+                                src="/img/rank-stats/home/arrow-red-down.png"
                                 alt="arrow-red-down"
                               />
                             </span>
@@ -221,7 +236,7 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
           {pageName === ("rankSearch" as PageNameParam) && (
             <div className="details-lifetime-stats">
               <div className="lifetime-stats-title">
-                <p>Lifetime Stats</p>
+                <h3>Lifetime Stats</h3>
               </div>
               <div className="flex flex-wrap" style={{ width: "100%", padding: "15px" }}>
                 {data.lifetimeStats.map(
@@ -244,9 +259,9 @@ const RankSearchDetails = ({ type, searchKey, pageName }: Props) => {
           )}
 
           {pageName === ("liveTracker" as PageNameParam) && (
-            <div className="details-lifetime-stats" style={{ maxWidth: "250px" }}>
+            <div className="details-lifetime-stats">
               <div className="lifetime-stats-title">
-                <p>History</p>
+                <h3>History</h3>
               </div>
               {data.history && data.history.length && (
                 <div>

@@ -96,7 +96,8 @@
         padding: 0 15px;
         display: flex;
         align-items: center;
-        p {
+        p,
+        h3 {
           font-size: 14px;
           font-family: "Montserrat Bold";
           font-weight: bold;
@@ -144,7 +145,8 @@
         padding: 0 30px;
         display: flex;
         align-items: center;
-        p {
+        p,
+        h3 {
           font-size: 14px;
           font-family: "Montserrat Bold";
           font-weight: 500;
@@ -193,12 +195,13 @@
           }
           .discord-main-data {
             margin: 10px;
-            width: calc(100% - 55px);
+            width: calc(100% - 65px);
             @media (max-width: 425px) {
               margin: 5px;
-              width: calc(100% - 45px);
+              width: calc(100% - 65px);
             }
-            p {
+            p,
+            h3 {
               font-size: 14px;
               font-family: "Montserrat Bold";
               font-weight: 500;
@@ -336,6 +339,9 @@
                           border-radius: 7px;
                           width: 50px;
                           height: 50px;
+                          & > div {
+                            margin: 2px !important;
+                          }
                           img {
                             width: 100%;
                             height: 100%;

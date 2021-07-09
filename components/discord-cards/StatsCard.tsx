@@ -5,6 +5,7 @@ import {
   MenuListDataContentWithLinkParam,
   GeneralLinkParam,
 } from "../../models/discord-bot-params"
+import Image from "next/image"
 
 type Props = {
   data: MenuListDataParam
@@ -56,7 +57,14 @@ const StatsCard = ({ data }: Props) => {
             )
           })}
         </div>
-        <img className="card-child-img" src={thisData.img_src} alt="stats-logo" />
+        <Image
+          width="480"
+          height="226"
+          layout="responsive"
+          className="card-child-img"
+          src={thisData.img_src}
+          alt="stats-logo"
+        />
       </div>
     </div>
   )

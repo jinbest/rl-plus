@@ -13,6 +13,7 @@ import {
 } from "../../../models/rank-stats-params"
 import config from "../../../static/config.json"
 import _, { isEmpty } from "lodash"
+import Image from "next/image"
 
 const RankLeaderBoard = () => {
   const thisPage = _.cloneDeep(config.rankStats.rankLeaderBoard) as RankLeaderBoardParam[]
@@ -122,7 +123,12 @@ const RankLeaderBoard = () => {
                 }}
               >
                 <p>{selectFilter.label}</p>
-                <img src="img/rank-stats/home/arrow-down.png" alt="arrow-down-selector" />
+                <Image
+                  width="10"
+                  height="6"
+                  src="/img/rank-stats/home/arrow-down.png"
+                  alt="arrow-down-selector"
+                />
               </div>
               {selectorView && (
                 <div
@@ -209,11 +215,25 @@ const RankLeaderBoard = () => {
             >
               {rankOption === "epic" ? (
                 <span>
-                  <img src="img/rank-stats/home/epic.svg" alt="epic-button" />
+                  <div style={{ marginTop: "4px" }}>
+                    <Image
+                      width="15"
+                      height="17"
+                      src="/img/rank-stats/home/epic.svg"
+                      alt="epic-button"
+                    />
+                  </div>
                 </span>
               ) : (
                 <span>
-                  <img src="img/rank-stats/rank-svg/grey-epic.svg" alt="epic-button" />
+                  <div style={{ marginTop: "4px" }}>
+                    <Image
+                      width="15"
+                      height="17"
+                      src="/img/rank-stats/rank-svg/grey-epic.svg"
+                      alt="epic-button"
+                    />
+                  </div>
                 </span>
               )}
             </button>
@@ -225,11 +245,25 @@ const RankLeaderBoard = () => {
             >
               {rankOption === "steam" ? (
                 <span>
-                  <img src="img/rank-stats/home/steam.svg" alt="steam-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/home/steam.svg"
+                      alt="steam-button"
+                    />
+                  </div>
                 </span>
               ) : (
                 <span>
-                  <img src="img/rank-stats/rank-svg/grey-steam.svg" alt="steam-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/rank-svg/grey-steam.svg"
+                      alt="steam-button"
+                    />
+                  </div>
                 </span>
               )}
             </button>
@@ -241,11 +275,25 @@ const RankLeaderBoard = () => {
             >
               {rankOption === "xbox" ? (
                 <span>
-                  <img src="img/rank-stats/home/xbox.svg" alt="xbox-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/home/xbox.svg"
+                      alt="xbox-button"
+                    />
+                  </div>
                 </span>
               ) : (
                 <span>
-                  <img src="img/rank-stats/rank-svg/grey-xbox.svg" alt="xbox-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/rank-svg/grey-xbox.svg"
+                      alt="xbox-button"
+                    />
+                  </div>
                 </span>
               )}
             </button>
@@ -257,14 +305,25 @@ const RankLeaderBoard = () => {
             >
               {rankOption === "playstation" ? (
                 <span>
-                  <img src="img/rank-stats/home/playstation.svg" alt="playstation-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/home/playstation.svg"
+                      alt="playstation-button"
+                    />
+                  </div>
                 </span>
               ) : (
                 <span>
-                  <img
-                    src="img/rank-stats/rank-svg/grey-playstation.svg"
-                    alt="playstation-button"
-                  />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/rank-svg/grey-playstation.svg"
+                      alt="playstation-button"
+                    />
+                  </div>
                 </span>
               )}
             </button>
@@ -276,11 +335,25 @@ const RankLeaderBoard = () => {
             >
               {rankOption === "nintendo" ? (
                 <span>
-                  <img src="img/rank-stats/home/nintendo.svg" alt="nintendo-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/home/nintendo.svg"
+                      alt="nintendo-button"
+                    />
+                  </div>
                 </span>
               ) : (
                 <span>
-                  <img src="img/rank-stats/rank-svg/grey-nintendo.svg" alt="nintendo-button" />
+                  <div style={{ marginTop: "3px" }}>
+                    <Image
+                      width="15"
+                      height="15"
+                      src="/img/rank-stats/rank-svg/grey-nintendo.svg"
+                      alt="nintendo-button"
+                    />
+                  </div>
                 </span>
               )}
             </button>
@@ -311,7 +384,14 @@ const RankLeaderBoard = () => {
                       <td className="leader-player">
                         <p>
                           <span>
-                            <img src={item.logo} alt={`rank-logo-${index}`} />
+                            <div style={{ marginTop: "3px", marginRight: "7px" }}>
+                              <Image
+                                width="15"
+                                height="15"
+                                src={item.logo}
+                                alt={`rank-logo-${index}`}
+                              />
+                            </div>
                           </span>
                           <span>{item.player}</span>
                         </p>
