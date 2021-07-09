@@ -244,7 +244,7 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
     >
       <div className="sign-modal-header">
         <div>
-          <p className="sign-main-title">Welcome</p>
+          <h2 className="sign-main-title">Welcome</h2>
           <p className="sign-sub-title">
             {signKey ? "Sign Up to continue" : "Sign In to continue"}
           </p>
@@ -314,9 +314,19 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
                     }}
                   >
                     {!passVisible ? (
-                      <img src="/img/modal/eyeball-visible.svg" alt="eyeball-visible" />
+                      <Image
+                        width="20"
+                        height="20"
+                        src="/img/modal/eyeball-visible.svg"
+                        alt="eyeball-visible"
+                      />
                     ) : (
-                      <img src="/img/modal/eyeball-invisible.svg" alt="eyeball-invisible" />
+                      <Image
+                        width="20"
+                        height="20"
+                        src="/img/modal/eyeball-invisible.svg"
+                        alt="eyeball-invisible"
+                      />
                     )}
                   </button>
                 </div>
@@ -352,8 +362,8 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
                       />
                     </div>
                     <div>
-                      <p>{checkPass.strength}</p>
-                      <img src="img/modal/info.png" alt="info" />
+                      <p style={{ marginRight: "5px" }}>{checkPass.strength}</p>
+                      <Image width="11" height="11" src="/img/modal/info.png" alt="info" />
                     </div>
                   </div>
                 )}
@@ -374,7 +384,9 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
               <GoogleAuth signKey={signKey} setOpen={setOpen} setToastParam={setToastParam} />
               <button type="button" onClick={signWithDiscord}>
                 <span className="sign-with-social-logo" style={{ background: "#8697F6" }}>
-                  <img src="/img/modal/discord.png" alt="discord-logo" />
+                  <div style={{ margin: "auto" }}>
+                    <Image width="24" height="18" src="/img/modal/discord.png" alt="discord-logo" />
+                  </div>
                 </span>
                 <span className="sign-with-social-button">
                   {signKey ? <span>SIGN UP WITH DISCORD</span> : <span>SIGN IN WITH DISCORD</span>}
@@ -382,7 +394,9 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
               </button>
               <button type="button" onClick={signWithSteam}>
                 <span className="sign-with-social-logo" style={{ background: "#115C93" }}>
-                  <img src="/img/modal/steam.png" alt="steam-logo" />
+                  <div style={{ margin: "auto" }}>
+                    <Image width="24" height="24" src="/img/modal/steam.png" alt="steam-logo" />
+                  </div>
                 </span>
                 <span className="sign-with-social-button">
                   {signKey ? <span>SIGN UP WITH STEAM</span> : <span>SIGN IN WITH STEAM</span>}
@@ -395,7 +409,9 @@ const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
                 }}
               >
                 <span className="sign-with-social-logo" style={{ background: "#000000" }}>
-                  <img src="/img/modal/games.png" alt="games-logo" />
+                  <div style={{ margin: "auto" }}>
+                    <Image width="24" height="28" src="/img/modal/games.png" alt="games-logo" />
+                  </div>
                 </span>
                 <span className="sign-with-social-button">
                   {signKey ? (

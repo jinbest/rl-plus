@@ -7,6 +7,7 @@ import RankHome from "../../components/rank-stats/home/RankHome"
 import RankSearch from "../../components/rank-stats/rank-search/RankSearch"
 import LiveTracker from "../../components/rank-stats/live-tracker/LiveTracker"
 import RankLeaderBoard from "../../components/rank-stats/rank-leaderboard/RankLeaderboard"
+import YourStats from "../../components/rank-stats/your-stats/YourStats"
 import _ from "lodash"
 
 type Props = {
@@ -52,7 +53,11 @@ const RankStats = ({ tabIndex }: Props) => {
     },
     {
       menuItem: "YOUR STATS",
-      render: () => <Tab.Pane attached={false}>YOUR STATS</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <YourStats />
+        </Tab.Pane>
+      ),
     },
   ]
 

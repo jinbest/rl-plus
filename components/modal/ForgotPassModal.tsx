@@ -125,7 +125,7 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
     >
       <div className="forgot-pass-modal-header">
         <div>
-          <p className="forgot-pass-main-title">{data.title}</p>
+          <h3 className="forgot-pass-main-title">{data.title}</h3>
         </div>
         <div className="forgot-pass-modal-header-logo">
           <Image src={logo} alt="logo" width="120" height="54" />
@@ -172,9 +172,19 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
                   }}
                 >
                   {!passNewVisible ? (
-                    <img src="/img/modal/eyeball-visible.svg" alt="eyeball-new-visible" />
+                    <Image
+                      width="20"
+                      height="20"
+                      src="/img/modal/eyeball-visible.svg"
+                      alt="eyeball-new-visible"
+                    />
                   ) : (
-                    <img src="/img/modal/eyeball-invisible.svg" alt="eyeball-new-invisible" />
+                    <Image
+                      width="20"
+                      height="20"
+                      src="/img/modal/eyeball-invisible.svg"
+                      alt="eyeball-new-invisible"
+                    />
                   )}
                 </button>
               </div>
@@ -200,9 +210,19 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
                   }}
                 >
                   {!passConfVisible ? (
-                    <img src="/img/modal/eyeball-visible.svg" alt="eyeball-conf-visible" />
+                    <Image
+                      width="20"
+                      height="20"
+                      src="/img/modal/eyeball-visible.svg"
+                      alt="eyeball-conf-visible"
+                    />
                   ) : (
-                    <img src="/img/modal/eyeball-invisible.svg" alt="eyeball-conf-invisible" />
+                    <Image
+                      width="20"
+                      height="20"
+                      src="/img/modal/eyeball-invisible.svg"
+                      alt="eyeball-conf-invisible"
+                    />
                   )}
                 </button>
               </div>
@@ -210,7 +230,9 @@ const ForgotPassModal = ({ openForgotModal, setOpenForgotModal, setOpenSignModal
             </div>
           )}
           {step === "checkEmail" && (
-            <img className="forgot-check-email" src={data.img_src} alt="check-email" />
+            <div className="forgot-check-email">
+              <Image width="126" height="108" src={data.img_src} alt="check-email" />
+            </div>
           )}
           <button
             className="forgot-pass-modal-button"

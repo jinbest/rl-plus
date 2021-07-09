@@ -5,6 +5,7 @@ import {
   PriceSetCard1Param,
   GeneralLinkParam,
 } from "../../models/discord-bot-params"
+import Image from "next/image"
 
 type Props = {
   data: MenuListDataParam
@@ -39,11 +40,24 @@ const PriceSetCard1 = ({ data }: Props) => {
                   })}
                 </div>
               </div>
-              <div>
-                <img className="price-set-1-logo" src={thisData.logo} alt="price-set-1-logo" />
+              <div className="image-tag-container" style={{ width: "70px", height: "70px" }}>
+                <Image
+                  width="70"
+                  height="70"
+                  className="price-set-1-logo"
+                  src={thisData.logo}
+                  alt="price-set-1-logo"
+                />
               </div>
             </div>
-            <img className="card-child-img" src={thisData.img_src} alt="price-set-card-1" />
+            <Image
+              layout="responsive"
+              width="484"
+              height="200"
+              className="card-child-img"
+              src={thisData.img_src}
+              alt="price-set-card-1"
+            />
           </>
         )}
       </div>

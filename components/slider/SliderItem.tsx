@@ -1,5 +1,6 @@
 import React from "react"
 import { SliderItemParams } from "../../models/slider-item-params"
+// import Image from "next/image"
 
 type Props = {
   data: SliderItemParams
@@ -9,7 +10,7 @@ const SliderItem = ({ data }: Props) => {
   return (
     <div className="slider-item">
       <div className="slider-title-container">
-        <p className="slider-title">{data.title}</p>
+        <h2 className="slider-title">{data.title}</h2>
         <p className="version">{data.version}</p>
       </div>
       <div className="slider-content-container">

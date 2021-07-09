@@ -6,6 +6,7 @@ import {
   GeneralLinkParam,
 } from "../../models/discord-bot-params"
 import { isEmpty } from "lodash"
+import Image from "next/image"
 
 type Props = {
   data: MenuListDataParam
@@ -66,8 +67,14 @@ const VerifyCard1 = ({ data }: Props) => {
                   })}
                 </div>
               </div>
-              <div>
-                <img className="price-set-1-logo" src={thisData.logo} alt="verify-card-1-logo" />
+              <div className="image-tag-container" style={{ width: "70px", height: "70px" }}>
+                <Image
+                  width="70"
+                  height="70"
+                  className="price-set-1-logo"
+                  src={thisData.logo}
+                  alt="verify-card-1-logo"
+                />
               </div>
             </div>
           </>

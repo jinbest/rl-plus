@@ -11,7 +11,7 @@ const MainData = ({ data }: Props) => {
       {data.data.length ? (
         <div className="main-data">
           <div className="main-data-header">
-            <p>{data.title}</p>
+            <h2>{data.title}</h2>
             <p>{data.statistic}</p>
           </div>
           <table className="main-data-table">

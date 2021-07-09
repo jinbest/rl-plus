@@ -100,7 +100,7 @@ const Header = () => {
             }}
           >
             <div className="avatar">
-              <img src={config.header.user.avatar} alt="avatar" />
+              <Image width="45" height="45" src={config.header.user.avatar} alt="avatar" />
             </div>
             <div className="user">
               <p className="name">{config.header.user.name}</p>
@@ -108,7 +108,7 @@ const Header = () => {
             </div>
           </div>
           <div className="drawer" onClick={toggleDrawer}>
-            <img src={config.header.drawer.menu} alt="menu" />
+            <Image width="45" height="45" src={config.header.drawer.menu} alt="menu" />
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@ const Header = () => {
               setOpenDrawer(false)
             }}
           >
-            <img src={config.header.drawer.cancel} alt="cancel" />
+            <Image width="45" height="45" src={config.header.drawer.cancel} alt="cancel" />
           </div>
           <div
             className="drawer-logo"
