@@ -1,4 +1,4 @@
-const apiURL = "http://185.248.33.127:5000"
+const apiURL = "http://93.99.104.61:5000"
 export default class Config {
   /* auth */
   static REGISTER_API_URL = `${apiURL}/api/auth/register`
@@ -20,4 +20,7 @@ export default class Config {
   /* user */
   static USER_SKILL = `${apiURL}/api/user/skill`
   static USER_SEARCH = `${apiURL}/api/user/search`
+
+  /* communities */
+  static GET_COUNT = `${apiURL}/api/getCount`
 }

@@ -1,15 +1,52 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { SummaryDataParams } from "../../../models/reputation-params"
 import Image from "next/image"
+import apiConfig from "../../../config/config"
+import ApiClient from "../../../service/api-clients"
+import _, { isEmpty } from "lodash"
+
+const apiClient = ApiClient.getInstance()
 
 type Props = {
   data: SummaryDataParams[]
 }
 
 const SummaryData = ({ data }: Props) => {
+  const [thisData, setThisData] = useState<SummaryDataParams[]>([])
+
+  useEffect(() => {
+    loadGetCount()
+    return () => {
+      setThisData([])
+    }
+  }, [])
+
+  const loadGetCount = async () => {
+    const result = await apiClient.get<any>(apiConfig.GET_COUNT)
+    const newData = [] as SummaryDataParams[]
+    if (!isEmpty(result)) {
+      data.forEach((item: SummaryDataParams, index: number) => {
+        const tmpItem = _.cloneDeep(item)
+        if (item.type === "reputationCount") {
+          tmpItem.total = result.reputationCount
+          newData.push(tmpItem)
+        } else if (item.type === "scammerCount") {
+          tmpItem.total = result.scammerCount
+          newData.push(tmpItem)
+        } else if (item.type === "profilesCount") {
+          tmpItem.total = result.profilesCount
+          newData.push(tmpItem)
+        }
+      })
+      setThisData([...newData])
+    } else {
+      setThisData(data)
+    }
+  }
+
   return (
     <div className="summary-data">
-      {data.map((item: SummaryDataParams, index: number) => {
+      {thisData.map((item: SummaryDataParams, index: number) => {
         return (
           <div key={index} className="summary-item">
             <div className="flex align-center">

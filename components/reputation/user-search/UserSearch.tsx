@@ -1,14 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { MainDataParams } from "../../../models/reputation-params"
 import CustomSearchBar from "../../CustomSearchBar"
 import SummaryData from "./SummaryData"
 import MainData from "./MainData"
 import config from "../../../static/config.json"
 import _ from "lodash"
-// import apiConfig from "../../../config/config"
-// import AuthenticatedAPIClient from "../../../service/authenticated-api-client"
-
-// const authenticatedApiClient = AuthenticatedAPIClient.getInstance()
 
 const UserSearch = () => {
   const thisPage = _.cloneDeep(config.reputation)
@@ -17,16 +13,6 @@ const UserSearch = () => {
   const [summaryDataVisible, setSummaryDataVisible] = useState(true)
   const [userSearchKey, setUserSearchKey] = useState("")
   const [mainData, setMainData] = useState<MainDataParams>(cloneData)
-
-  // useEffect(() => {
-  //   const token = window.localStorage.getItem("token") || ""
-  //   fetchAllData(token)
-  // }, [])
-
-  // const fetchAllData = async (token: string) => {
-  //   const res = await authenticatedApiClient.post<any>(apiConfig.NEWS_ALL, token)
-  //   console.log("NEWS_ALL", res)
-  // }
 
   const handleUserSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
@@ -65,6 +51,7 @@ const UserSearch = () => {
           handleUserSearchChange(e)
         }}
         handleIconClick={handleUserSearchIconClick}
+        dropdown
       />
       <div className="user-search-data-container">
         {summaryDataVisible ? (
