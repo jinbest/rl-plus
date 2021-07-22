@@ -773,19 +773,22 @@
           "name": "Reps Given",
           "logo": "/img/reputation/reps.png",
           "total": 1482563,
-          "themeCol": "#00DE3E"
+          "themeCol": "#00DE3E",
+          "type": "reputationCount"
         },
         {
           "name": "Scammers Reported",
           "logo": "/img/reputation/scammers.png",
           "total": 21879,
-          "themeCol": "#BE0000"
+          "themeCol": "#BE0000",
+          "type": "scammerCount"
         },
         {
           "name": "Profiles",
           "logo": "/img/reputation/profile.png",
           "total": 1294327,
-          "themeCol": "#0085FF"
+          "themeCol": "#0085FF",
+          "type": "profilesCount"
         }
       ],
       "mainData": {

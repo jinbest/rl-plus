@@ -109,4 +109,7 @@ const ratingOptions = {
   ] as MenuParam[],
 }
 
-export { clientID, rankSelect, overAllOptions, ratingOptions }
+const mockToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGUzQGdvb2dsZS5jb20iLCJtb2RlIjoiV0VCU0lURSIsImlhdCI6MTYyNjk2NTM4MSwiZXhwIjoxNjI3MDUxNzgxfQ.jyantsDt8DSZSQbsfedW6e_fNLazVNvh3MoEFaZOMxo"
+
+export { clientID, rankSelect, overAllOptions, ratingOptions, mockToken }

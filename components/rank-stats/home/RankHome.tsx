@@ -100,7 +100,7 @@ const RankHome = () => {
           </div>
         </div>
         <div className="home-live-tracker">
-          <h1 className="rank-title">LIVE TRACKER</h1>
+          <h2 className="rank-title">LIVE TRACKER</h2>
           <div className="rank-card-1">
             {!trackerVisible ? (
               <div className="add-player-button">
@@ -122,7 +122,7 @@ const RankHome = () => {
         <AddPlayerModal open={openModal} setOpen={setOpenModal} />
       </div>
       <div className="rank-home-leaderboard">
-        <h1 className="rank-title center">LEADERBOARDS</h1>
+        <h3 className="rank-title center">LEADERBOARDS</h3>
         <Link href="/rank-leader-boards">
           <a className="underline">View Full Leaderboard</a>
         </Link>

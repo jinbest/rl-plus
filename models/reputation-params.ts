@@ -3,6 +3,7 @@ export interface SummaryDataParams {
   logo: string
   total: number
   themeCol: string
+  type?: string
 }
 
 export interface MainDataParams {

@@ -26,6 +26,22 @@ const Header = () => {
   })
   const [openForgotModal, setOpenForgotModal] = useState(false)
   const [openSignModal, setOpenSignModal] = useState(false)
+  const [signKey, setSignKey] = useState(true)
+  const [authUser, setAuthUser] = useState(false)
+
+  // const authUser = window.localStorage.getItem("token") || ""
+  // console.log("authUser", authUser)
+
+  useEffect(() => {
+    if (window !== "undefined") {
+      const token = window.localStorage.getItem("token") || ""
+      if (token) {
+        setAuthUser(true)
+      } else {
+        setAuthUser(false)
+      }
+    }
+  }, [])
 
   const toggleDrawer = () => {
     setOpenDrawer(!openDrawer)
@@ -93,20 +109,41 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div
-            className="username"
-            onClick={() => {
-              setOpenSignModal(true)
-            }}
-          >
-            <div className="avatar">
-              <Image width="45" height="45" src={config.header.user.avatar} alt="avatar" />
+          {!authUser ? (
+            <div className="header-sign-buttons">
+              <button
+                onClick={() => {
+                  setSignKey(false)
+                  setOpenSignModal(true)
+                }}
+              >
+                login
+              </button>
+              <button
+                onClick={() => {
+                  setSignKey(true)
+                  setOpenSignModal(true)
+                }}
+              >
+                sign up
+              </button>
             </div>
-            <div className="user">
-              <p className="name">{config.header.user.name}</p>
-              <p>{config.header.user.info}</p>
+          ) : (
+            <div
+              className="username"
+              onClick={() => {
+                setOpenSignModal(true)
+              }}
+            >
+              <div className="avatar">
+                <Image width="45" height="45" src={config.header.user.avatar} alt="avatar" />
+              </div>
+              <div className="user">
+                <p className="name">{config.header.user.name}</p>
+                <p>{config.header.user.info}</p>
+              </div>
             </div>
-          </div>
+          )}
           <div className="drawer" onClick={toggleDrawer}>
             <Image width="45" height="45" src={config.header.drawer.menu} alt="menu" />
           </div>
@@ -169,6 +206,7 @@ const Header = () => {
           <div
             onClick={() => {
               setOpenDrawer(false)
+              setSignKey(true)
               setOpenSignModal(true)
             }}
           >
@@ -181,6 +219,8 @@ const Header = () => {
         setOpen={setOpenSignModal}
         setToastParam={setToastParam}
         setForgotModal={setOpenForgotModal}
+        signKey={signKey}
+        setSignKey={setSignKey}
       />
       <ForgotPassModal
         openForgotModal={openForgotModal}
