@@ -3,7 +3,7 @@ export interface SummaryDataParams {
   logo: string
   total: number
   themeCol: string
-  type?: "reputationCount" | "scammerCount" | "profilesCount"
+  type?: string
 }
 
 export interface MainDataParams {

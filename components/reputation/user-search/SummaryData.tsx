@@ -25,7 +25,7 @@ const SummaryData = ({ data }: Props) => {
     const result = await apiClient.get<any>(apiConfig.GET_COUNT)
     const newData = [] as SummaryDataParams[]
     if (!isEmpty(result)) {
-      data.forEach((item: SummaryDataParams, index: number) => {
+      data.forEach((item: SummaryDataParams) => {
         const tmpItem = _.cloneDeep(item)
         if (item.type === "reputationCount") {
           tmpItem.total = result.reputationCount
