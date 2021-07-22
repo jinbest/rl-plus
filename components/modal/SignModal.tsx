@@ -19,12 +19,20 @@ type Props = {
   setOpen: (val: boolean) => void
   setForgotModal: (val: boolean) => void
   setToastParam: (val: ToastMsgParams) => void
+  signKey: boolean
+  setSignKey: (val: boolean) => void
 }
 
-const SignModal = ({ open, setOpen, setForgotModal, setToastParam }: Props) => {
+const SignModal = ({
+  open,
+  setOpen,
+  setForgotModal,
+  setToastParam,
+  signKey,
+  setSignKey,
+}: Props) => {
   const router = useRouter()
 
-  const [signKey, setSignKey] = useState(true)
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
   const [pass, setPass] = useState("")
