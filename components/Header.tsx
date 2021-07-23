@@ -117,7 +117,7 @@ const Header = () => {
                   setOpenSignModal(true)
                 }}
               >
-                login
+                Sign In
               </button>
               <button
                 onClick={() => {
@@ -125,7 +125,7 @@ const Header = () => {
                   setOpenSignModal(true)
                 }}
               >
-                sign up
+                Register
               </button>
             </div>
           ) : (

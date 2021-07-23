@@ -1073,12 +1073,19 @@
       "scammerBar": "Please provide as much information as possible so we can properly assess the dispute. Be sure to include your trade agreement, proof the transaction happened, and most importantly identifying the accused.",
       "scamInfo": {
         "place": {
-          "title": "Where did the Scam happen?",
+          "title": "Where Did the Scam Happen?",
           "placeholder": "Discord Group (Include Name), Discord DMs, In Game, etc."
+        },
+        "placekind" : {
+          "title": "Which Discord Srever did the scam happen",
+          "placeholder": "Rocket Planet, RL.Plus, etc"
         },
         "kind": {
           "title": "What kind of Scam happened?",
           "placeholder": "Trust Trade, Paint Swap, Middle Man Scam, etc."
+        },
+        "kindContent": {
+          "title": "Explain how the scam occurred"
         },
         "scammerProfile": {
           "title": "Scammer Profile",
@@ -2274,5 +2281,39 @@
         ]
       }
     }
-  }
+  },
+  "whereScamOption": [
+    "Discord Server",
+    "Discord DM's",
+    "Steam User",
+    "Steam Group",
+    "RLGarage",
+    "RL.Plus",
+    "Other"
+  ],
+  "whereScamKindOption": [
+    "Rocket Planet",
+    "Trade Central",
+    "Official Rocket League Server",
+    "Rocket League Garage",
+    "Rocket League Hub",
+    "RL.Supply",
+    "RL.Insider",
+    "RLSimulator",
+    "RL.Plus",
+    "Board of Shadowy Figures",
+    "Other"
+  ],
+  "kindScamOption": [
+    "Trust Trade",
+    "Impersonation of Trusted User",
+    "Fake Middleman",
+    "PayPal Chargeback",
+    "You go first",
+    "Color Swap",
+    "Certification Swap",
+    "Phishing link",
+    "Impersonation of Trusted User",
+    "Other"
+  ]
 }
