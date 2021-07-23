@@ -1,0 +1,19 @@
+.selector_container {
+  position: relative;
+  input {
+    cursor: pointer;
+  }
+  .selector_option {
+    position: absolute;
+    background-color: #0c0c0c;
+    width: 100%;
+    z-index: 1;
+    div {
+      cursor: pointer;
+      padding: 8px 12px;
+    }
+    div:hover {
+      background-color: rgba(16, 16, 16, 0.75);
+    }
+  }
+}

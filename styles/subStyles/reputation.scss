@@ -400,6 +400,13 @@
               display: block;
             }
           }
+          input[type="button"] {
+            cursor: pointer;
+            text-align: center;
+          }
+          textarea {
+            height: 100px;
+          }
           span {
             color: #b50b00;
             font-size: 10px;

@@ -23,4 +23,7 @@ export default class Config {
 
   /* communities */
   static GET_COUNT = `${apiURL}/api/getCount`
+
+  /* report scammer */
+  static REPORT_SCAM = `${apiURL}/api/scammers/report-scam`
 }
