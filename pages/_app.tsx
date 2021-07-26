@@ -3,6 +3,7 @@ import Head from "next/head"
 import type { AppProps } from "next/app"
 import config from "../static/config.json"
 import "../styles/index.scss"
+import AuthWrapper from "../context/authContext"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>{config.headerData.title}</title>
       </Head>
-      <Component {...pageProps} />
+      <AuthWrapper>
+        <Component {...pageProps} />
+      </AuthWrapper>
     </>
   )
 }

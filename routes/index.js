@@ -5,6 +5,7 @@ import RankStats from "../views/rank-stats"
 import Trading from "../views/trading"
 import TermsOfService from "../views/terms-of-service"
 import PrivacyPolicy from "../views/privacy-policy"
+import BotControl from '../views/bot-control'
 
 const pageRoutes = [
   {
@@ -91,6 +92,12 @@ const pageRoutes = [
     component: () => <PrivacyPolicy />,
     visible: false,
   },
+  {
+    path: "/bot-control/:slug",
+    name: "BOT CONTROL",
+    component: () => <BotControl />,
+    visible: false
+  }
 ]
 
 const ReputationTabRouters = [
