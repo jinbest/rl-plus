@@ -420,6 +420,15 @@
           .add-button:hover {
             color: white;
           }
+          .dropdown-button {
+            min-width: fit-content;
+            margin-right: 10px;
+          }
+          .profiles {
+            margin-right: 10px;
+            max-width: 140px;
+            width: 100%;
+          }
         }
       }
       .report-submit-button {

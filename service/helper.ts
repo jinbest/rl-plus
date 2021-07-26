@@ -94,3 +94,7 @@ export function checkDomain(url: string) {
     .replace(/([a-z])?:\/\//, "$1")
     .split("/")[0]
 }
+
+export function getToken() {
+  return localStorage.getItem("token")
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import useOnclickOutside from "react-cool-onclickoutside";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   handleChange: (value: string) => void;
   options: string[];
   label: string;
-  placeholder: string
+  placeholder: ReactNode
 }
 
 
@@ -22,7 +22,6 @@ const Selector = (props: Props) => {
       <label htmlFor="report-scammer-place">{props.label}</label>
       <div
         className="selector"
-        placeholder={props.placeholder}
         onClick={() => setShowOption(!showOption)}
       >
         {

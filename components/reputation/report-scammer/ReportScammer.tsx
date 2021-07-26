@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef, ChangeEvent } from "react"
 import Loading from "../../Loading"
 import Selector from '../../Selector'
 import config from "../../../static/config.json"
@@ -16,6 +16,7 @@ const ReportScammer = () => {
   const whereScamOption = config.whereScamOption;
   const whereScamKindOption = config.whereScamKindOption;
   const kindScamOption = config.kindScamOption
+  const profileOption = config.profileOption
 
   const [place, setPlace] = useState("")
   const [showPlaceKind, setShowPlaceKind] = useState("")
@@ -25,6 +26,8 @@ const ReportScammer = () => {
   const [kindContent, setKindContent] = useState("")
   const [scammerProfile, setScammerProfile] = useState("")
   const [proof, setProof] = useState("")
+  const [profile, setProfile] = useState<string[]>([])
+  const [profileContent, setProfileContent] = useState<string[]>([])
   const [description, setDescription] = useState("")
   const [submitting, setSubmitting] = useState(false)
   const [errPlace, setErrPlace] = useState("")
@@ -35,6 +38,8 @@ const ReportScammer = () => {
   const [toastParam, setToastParam] = useState<ToastMsgParams>({
     msg: "",
   })
+
+  const proofUpload = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setPlacekind("")
@@ -113,6 +118,17 @@ const ReportScammer = () => {
     })
   }
 
+  const handleProofUpload = () => {
+    proofUpload.current && proofUpload.current.click(); 
+  }
+
+  const handleProfileContent = (e: ChangeEvent<HTMLInputElement>) => {
+    setProfileContent({
+      ...profileContent,
+      [e.target.name]: e.target.value
+    })
+  }
+
   const validate = () => {
     let result = true
     if (!place) {
@@ -142,6 +158,20 @@ const ReportScammer = () => {
       clearErr()
     }, 3000)
     return result
+  }
+
+  const handleProfile = (value: string) => {
+    let isExist:boolean = false;
+    profile.forEach(pr => {
+      if(pr === value) isExist = true
+    })
+    if(!isExist) {
+      let newProfile = [...profile, value];
+      setProfile([...newProfile]);
+    } else {
+      let newProfile = profile.filter(pr => pr !== value)
+      setProfile([...newProfile])
+    }
   }
 
   return (
@@ -207,23 +237,42 @@ const ReportScammer = () => {
               </div>
             }
           </div>
-          <div className="report-scammer-child type-1">
-            <label htmlFor="report-scammer-profile">{thisPage.scamInfo.scammerProfile.title}</label><br/>
-            <button
-              id="report-scammer-profile"
-              className="add-button"
-              type="button"  
-            >
-              {thisPage.scamInfo.scammerProfile.placeholder}
-            </button>
+          <div className="report-scammer-child flex-wrap flex type-1">
+            <div className="dropdown-button">
+              <Selector 
+                selectedValue={""} 
+                handleChange={(value: string) => handleProfile(value)}
+                options={profileOption}
+                label={thisPage.scamInfo.scammerProfile.title}
+                placeholder={
+                  <p className="add-button">
+                    {thisPage.scamInfo.scammerProfile.placeholder}
+                  </p>
+                }
+              />
+            </div>
+            {
+              profile.map((profile:any) => (
+                <div className="profiles">
+                  <label>{profile}</label>
+                  <input 
+                    value={profileContent[profile]} 
+                    onChange={(e) => handleProfileContent(e)}
+                  />
+                </div>
+              ))
+            }
+            <div></div>
             {errScammerProfile && <span>{errScammerProfile}</span>}
           </div>
           <div className="report-scammer-child type-1">
             <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label><br />
+            <input type="file" multiple={true} accept="image/*" hidden ref={proofUpload}/>
             <button
               id="report-scammer-profile"
               className="add-button"
-              type="button"  
+              type="button"
+              onClick={handleProofUpload}
             >
               {thisPage.scamInfo.proof.placeholder}
             </button>
