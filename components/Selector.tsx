@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useOnclickOutside from "react-cool-onclickoutside";
 
 type Props = {
   selectedValue: string;
@@ -8,20 +9,29 @@ type Props = {
   placeholder: string
 }
 
+
 const Selector = (props: Props) => {
   const [showOption, setShowOption] = useState(false);
 
+  const ref = useOnclickOutside(() => {
+    setShowOption(false)
+  })
+
   return (
-    <div className="selector_container" >
+    <div className="selector_container">
       <label htmlFor="report-scammer-place">{props.label}</label>
-      <input
-        id="report-scammer-place"
-        value={props.selectedValue}
+      <div
+        className="selector"
         placeholder={props.placeholder}
-        onFocus={() => setShowOption(true)}
-        readOnly={true}
-      />
-      <div className="selector_option">
+        onClick={() => setShowOption(!showOption)}
+      >
+        {
+          props.selectedValue ? 
+          <p>{ props.selectedValue }</p> : 
+          <p className="placeholder">{ props.placeholder }</p> 
+        }
+      </div>
+      <div className="selector_option" ref={ref}>
         {
           showOption && props.options.map((option, key) => (
             <div 

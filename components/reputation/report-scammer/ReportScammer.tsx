@@ -208,27 +208,25 @@ const ReportScammer = () => {
             }
           </div>
           <div className="report-scammer-child type-1">
-            <label htmlFor="report-scammer-profile">{thisPage.scamInfo.scammerProfile.title}</label>
-            <input
+            <label htmlFor="report-scammer-profile">{thisPage.scamInfo.scammerProfile.title}</label><br/>
+            <button
               id="report-scammer-profile"
-              type="button"
-              value={thisPage.scamInfo.scammerProfile.placeholder}
-              onChange={(e) => {
-                setScammerProfile(e.target.value)
-              }}
-            />
+              className="add-button"
+              type="button"  
+            >
+              {thisPage.scamInfo.scammerProfile.placeholder}
+            </button>
             {errScammerProfile && <span>{errScammerProfile}</span>}
           </div>
           <div className="report-scammer-child type-1">
-            <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label>
-            <input
-              id="report-scammer-proof"
-              value={proof}
-              onChange={(e) => {
-                setProof(e.target.value)
-              }}
-              placeholder={thisPage.scamInfo.proof.placeholder}
-            />
+            <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label><br />
+            <button
+              id="report-scammer-profile"
+              className="add-button"
+              type="button"  
+            >
+              {thisPage.scamInfo.proof.placeholder}
+            </button>
             {errProof && <span>{errProof}</span>}
           </div>
           <div className="report-scammer-child type-2">
