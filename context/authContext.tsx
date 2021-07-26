@@ -10,8 +10,12 @@ type authcontextType = {
 
 const authContextDefalutVaule : authcontextType = {
   user: false,
-  login: () => {},
-  logout: () => {}
+  login: () => {
+    // EMPTY
+  },
+  logout: () => {
+    // EMPTY
+  }
 }
 
 const AuthContext = createContext<authcontextType>(authContextDefalutVaule);
@@ -25,12 +29,12 @@ export const useAuth = () => {
 }
 
 const AuthWrapper = ({ children }: Props) => {
-  const [user, setUser] = useState<boolean>(false);
+  const [user, setUser] = useState(false);
   const login = ():void => {
-
+    // EMPTY
   } 
   const logout = ():void => {
-
+    // EMPTY
   }
 
   useEffect(() => {

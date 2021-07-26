@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ChangeEvent } from "react"
 import Loading from "../../Loading"
 import Selector from '../../Selector'
 import config from "../../../static/config.json"
-import _, { result } from "lodash"
+import _ from "lodash"
 import ApiClient from "../../../service/api-clients"
 import apiConfig from "../../../config/config"
 import Toast from "../../../components/toast/Toast"
@@ -62,7 +62,7 @@ const ReportScammer = () => {
     setSubmitting(true)
     let msg = "Successed", isFailed = false
     try {
-      const result = await apiClient.post<any>(apiConfig.REPORT_SCAM, {
+      await apiClient.post<any>(apiConfig.REPORT_SCAM, {
         where_scam_occurred: place,
         community: placekind,
         type_of_scam: kind,
@@ -161,15 +161,15 @@ const ReportScammer = () => {
   }
 
   const handleProfile = (value: string) => {
-    let isExist:boolean = false;
+    let isExist = false;
     profile.forEach(pr => {
       if(pr === value) isExist = true
     })
     if(!isExist) {
-      let newProfile = [...profile, value];
+      const newProfile = [...profile, value];
       setProfile([...newProfile]);
     } else {
-      let newProfile = profile.filter(pr => pr !== value)
+      const newProfile = profile.filter(pr => pr !== value)
       setProfile([...newProfile])
     }
   }
@@ -252,8 +252,8 @@ const ReportScammer = () => {
               />
             </div>
             {
-              profile.map((profile:any) => (
-                <div className="profiles">
+              profile.map((profile:any, key: number) => (
+                <div className="profiles" key={key}>
                   <label>{profile}</label>
                   <input 
                     value={profileContent[profile]} 
