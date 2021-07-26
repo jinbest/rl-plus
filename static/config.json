@@ -2315,5 +2315,15 @@
     "Phishing link",
     "Impersonation of Trusted User",
     "Other"
+  ],
+  "profileOption": [
+    "Discord ID",
+    "Discord + Descrime",
+    "StreamID64",
+    "FS4",
+    "XBOX",
+    "Email",
+    "Reddit",
+    "Other Alias"
   ]
 }

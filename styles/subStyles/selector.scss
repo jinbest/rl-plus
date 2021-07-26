@@ -1,5 +1,19 @@
 .selector_container {
   position: relative;
+  .selector {
+    display: flex;
+    height: 40px;
+    padding: 10px 10px 10px 15px;
+    background: rgba(19, 19, 19, 0.75);
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  .placeholder {
+    color: #9e9e9e !important;
+  }
+
   input {
     cursor: pointer;
   }
@@ -8,8 +22,11 @@
     background-color: #0c0c0c;
     width: 100%;
     z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
     div {
       cursor: pointer;
+      font-size: 12px;
       padding: 8px 12px;
     }
     div:hover {
