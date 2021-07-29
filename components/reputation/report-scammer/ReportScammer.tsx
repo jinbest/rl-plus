@@ -24,7 +24,6 @@ const ReportScammer = () => {
   const [kind, setKind] = useState("")
   const [showkindContent, setShowKindContent] = useState("")
   const [kindContent, setKindContent] = useState("")
-  const [scammerProfile, setScammerProfile] = useState("")
   const [proof, setProof] = useState<any[]>([])
   const [profile, setProfile] = useState<string[]>([])
   const [profileContent, setProfileContent] = useState<string[]>([])
@@ -95,7 +94,6 @@ const ReportScammer = () => {
   const init = () => {
     setPlace("")
     setKind("")
-    setScammerProfile("")
     setProof([])
     setDescription("")
   }

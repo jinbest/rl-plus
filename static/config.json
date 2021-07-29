@@ -2330,5 +2330,34 @@
     "Email",
     "Reddit",
     "Other Alias"
-  ]
+  ],
+  "botControl": {
+    "generalSetting": {
+      "title": "General Setting RLTracker.pro",
+      "content": [
+        "Automatic Daily Scam Check",
+        "Automatic Ban on Scam Check"
+      ]
+    },
+    "trade": {
+      "title": "Trade Channel RLTracker.pro"
+    },
+    "commandSetting": {
+      "title": "Command Setting RLTracker.pro",
+      "content": [
+        "scam_check",
+        "prices",
+        "rep",
+        "report",
+        "verify",
+        "me",
+        "stats",
+        "rankup",
+        "friend_check",
+        "set",
+        "invite",
+        "info"
+      ]
+    }
+  }
 }
