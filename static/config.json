@@ -1080,6 +1080,10 @@
           "title": "Which Discord Srever did the scam happen",
           "placeholder": "Rocket Planet, RL.Plus, etc"
         },
+        "placekindOther": {
+          "title" : "Scam location",
+          "placeholder": ""
+        },
         "kind": {
           "title": "What kind of Scam happened?",
           "placeholder": "Trust Trade, Paint Swap, Middle Man Scam, etc."
@@ -2318,12 +2322,42 @@
   ],
   "profileOption": [
     "Discord ID",
-    "Discord + Descrime",
-    "StreamID64",
-    "FS4",
-    "XBOX",
+    "Discord Name + Discriminator",
+    "Steam64",
+    "Steam Link",
+    "Playstation",
+    "Xbox",
     "Email",
     "Reddit",
     "Other Alias"
-  ]
+  ],
+  "botControl": {
+    "generalSetting": {
+      "title": "General Setting RLTracker.pro",
+      "content": [
+        "Automatic Daily Scam Check",
+        "Automatic Ban on Scam Check"
+      ]
+    },
+    "trade": {
+      "title": "Trade Channel RLTracker.pro"
+    },
+    "commandSetting": {
+      "title": "Command Setting RLTracker.pro",
+      "content": [
+        "scam_check",
+        "prices",
+        "rep",
+        "report",
+        "verify",
+        "me",
+        "stats",
+        "rankup",
+        "friend_check",
+        "set",
+        "invite",
+        "info"
+      ]
+    }
+  }
 }
