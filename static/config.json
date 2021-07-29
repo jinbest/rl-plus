@@ -1080,6 +1080,10 @@
           "title": "Which Discord Srever did the scam happen",
           "placeholder": "Rocket Planet, RL.Plus, etc"
         },
+        "placekindOther": {
+          "title" : "Scam location",
+          "placeholder": ""
+        },
         "kind": {
           "title": "What kind of Scam happened?",
           "placeholder": "Trust Trade, Paint Swap, Middle Man Scam, etc."
@@ -2318,10 +2322,11 @@
   ],
   "profileOption": [
     "Discord ID",
-    "Discord + Descrime",
-    "StreamID64",
-    "FS4",
-    "XBOX",
+    "Discord Name + Discriminator",
+    "Steam64",
+    "Steam Link",
+    "Playstation",
+    "Xbox",
     "Email",
     "Reddit",
     "Other Alias"

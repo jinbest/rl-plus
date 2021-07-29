@@ -25,7 +25,7 @@ const ReportScammer = () => {
   const [showkindContent, setShowKindContent] = useState("")
   const [kindContent, setKindContent] = useState("")
   const [scammerProfile, setScammerProfile] = useState("")
-  const [proof, setProof] = useState("")
+  const [proof, setProof] = useState<any[]>([])
   const [profile, setProfile] = useState<string[]>([])
   const [profileContent, setProfileContent] = useState<string[]>([])
   const [description, setDescription] = useState("")
@@ -58,7 +58,6 @@ const ReportScammer = () => {
       return
     }
 
-    console.log("submit", place, kind, scammerProfile, proof, description)
     setSubmitting(true)
     let msg = "Successed", isFailed = false
     try {
@@ -97,7 +96,7 @@ const ReportScammer = () => {
     setPlace("")
     setKind("")
     setScammerProfile("")
-    setProof("")
+    setProof([])
     setDescription("")
   }
 
@@ -174,6 +173,10 @@ const ReportScammer = () => {
     }
   }
 
+  const removeProof = (file: File) => {
+    setProof([...proof.filter(pf => pf.name !== file.name)])
+  }
+
   return (
     <div className="report-scammer-container">
       <div className="scammer-bar">
@@ -208,11 +211,14 @@ const ReportScammer = () => {
               }
               {
                 showPlaceKind === "INPUT" &&
-                <input
-                  id="report-scammer-kind"
-                  value={placekind}
-                  onChange={(e) => setPlacekind(e.target.value)}
-                />
+                <>
+                  <label>{thisPage.scamInfo.placekindOther.title}</label>
+                  <input
+                    id="report-scammer-kind"
+                    value={placekind}
+                    onChange={(e) => setPlacekind(e.target.value)}
+                  />
+                </>
               }
             </div>
           </div>
@@ -254,7 +260,7 @@ const ReportScammer = () => {
             {
               profile.map((profile:any, key: number) => (
                 <div className="profiles" key={key}>
-                  <label>{profile}</label>
+                  <label>{profile}</label><br/>
                   <input 
                     value={profileContent[profile]} 
                     onChange={(e) => handleProfileContent(e)}
@@ -267,15 +273,34 @@ const ReportScammer = () => {
           </div>
           <div className="report-scammer-child type-1">
             <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label><br />
-            <input type="file" multiple={true} accept="image/*" hidden ref={proofUpload}/>
-            <button
-              id="report-scammer-profile"
-              className="add-button"
-              type="button"
-              onClick={handleProofUpload}
-            >
-              {thisPage.scamInfo.proof.placeholder}
-            </button>
+            <div className="flex-wrap flex">
+              <input 
+                type="file" 
+                onChange={(e:any) => setProof([...proof, ...e.target.files])} 
+                multiple={true} 
+                accept="image/*" 
+                hidden 
+                ref={proofUpload}
+              />
+              <button
+                id="report-scammer-profile"
+                className="add-button"
+                type="button"
+                onClick={handleProofUpload}
+              >
+                {thisPage.scamInfo.proof.placeholder}
+              </button>
+              {
+                proof.map((pf:any, key: number) => (
+                  <div className="proofs flex" key={key}>
+                    <p className="">{pf.name}</p>
+                    <div className="close_button" onClick={() => removeProof(pf)}>
+                      <img src="./img/reputation/close.svg"/>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
             {errProof && <span>{errProof}</span>}
           </div>
           <div className="report-scammer-child type-2">
