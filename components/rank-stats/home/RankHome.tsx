@@ -7,6 +7,7 @@ import _ from "lodash"
 import RankHomeTracker from "./RankHomeTrackerCard"
 import Link from "next/link"
 import Image from "next/image"
+import useOnclickOutside from "react-cool-onclickoutside"
 
 const RankHome = () => {
   const thisData = _.cloneDeep(config.rankStats.home)
@@ -16,6 +17,10 @@ const RankHome = () => {
   const [optionVisible, setOptionVisible] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const [trackerVisible, setTrackerVisible] = useState(false)
+
+  const ref = useOnclickOutside(() => {
+    setOptionVisible(false)
+  })
 
   const handleSearch = (e: any) => {
     e.preventDefault()
@@ -29,7 +34,7 @@ const RankHome = () => {
           <h1 className="rank-title">RANK SEARCH</h1>
           <div className="rank-card-1">
             <div className="rank-search-select-form">
-              <div className="rank-selector-container">
+              <div className="rank-selector-container" ref={ref}>
                 <div
                   className="rank-search-selector"
                   onClick={() => {

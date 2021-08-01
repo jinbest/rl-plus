@@ -229,7 +229,7 @@
 /*  Customize react-drawer  */
 .react-drawer-drawer {
   z-index: 100;
-  background: #ffffff !important;
+  background: #000000 !important;
   width: 250px !important;
   animation-duration: 0.5s !important;
 }
@@ -259,7 +259,8 @@
     font-weight: 800;
     font-size: 14px;
     line-height: 20px;
-    color: #4e4e4e;
+    // color: #9e9e9e;
+    color: #ffffff;
     text-align: left;
     padding: 10px 0;
     border-top: 1px solid rgba($color: #9e9e9e, $alpha: 0.2);

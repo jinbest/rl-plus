@@ -1,6 +1,7 @@
 import React from "react"
 import { rankSelect } from "../../../static/mock-data"
 import Image from "next/image"
+import useOnclickOutside from "react-cool-onclickoutside"
 
 type Props = {
   search: string
@@ -23,12 +24,16 @@ const RankSearchComponent = ({
   handleSearch,
   title,
 }: Props) => {
+  const ref = useOnclickOutside(() => {
+    setOptionVisible(false)
+  })
+
   return (
     <div className="rank-search-container-1">
       <h1 className="rank-search-title">{title || "RANK SEARCH"}</h1>
       <div className="rank-search-card-container">
         <div className="rank-search-select-form">
-          <div className="rank-selector-container">
+          <div className="rank-selector-container" ref={ref}>
             <div
               className="rank-search-selector"
               onClick={() => {

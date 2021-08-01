@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Image from "next/image"
 import { rankSelect } from "../static/mock-data"
+import useOnclickOutside from "react-cool-onclickoutside"
 
 type Props = {
   value?: string
@@ -14,6 +15,10 @@ const CustomSearchBar = (props: Props) => {
   const [optionVisible, setOptionVisible] = useState(false)
   const [selected, setSelected] = useState(0)
 
+  const ref = useOnclickOutside(() => {
+    setOptionVisible(false)
+  })
+
   return (
     <form
       className="custom-search-bar"
@@ -23,7 +28,7 @@ const CustomSearchBar = (props: Props) => {
       }}
     >
       {props.dropdown && (
-        <div className="rank-selector-container">
+        <div className="rank-selector-container" ref={ref}>
           <div
             className="rank-search-selector"
             onClick={() => {

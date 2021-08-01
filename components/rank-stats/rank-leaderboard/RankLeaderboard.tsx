@@ -14,6 +14,7 @@ import {
 import config from "../../../static/config.json"
 import _, { isEmpty } from "lodash"
 import Image from "next/image"
+import useOnclickOutside from "react-cool-onclickoutside"
 
 const RankLeaderBoard = () => {
   const thisPage = _.cloneDeep(config.rankStats.rankLeaderBoard) as RankLeaderBoardParam[]
@@ -31,6 +32,10 @@ const RankLeaderBoard = () => {
   )
   const [rankOption, setRankOption] = useState<RankSelectKeyParams | "">("")
   const [tableData, setTableData] = useState<RankLeaderBoardParam>({} as RankLeaderBoardParam)
+
+  const ref = useOnclickOutside(() => {
+    setSelectorView(false)
+  })
 
   useEffect(() => {
     setSelectorView(false)
@@ -114,7 +119,7 @@ const RankLeaderBoard = () => {
         </div>
         <div className="filter2-container">
           <div className="flex justify-between flex-wrap">
-            <div className="filter1-selector" style={{ margin: "5px" }}>
+            <div className="filter1-selector" style={{ margin: "5px" }} ref={ref}>
               <p>Stats</p>
               <div
                 className="filter1-selector-button"
