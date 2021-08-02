@@ -381,8 +381,7 @@
           }
           input,
           textarea,
-          button 
-          {
+          button {
             height: auto;
             padding: 10px 10px 10px 15px;
             background: rgba(19, 19, 19, 0.75);
@@ -415,6 +414,7 @@
             padding-left: 20px;
             padding-right: 20px;
             margin-right: 10px;
+            font-size: 14px;
             cursor: pointer;
             color: #9e9e9e;
           }

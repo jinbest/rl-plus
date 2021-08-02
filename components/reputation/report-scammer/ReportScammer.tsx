@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, ChangeEvent } from "react"
 import Loading from "../../Loading"
-import Selector from '../../Selector'
+import Selector from "../../Selector"
 import config from "../../../static/config.json"
 import _ from "lodash"
 import ApiClient from "../../../service/api-clients"
@@ -9,12 +9,11 @@ import Toast from "../../../components/toast/Toast"
 import { ToastMsgParams } from "../../../components/toast/toast-msg-params"
 
 const ReportScammer = () => {
-
   const apiClient = ApiClient.getInstance()
 
   const thisPage = _.cloneDeep(config.reputation.reportScammer)
-  const whereScamOption = config.whereScamOption;
-  const whereScamKindOption = config.whereScamKindOption;
+  const whereScamOption = config.whereScamOption
+  const whereScamKindOption = config.whereScamKindOption
   const kindScamOption = config.kindScamOption
   const profileOption = config.profileOption
 
@@ -38,17 +37,17 @@ const ReportScammer = () => {
     msg: "",
   })
 
-  const proofUpload = useRef<HTMLInputElement>(null);
+  const proofUpload = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     setPlacekind("")
-    if(place === "Discord Server") return setShowPlaceKind("SELECTOR")
-    if(place === "Other") return setShowPlaceKind("INPUT")
+    if (place === "Discord Server") return setShowPlaceKind("SELECTOR")
+    if (place === "Other") return setShowPlaceKind("INPUT")
     return setShowPlaceKind("")
   }, [place])
 
   useEffect(() => {
-    if(kind === 'Other') return setShowKindContent("INPUT")
+    if (kind === "Other") return setShowKindContent("INPUT")
     return setShowKindContent("")
   }, [kind])
 
@@ -58,7 +57,8 @@ const ReportScammer = () => {
     }
 
     setSubmitting(true)
-    let msg = "Successed", isFailed = false
+    let msg = "Successed",
+      isFailed = false
     try {
       await apiClient.post<any>(apiConfig.REPORT_SCAM, {
         where_scam_occurred: place,
@@ -67,16 +67,17 @@ const ReportScammer = () => {
         scammer_profiles: [
           {
             option: "Discord",
-            userId: "xxx#0001"
+            userId: "xxx#0001",
           },
         ],
-        "proof": [{
-          url: proof
-        }]
+        proof: [
+          {
+            url: proof,
+          },
+        ],
       })
       init()
       setSubmitting(false)
-
     } catch {
       msg = "Something went wrong"
       isFailed = true
@@ -85,10 +86,9 @@ const ReportScammer = () => {
       setToastParam({
         msg,
         isSuccess: !isFailed,
-        isError: isFailed
+        isError: isFailed,
       })
     }
-
   }
 
   const init = () => {
@@ -116,13 +116,13 @@ const ReportScammer = () => {
   }
 
   const handleProofUpload = () => {
-    proofUpload.current && proofUpload.current.click(); 
+    proofUpload.current && proofUpload.current.click()
   }
 
   const handleProfileContent = (e: ChangeEvent<HTMLInputElement>) => {
     setProfileContent({
       ...profileContent,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -158,21 +158,21 @@ const ReportScammer = () => {
   }
 
   const handleProfile = (value: string) => {
-    let isExist = false;
-    profile.forEach(pr => {
-      if(pr === value) isExist = true
+    let isExist = false
+    profile.forEach((pr) => {
+      if (pr === value) isExist = true
     })
-    if(!isExist) {
-      const newProfile = [...profile, value];
-      setProfile([...newProfile]);
+    if (!isExist) {
+      const newProfile = [...profile, value]
+      setProfile([...newProfile])
     } else {
-      const newProfile = profile.filter(pr => pr !== value)
+      const newProfile = profile.filter((pr) => pr !== value)
       setProfile([...newProfile])
     }
   }
 
   const removeProof = (file: File) => {
-    setProof([...proof.filter(pf => pf.name !== file.name)])
+    setProof([...proof.filter((pf) => pf.name !== file.name)])
   }
 
   return (
@@ -188,8 +188,8 @@ const ReportScammer = () => {
       >
         <div className="report-scammer-submit-form">
           <div className="report-scammer-child type-1">
-            <Selector 
-              selectedValue={place} 
+            <Selector
+              selectedValue={place}
               handleChange={(value: string) => setPlace(value)}
               options={whereScamOption}
               label={thisPage.scamInfo.place.title}
@@ -197,18 +197,16 @@ const ReportScammer = () => {
             />
             {errPlace && <span>{errPlace}</span>}
             <div className="mt-1">
-              {
-                showPlaceKind === "SELECTOR" &&
-                  <Selector 
-                    selectedValue={placekind} 
-                    handleChange={(value: string) => setPlacekind(value)}
-                    options={whereScamKindOption}
-                    label={thisPage.scamInfo.placekind.title}
-                    placeholder={thisPage.scamInfo.placekind.placeholder}
-                  />
-              }
-              {
-                showPlaceKind === "INPUT" &&
+              {showPlaceKind === "SELECTOR" && (
+                <Selector
+                  selectedValue={placekind}
+                  handleChange={(value: string) => setPlacekind(value)}
+                  options={whereScamKindOption}
+                  label={thisPage.scamInfo.placekind.title}
+                  placeholder={thisPage.scamInfo.placekind.placeholder}
+                />
+              )}
+              {showPlaceKind === "INPUT" && (
                 <>
                   <label>{thisPage.scamInfo.placekindOther.title}</label>
                   <input
@@ -217,67 +215,63 @@ const ReportScammer = () => {
                     onChange={(e) => setPlacekind(e.target.value)}
                   />
                 </>
-              }
+              )}
             </div>
           </div>
           <div className="report-scammer-child type-1">
-            <Selector 
-              selectedValue={kind} 
+            <Selector
+              selectedValue={kind}
               handleChange={(value: string) => setKind(value)}
               options={kindScamOption}
               label={thisPage.scamInfo.kind.title}
               placeholder={thisPage.scamInfo.kind.placeholder}
             />
             {errKind && <span>{errKind}</span>}
-            {
-              showkindContent === "INPUT" && 
+            {showkindContent === "INPUT" && (
               <div className="mt-1">
-                <label htmlFor="report-scammer-profile">{thisPage.scamInfo.kindContent.title}</label>
+                <label htmlFor="report-scammer-profile">
+                  {thisPage.scamInfo.kindContent.title}
+                </label>
                 <input
                   id="report-scammer-kind"
                   value={kindContent}
                   onChange={(e) => setKindContent(e.target.value)}
                 />
               </div>
-            }
+            )}
           </div>
           <div className="report-scammer-child flex-wrap flex type-1">
             <div className="dropdown-button">
-              <Selector 
-                selectedValue={""} 
+              <Selector
+                selectedValue={""}
                 handleChange={(value: string) => handleProfile(value)}
                 options={profileOption}
                 label={thisPage.scamInfo.scammerProfile.title}
                 placeholder={
-                  <p className="add-button">
-                    {thisPage.scamInfo.scammerProfile.placeholder}
-                  </p>
+                  <span className="add-button">{thisPage.scamInfo.scammerProfile.placeholder}</span>
                 }
               />
             </div>
-            {
-              profile.map((profile:any, key: number) => (
-                <div className="profiles" key={key}>
-                  <label>{profile}</label><br/>
-                  <input 
-                    value={profileContent[profile]} 
-                    onChange={(e) => handleProfileContent(e)}
-                  />
-                </div>
-              ))
-            }
+            {profile.map((profile: any, key: number) => (
+              <div className="profiles" key={key}>
+                <label>{profile}</label>
+                <br />
+                <input value={profileContent[profile]} onChange={(e) => handleProfileContent(e)} />
+              </div>
+            ))}
             <div></div>
             {errScammerProfile && <span>{errScammerProfile}</span>}
           </div>
           <div className="report-scammer-child type-1">
-            <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label><br />
+            <label htmlFor="report-scammer-proof">{thisPage.scamInfo.proof.title}</label>
+            <br />
             <div className="flex-wrap flex">
-              <input 
-                type="file" 
-                onChange={(e:any) => setProof([...proof, ...e.target.files])} 
-                multiple={true} 
-                accept="image/*" 
-                hidden 
+              <input
+                type="file"
+                onChange={(e: any) => setProof([...proof, ...e.target.files])}
+                multiple={true}
+                accept="image/*"
+                hidden
                 ref={proofUpload}
               />
               <button
@@ -288,16 +282,14 @@ const ReportScammer = () => {
               >
                 {thisPage.scamInfo.proof.placeholder}
               </button>
-              {
-                proof.map((pf:any, key: number) => (
-                  <div className="proofs flex" key={key}>
-                    <p className="">{pf.name}</p>
-                    <div className="close_button" onClick={() => removeProof(pf)}>
-                      <img src="./img/reputation/close.svg"/>
-                    </div>
+              {proof.map((pf: any, key: number) => (
+                <div className="proofs flex" key={key}>
+                  <p className="">{pf.name}</p>
+                  <div className="close_button" onClick={() => removeProof(pf)}>
+                    <img src="./img/reputation/close.svg" />
                   </div>
-                ))
-              }
+                </div>
+              ))}
             </div>
             {errProof && <span>{errProof}</span>}
           </div>

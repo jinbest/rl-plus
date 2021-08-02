@@ -2,15 +2,15 @@
   font-weight: 600;
   padding-bottom: 30px;
   .border-yellow {
-    border-bottom: 2px solid #FAC800;
+    border-bottom: 2px solid #fac800;
   }
   .border-gray {
-    border-bottom: 2px solid #3E3E3E;
+    border-bottom: 2px solid #3e3e3e;
   }
   .ad {
     max-width: 728px;
     width: 100%;
-    background: #C4C4C4;
+    background: #c4c4c4;
     height: 90px;
     margin: auto;
     margin-top: 26px;
@@ -23,6 +23,15 @@
     width: 100%;
     border-radius: 8px;
   }
+  .general-setting-rl-tracker {
+    padding: 13px 48px;
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 300px;
+    }
+  }
   .content-item {
     padding: 13px 48px;
     .channels-wrapper {
@@ -34,7 +43,8 @@
         display: block !important;
         .item-piece {
           margin-top: 10px;
-        }      }
+        }
+      }
     }
     .allowed {
       max-width: 400px;
@@ -55,9 +65,6 @@
     padding: 4px 8px;
     margin-right: 12px;
     min-width: fit-content;
-    .close_button:hover {
-      background: #ffffff22;
-    }
     .close_button {
       width: 20px;
       display: flex;
@@ -69,6 +76,60 @@
         width: 10px;
         margin-left: 5px;
       }
+      &:hover {
+        background: #ffffff22;
+      }
+    }
+  }
+  .icon_plus_button {
+    padding: 4px;
+    text-align: center;
+    i {
+      margin-left: 3px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+  .ui.checkbox .box:before,
+  .ui.checkbox label:before,
+  .ui.checkbox input:checked ~ .box:before,
+  .ui.checkbox input:checked ~ label:before {
+    background: #1c1c1c;
+    border: none;
+  }
+  .ui.checkbox input:checked ~ .box:after,
+  .ui.checkbox input:checked ~ label:after,
+  .ui.checkbox input:focus ~ .box:before,
+  .ui.checkbox input:focus ~ label:before {
+    color: #c4c4c4;
+    background: #1c1c1c;
+    border-color: none;
+  }
+}
+
+.bot-control-add-select {
+  border-radius: 8px;
+  background: #1c1c1c;
+  margin-top: 5px;
+  padding: 4px 8px;
+  margin-right: 12px;
+  min-width: fit-content;
+  position: relative;
+  width: fit-content;
+  height: 28px;
+  .ui.dropdown > .text {
+    color: #ffffff70;
+  }
+  .ui.dropdown .menu {
+    background: #1c1c1c;
+    margin-left: -5px;
+    margin-top: 5px;
+  }
+  .ui.dropdown .menu > .item {
+    color: white;
+    padding: 5px 8px !important;
+    &:hover {
+      opacity: 0.7;
     }
   }
 }
