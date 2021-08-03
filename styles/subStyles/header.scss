@@ -28,8 +28,10 @@
   .nav-link {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 550px;
+    margin-left: 20px;
+    margin-right: auto;
+    // justify-content: space-between;
+    // width: 550px;
     a {
       font-family: "Montserrat Bold";
       font-style: normal;
@@ -39,17 +41,18 @@
       &:hover {
         opacity: 0.7;
       }
+      margin: 0 10px;
     }
-    @media (max-width: 1500px) {
-      width: 500px;
-    }
+    // @media (max-width: 1500px) {
+    //   width: 500px;
+    // }
     @media (max-width: 1300px) {
-      width: 450px;
+      // width: 450px;
       a {
         font-size: 13px;
       }
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 768px) {
       display: none;
     }
   }
@@ -217,7 +220,7 @@
     &:hover {
       opacity: 0.7;
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 768px) {
       display: flex;
       align-items: center;
       margin-left: 15px;

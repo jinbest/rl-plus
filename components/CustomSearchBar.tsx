@@ -3,6 +3,14 @@ import Image from "next/image"
 import { rankSelect } from "../static/mock-data"
 import useOnclickOutside from "react-cool-onclickoutside"
 
+const PLACEHOLDERS = [
+  "Epic Games Username or Epic Account ID",
+  "Steam64 or Steam Link",
+  "Xbox Username",
+  "Playstation Username",
+  "Nintendo Switch Username",
+]
+
 type Props = {
   value?: string
   placeholder?: string
@@ -14,6 +22,7 @@ type Props = {
 const CustomSearchBar = (props: Props) => {
   const [optionVisible, setOptionVisible] = useState(false)
   const [selected, setSelected] = useState(0)
+  const [selectedPlaceHolder, setSelectedPlaceHolder] = useState(PLACEHOLDERS[0])
 
   const ref = useOnclickOutside(() => {
     setOptionVisible(false)
@@ -58,6 +67,7 @@ const CustomSearchBar = (props: Props) => {
                     key={index}
                     onClick={() => {
                       setSelected(index)
+                      setSelectedPlaceHolder(PLACEHOLDERS[index])
                       setOptionVisible(false)
                     }}
                   >
@@ -72,7 +82,9 @@ const CustomSearchBar = (props: Props) => {
       )}
 
       <input
-        placeholder={props.placeholder ?? "Search by ID"}
+        placeholder={
+          selectedPlaceHolder ? selectedPlaceHolder : props.placeholder ?? "Search by ID"
+        }
         value={props.value ?? ""}
         onChange={props.handleChange}
       />

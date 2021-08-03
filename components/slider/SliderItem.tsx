@@ -25,12 +25,12 @@ const SliderItem = ({ data }: Props) => {
           })}
         </div>
       </div>
-      <div className="slider-bottom">
+      {/* <div className="slider-bottom">
         <img src={data.logo} alt="slider-logo" className="slider-logo" />
         <button className="download">
           <span>DOWNLOAD NOW</span>
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }

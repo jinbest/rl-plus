@@ -25,48 +25,28 @@
         "logo": "/img/home/slider1/slider-logo.png",
         "btmText": "New Artwork Needed",
         "content": {
-          "left": ["VERSION 0.1", "PATCH NOTES"],
-          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+          "left": [],
+          "right": ["RL.PLUS PREMIUM", "Comming Soon"]
         }
       },
       {
         "title": "RL.PLUS UPDATE",
-        "version": "Version 0.2",
+        "version": "Version 0.1",
         "bgImg": "/img/home/slider1/slider-bg.png",
         "logo": "/img/home/slider1/slider-logo.png",
         "content": {
-          "left": ["VERSION 0.1", "PATCH NOTES"],
-          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+          "left": [],
+          "right": ["RL.PLUS PREMIUM", "Comming Soon"]
         }
       },
       {
         "title": "RL.PLUS UPDATE",
-        "version": "Version 0.3",
+        "version": "Version 0.1",
         "bgImg": "/img/home/slider1/slider-bg.png",
         "logo": "/img/home/slider1/slider-logo.png",
         "content": {
-          "left": ["VERSION 0.1", "PATCH NOTES"],
-          "right": ["RL.PLUS PREMIUM", "FEATURES"]
-        }
-      },
-      {
-        "title": "RL.PLUS UPDATE",
-        "version": "Version 0.4",
-        "bgImg": "/img/home/slider1/slider-bg.png",
-        "logo": "/img/home/slider1/slider-logo.png",
-        "content": {
-          "left": ["VERSION 0.1", "PATCH NOTES"],
-          "right": ["RL.PLUS PREMIUM", "FEATURES"]
-        }
-      },
-      {
-        "title": "RL.PLUS UPDATE",
-        "version": "Version 0.5",
-        "bgImg": "/img/home/slider1/slider-bg.png",
-        "logo": "/img/home/slider1/slider-logo.png",
-        "content": {
-          "left": ["VERSION 0.1", "PATCH NOTES"],
-          "right": ["RL.PLUS PREMIUM", "FEATURES"]
+          "left": [],
+          "right": ["RL.PLUS PREMIUM", "Comming Soon"]
         }
       }
     ]
@@ -105,10 +85,10 @@
           {
             "name": "RL.Plus",
             "logo": "/img/discord-bot/logo.png",
-            "title": "Discord invite link",
+            "title": "https://discord.gg/HuvyHCF",
             "link": {
-              "name": "https://discord.gg/rlt",
-              "href": "https://discord.gg/rlt"
+              "name": "https://discord.gg/HuvyHCF",
+              "href": "https://discord.gg/HuvyHCF"
             },
             "content": "CLICK INVITE TO ADD THIS BOT TO A SERVER.",
             "child": {
@@ -121,14 +101,14 @@
       },
       {
         "title": {
-          "label1": "# !auth",
-          "label2": "# Controll which Commands are allowed and where they are allowed!"
+          "label1": "# /auth",
+          "label2": "# Control which Commands are allowed and where they are allowed!"
         },
         "order": 2,
         "key": "auth",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "subtitle": ["!auth"]
           },
@@ -141,15 +121,14 @@
                   "title": "Requirements",
                   "contents": [
                     "You need to have the Admin Permission on the Server",
-                    "The bot needs to be able to read in that Channel",
-                    "Best case: beeing able to delete messages"
+                    "The bot needs to be able to read in that Channel"
                   ]
                 },
                 {
                   "title": "What happens then?",
                   "contents": [
                     "I'll sync all your Channels with the RLTracker backend",
-                    "Next i'll send you a link to your personal Control Panel",
+                    "Next I will send you a link to your personal Control Panel",
                     "Just set everything up as you need it!"
                   ]
                 }
@@ -161,14 +140,14 @@
       },
       {
         "title": {
-          "label1": "# !price | !set",
+          "label1": "# /price | /set",
           "label2": "# Price Commands"
         },
         "order": 3,
         "key": "price",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "subtitle": ["!price tw zomba", "!price white zomba", "!price titanium white zombas"]
           },
@@ -197,7 +176,7 @@
             }
           },
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "subtitle": ["!set zomba", "!price zomba set", "!price all zomba"]
           },
@@ -278,20 +257,20 @@
       },
       {
         "title": {
-          "label1": "# !rep | +rep | -rep",
+          "label1": "# /rep | +rep | -rep",
           "label2": "# Reputation Commands"
         },
         "order": 4,
         "key": "rep",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "contentWithLink": [
               {
-                "text": "!rep",
+                "text": "/check_rep",
                 "link": {
-                  "title": "@Yixn",
+                  "title": "@Equinox",
                   "link": "https://rltracker.pro/discord#"
                 }
               }
@@ -301,7 +280,7 @@
             "name": "RL.Plus",
             "logo": "/img/discord-bot/logo.png",
             "repCard": {
-              "title": "Yixn#0001",
+              "title": "Equinox#0001",
               "overview": {
                 "positive": 35,
                 "negative": 0
@@ -332,13 +311,13 @@
             }
           },
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "contentWithLink": [
               {
-                "text": "+rep",
+                "text": "/add_rep",
                 "link": {
-                  "title": "@RLTrader",
+                  "title": "@RLPlus",
                   "link": "https://rltracker.pro/discord#"
                 }
               },
@@ -357,7 +336,7 @@
                 {
                   "text": "",
                   "link": {
-                    "title": "@Yixn",
+                    "title": "@Equinox",
                     "link": "https://rltracker.pro/discord#"
                   }
                 },
@@ -402,16 +381,16 @@
       },
       {
         "title": {
-          "label1": "# !stats | !rankup",
+          "label1": "# /stats | /rankup",
           "label2": "# Statistics"
         },
         "order": 5,
         "key": "stats",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
-            "subtitle": ["!stats steam yixn", "(!stats {steam|ps4|xbox} {userID})"]
+            "subtitle": ["!stats steam Equinox", "(!stats {steam|ps4|xbox} {userID})"]
           },
           {
             "name": "RL.Plus",
@@ -440,7 +419,7 @@
             }
           },
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "subtitle": [
               "!rankup steam nielzschwein 2vs2",
@@ -474,8 +453,8 @@
       },
       {
         "title": {
-          "label1": "# !me",
-          "label2": "# !me Command and connections"
+          "label1": "# /me",
+          "label2": "# /me Command and connections"
         },
         "order": 6,
         "key": "me",
@@ -546,20 +525,20 @@
       },
       {
         "title": {
-          "label1": "# !verify | !friend_check",
+          "label1": "# /verify | /friend_check",
           "label2": "# Verify and Friend Check"
         },
         "order": 7,
         "key": "verify",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "contentWithLink": [
               {
                 "text": "!verify",
                 "link": {
-                  "title": "https://rltracker.pro/profiles/yixn/steam",
+                  "title": "",
                   "link": "https://rltracker.pro/profiles/yixn/steam"
                 }
               },
@@ -596,21 +575,21 @@
             }
           },
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "contentWithLink": [
               {
                 "text": "!friend_check",
                 "link": {
-                  "title": "https://steamcommunity.com/id/HindoG/",
-                  "link": "https://steamcommunity.com/id/HindoG/"
+                  "title": "",
+                  "link": "https://steamcommunity.com/id/EquinoxRL/"
                 }
               },
               {
                 "text": "!fc",
                 "link": {
-                  "title": "https://steamcommunity.com/id/HindoG/",
-                  "link": "https://steamcommunity.com/id/HindoG/"
+                  "title": "https://steamcommunity.com/id/EquinoxRL/",
+                  "link": "https://steamcommunity.com/id/EquinoxRL/"
                 }
               }
             ]
@@ -703,14 +682,14 @@
       },
       {
         "title": {
-          "label1": "# !scam_check",
+          "label1": "# /scam_check",
           "label2": "# Scam Check"
         },
         "order": 8,
         "key": "scam",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "subtitle": ["!scam_check"]
           },
@@ -742,14 +721,14 @@
       },
       {
         "title": {
-          "label1": "# !report",
+          "label1": "# /report",
           "label2": "# Report"
         },
         "order": 9,
         "key": "report",
         "data": [
           {
-            "name": "Yixn",
+            "name": "Equinox",
             "logo": "/img/discord-bot/auth/yixn.png",
             "subtitle": ["!report"]
           },
@@ -1073,34 +1052,34 @@
       "scammerBar": "Please provide as much information as possible so we can properly assess the dispute. Be sure to include your trade agreement, proof the transaction happened, and most importantly identifying the accused.",
       "scamInfo": {
         "place": {
-          "title": "Where Did the Scam Happen?",
+          "title": "Where did the scam happen?",
           "placeholder": "Discord Group (Include Name), Discord DMs, In Game, etc."
         },
-        "placekind" : {
+        "placekind": {
           "title": "Which Discord Srever did the scam happen",
           "placeholder": "Rocket Planet, RL.Plus, etc"
         },
         "placekindOther": {
-          "title" : "Scam location",
+          "title": "Scam location",
           "placeholder": ""
         },
         "kind": {
-          "title": "What kind of Scam happened?",
+          "title": "What kind of scam happened?",
           "placeholder": "Trust Trade, Paint Swap, Middle Man Scam, etc."
         },
         "kindContent": {
           "title": "Explain how the scam occurred"
         },
         "scammerProfile": {
-          "title": "Scammer Profile",
+          "title": "Scammer Profile(s)",
           "placeholder": "+ Add Profile"
         },
         "proof": {
-          "title": "Proof:",
+          "title": "Proof",
           "placeholder": "+ Add Proof"
         },
         "description": {
-          "title": "Please describe what happened. (50 Character Minimum)",
+          "title": "Please state any additional information",
           "placeholder": "Please be as thorough as possible."
         }
       },
@@ -2334,10 +2313,7 @@
   "botControl": {
     "generalSetting": {
       "title": "General Setting RLTracker.pro",
-      "content": [
-        "Automatic Daily Scam Check",
-        "Automatic Ban on Scam Check"
-      ]
+      "content": ["Automatic Daily Scam Check", "Automatic Ban on Scam Check"]
     },
     "trade": {
       "title": "Trade Channel RLTracker.pro"

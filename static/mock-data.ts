@@ -16,13 +16,13 @@ const rankSelect = [
     key: "steam",
   },
   {
-    label: "Xbox Live",
+    label: "Xbox",
     placeholder: "Enter Xbox Live Username",
     logo: "/img/rank-stats/home/xbox.svg",
     key: "xbox",
   },
   {
-    label: "Playstation Network",
+    label: "Playstation",
     placeholder: "Enter Playstation Network Username",
     logo: "/img/rank-stats/home/playstation.svg",
     key: "playstation",

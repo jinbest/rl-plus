@@ -20,9 +20,13 @@ import ReportCard from "../../components/discord-cards/ReportCard"
 import _, { isEmpty } from "lodash"
 import Image from "next/image"
 
+const HIDE_MENU_KEYS = ["stats", "me", "scam", "price"]
+
 const DiscordBot = () => {
   const navList: NavItemParam[] = config.discordBot.navList
   const menuList: MenuListParam[] = _.sortBy(config.discordBot.menuList, (o) => o.order)
+
+  const filteredMenuList = _.filter(menuList, (o) => !HIDE_MENU_KEYS.includes(o.key))
 
   const [navIndex, setNavIndex] = useState(0)
   const [menuIndex, setMenuIndex] = useState(0)
@@ -61,7 +65,7 @@ const DiscordBot = () => {
             <h3>{navList[navIndex].name}</h3>
           </div>
           <div className="discord-list-container">
-            {menuList.map((item: MenuListParam, index: number) => {
+            {filteredMenuList.map((item: MenuListParam, index: number) => {
               return (
                 <div
                   key={index}
@@ -78,10 +82,10 @@ const DiscordBot = () => {
         </div>
         <div className="discord-main">
           <div className="discord-main-header">
-            <h3>{menuList[menuIndex].title.label2}</h3>
+            <h3>{filteredMenuList[menuIndex].title.label2}</h3>
           </div>
           <div className="discord-main-container">
-            {menuList[menuIndex].data.map((item: MenuListDataParam, index: number) => {
+            {filteredMenuList[menuIndex].data.map((item: MenuListDataParam, index: number) => {
               return (
                 <div key={index}>
                   <div style={{ width: "45px", height: "45px" }}>
@@ -108,8 +112,9 @@ const DiscordBot = () => {
                     {item.contentWithLink?.length && (
                       <div
                         className={
-                          menuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) ||
-                          menuList[menuIndex].key === ("scam" as DiscordBotMenuKeysParam)
+                          filteredMenuList[menuIndex].key ===
+                            ("verify" as DiscordBotMenuKeysParam) ||
+                          filteredMenuList[menuIndex].key === ("scam" as DiscordBotMenuKeysParam)
                             ? ""
                             : "flex flex-wrap align-center"
                         }
@@ -160,26 +165,26 @@ const DiscordBot = () => {
                       </div>
                     )}
                     <div>
-                      {menuList[menuIndex].key === ("addme" as DiscordBotMenuKeysParam) && (
+                      {filteredMenuList[menuIndex].key === ("addme" as DiscordBotMenuKeysParam) && (
                         <DiscordAddmeCard data={item} navData={navList[navIndex]} />
                       )}
-                      {menuList[menuIndex].key === ("auth" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("auth" as DiscordBotMenuKeysParam) &&
                         item.authCard && <DiscordAuthCard data={item} />}
-                      {menuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
                         item.priceSetCard1 && <PriceSetCard1 data={item} />}
-                      {menuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("price" as DiscordBotMenuKeysParam) &&
                         item.priceSetCard2 && <PriceSetCard2 data={item} />}
-                      {menuList[menuIndex].key === ("rep" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("rep" as DiscordBotMenuKeysParam) &&
                         item.repCard && <RepCard data={item} />}
-                      {menuList[menuIndex].key === ("stats" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("stats" as DiscordBotMenuKeysParam) &&
                         item.statsCard && <StatsCard data={item} />}
-                      {menuList[menuIndex].key === ("me" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("me" as DiscordBotMenuKeysParam) &&
                         item.meCard && <MeCard data={item} />}
-                      {menuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) &&
                         item.verifyCard1 && <VerifyCard1 data={item} />}
-                      {menuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("verify" as DiscordBotMenuKeysParam) &&
                         item.verifyCard2 && <VerifyCard2 data={item} />}
-                      {menuList[menuIndex].key === ("report" as DiscordBotMenuKeysParam) &&
+                      {filteredMenuList[menuIndex].key === ("report" as DiscordBotMenuKeysParam) &&
                         item.reportCard && <ReportCard data={item} />}
                     </div>
                   </div>

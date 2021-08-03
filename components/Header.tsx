@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { pageRoutes } from "../routes"
 import Image from "next/image"
 import logo from "../public/img/header/logo.png"
-import alarm from "../public/img/header/alarm.svg"
+// import alarm from "../public/img/header/alarm.svg"
 import config from "../static/config.json"
 import ReactDrawer from "react-drawer"
 import SignModal from "./modal/SignModal"
@@ -82,23 +82,26 @@ const Header = () => {
           {pageRoutes.map((item: any, index: number) => {
             return (
               <React.Fragment key={index}>
-                {item.name && item.visible && (
-                  <Link href={item.path}>
-                    <a style={{ color: item.path === path ? "white" : "" }}>{item.name}</a>
-                  </Link>
-                )}
+                {item.name &&
+                  item.visible &&
+                  item.name !== "TRADING" &&
+                  item.name !== "RANK STATS" && (
+                    <Link href={item.path}>
+                      <a style={{ color: item.path === path ? "white" : "" }}>{item.name}</a>
+                    </Link>
+                  )}
               </React.Fragment>
             )
           })}
         </div>
         <div className="others">
-          <div className="download">
+          {/* <div className="download">
             <p>
               <span>+</span>
               DOWNLOAD
             </p>
-          </div>
-          <div className="premium">
+          </div> */}
+          {/* <div className="premium">
             <div>
               <p>RL.PLUS Premium</p>
             </div>
@@ -108,9 +111,9 @@ const Header = () => {
                 <div className="badge" />
               </div>
             </div>
-          </div>
+          </div> */}
           {!authUser ? (
-            <div className="header-sign-buttons">
+            <div className="header-sign-buttons" style={{ marginLeft: "auto" }}>
               <button
                 onClick={() => {
                   setSignKey(false)
