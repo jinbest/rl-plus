@@ -10,9 +10,9 @@ const Communities = () => {
     <div className="communities-container">
       <div className="partnered-bar">
         <p>{thisPage.partnerBar.text}</p>
-        <a href={thisPage.partnerBar.link.href} target="_blank" rel="noreferrer">
+        {/* <a href={thisPage.partnerBar.link.href} target="_blank" rel="noreferrer">
           {thisPage.partnerBar.link.name}
-        </a>
+        </a> */}
       </div>
       <div className="communities-data-container">
         {thisPage.data.map((item: any, index: number) => {

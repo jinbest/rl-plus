@@ -26,7 +26,7 @@
         "btmText": "New Artwork Needed",
         "content": {
           "left": [],
-          "right": ["RL.PLUS PREMIUM", "Comming Soon"]
+          "right": ["RL.PLUS PREMIUM", "Coming Soon"]
         }
       },
       {
@@ -36,7 +36,7 @@
         "logo": "/img/home/slider1/slider-logo.png",
         "content": {
           "left": [],
-          "right": ["RL.PLUS PREMIUM", "Comming Soon"]
+          "right": ["RL.PLUS PREMIUM", "Coming Soon"]
         }
       },
       {
@@ -46,7 +46,7 @@
         "logo": "/img/home/slider1/slider-logo.png",
         "content": {
           "left": [],
-          "right": ["RL.PLUS PREMIUM", "Comming Soon"]
+          "right": ["RL.PLUS PREMIUM", "Coming Soon"]
         }
       }
     ]
@@ -109,7 +109,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": ["!auth"]
           },
           {
@@ -148,7 +148,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": ["!price tw zomba", "!price white zomba", "!price titanium white zombas"]
           },
           {
@@ -165,10 +165,6 @@
                 {
                   "title": "Price Graphs",
                   "link": "https://rltracker.pro/prices/71/9/0"
-                },
-                {
-                  "title": "Full Price list",
-                  "link": "https://rltracker.pro/prices"
                 }
               ],
               "logo": "/img/discord-bot/price-set/price-logo.png",
@@ -177,7 +173,7 @@
           },
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": ["!set zomba", "!price zomba set", "!price all zomba"]
           },
           {
@@ -265,7 +261,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "contentWithLink": [
               {
                 "text": "/check_rep",
@@ -302,17 +298,13 @@
                 {
                   "title": "Trading",
                   "link": "https://rltracker.pro/trades"
-                },
-                {
-                  "title": "Price List",
-                  "link": "https://rltracker.pro/prices"
                 }
               ]
             }
           },
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "contentWithLink": [
               {
                 "text": "/add_rep",
@@ -369,10 +361,6 @@
                 {
                   "title": "Trading",
                   "link": "https://rltracker.pro/trades"
-                },
-                {
-                  "title": "Price List",
-                  "link": "https://rltracker.pro/prices"
                 }
               ]
             }
@@ -389,7 +377,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": ["!stats steam Equinox", "(!stats {steam|ps4|xbox} {userID})"]
           },
           {
@@ -420,7 +408,7 @@
           },
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": [
               "!rankup steam nielzschwein 2vs2",
               "(!rankup {steam|ps4|xbox} {userID} {playlist})"
@@ -533,7 +521,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "contentWithLink": [
               {
                 "text": "!verify",
@@ -576,7 +564,7 @@
           },
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "contentWithLink": [
               {
                 "text": "!friend_check",
@@ -604,10 +592,6 @@
                 {
                   "title": "Trading",
                   "link": "https://rltracker.pro/trades"
-                },
-                {
-                  "title": "Price List",
-                  "link": "https://rltracker.pro/prices"
                 },
                 {
                   "title": "Scam List",
@@ -690,7 +674,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": ["!scam_check"]
           },
           {
@@ -729,7 +713,7 @@
         "data": [
           {
             "name": "Equinox",
-            "logo": "/img/discord-bot/auth/yixn.png",
+            "logo": "/img/discord-bot/auth/equi.png",
             "subtitle": ["!report"]
           },
           {

@@ -2,13 +2,15 @@ import React, { useState } from "react"
 import Image from "next/image"
 import { rankSelect } from "../static/mock-data"
 import useOnclickOutside from "react-cool-onclickoutside"
+import _ from "lodash"
+import { RankSelectTypeParam } from "../models/rank-stats-params"
 
 const PLACEHOLDERS = [
-  "Epic Games Username or Epic Account ID",
+  // "Epic Games Username or Epic Account ID",
   "Steam64 or Steam Link",
   "Xbox Username",
   "Playstation Username",
-  "Nintendo Switch Username",
+  // "Nintendo Switch Username",
 ]
 
 type Props = {
@@ -17,12 +19,16 @@ type Props = {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   handleIconClick: (event: any) => void
   dropdown?: boolean
+  type?: RankSelectTypeParam
+  setType?: (val: RankSelectTypeParam) => void
 }
 
 const CustomSearchBar = (props: Props) => {
   const [optionVisible, setOptionVisible] = useState(false)
   const [selected, setSelected] = useState(0)
   const [selectedPlaceHolder, setSelectedPlaceHolder] = useState(PLACEHOLDERS[0])
+
+  const filterRankSelector = _.filter(rankSelect, (o) => o.key !== "epic" && o.key !== "nintendo")
 
   const ref = useOnclickOutside(() => {
     setOptionVisible(false)
@@ -46,8 +52,8 @@ const CustomSearchBar = (props: Props) => {
           >
             <div style={{ marginLeft: "7px", marginTop: "2px" }}>
               <Image
-                src={rankSelect[selected].logo}
-                alt={`${rankSelect[selected].key}-logo`}
+                src={filterRankSelector[selected].logo}
+                alt={`${filterRankSelector[selected].key}-logo`}
                 width="24"
                 height="29"
               />
@@ -61,12 +67,15 @@ const CustomSearchBar = (props: Props) => {
           </div>
           {optionVisible && (
             <div className="rank-select-options">
-              {rankSelect.map((item: any, index: number) => {
+              {filterRankSelector.map((item: any, index: number) => {
                 return (
                   <div
                     key={index}
                     onClick={() => {
                       setSelected(index)
+                      if (typeof props.setType !== "undefined") {
+                        props.setType(filterRankSelector[index].type as RankSelectTypeParam)
+                      }
                       setSelectedPlaceHolder(PLACEHOLDERS[index])
                       setOptionVisible(false)
                     }}

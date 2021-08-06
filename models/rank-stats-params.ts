@@ -56,6 +56,8 @@ export interface RankSearchDataHistoryChildParam {
 
 export type RankSelectKeyParams = "epic" | "steam" | "xbox" | "playstation" | "nintendo"
 
+export type RankSelectTypeParam = "Epic" | "Steam" | "Xbox" | "Discord" | "Nintendo"
+
 export type Filter1Params = "overall" | "rating"
 
 export type OverallOptionParam =

@@ -410,7 +410,7 @@ const SignModal = ({
                   {signKey ? <span>SIGN UP WITH STEAM</span> : <span>SIGN IN WITH STEAM</span>}
                 </span>
               </button>
-              <button
+              {/* <button
                 type="button"
                 onClick={() => {
                   console.log("Games-OAuth-Login")
@@ -428,7 +428,7 @@ const SignModal = ({
                     <span>SIGN IN WITH EPIC GAMES</span>
                   )}
                 </span>
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="sign-modal-content-2">

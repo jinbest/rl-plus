@@ -8,30 +8,35 @@ const rankSelect = [
     placeholder: "Enter Epic Games Username",
     logo: "/img/rank-stats/home/epic.svg",
     key: "epic",
+    type: "Epic",
   },
   {
     label: "Steam",
     placeholder: "Enter Steam Username",
     logo: "/img/rank-stats/home/steam.svg",
     key: "steam",
+    type: "Steam",
   },
   {
     label: "Xbox",
     placeholder: "Enter Xbox Live Username",
     logo: "/img/rank-stats/home/xbox.svg",
     key: "xbox",
+    type: "Xbox",
   },
   {
     label: "Playstation",
     placeholder: "Enter Playstation Network Username",
     logo: "/img/rank-stats/home/playstation.svg",
     key: "playstation",
+    type: "Discord",
   },
   {
     label: "Nintendo Switch",
     placeholder: "Enter Nintendo Switch Username",
     logo: "/img/rank-stats/home/nintendo.svg",
     key: "nintendo",
+    type: "Nintendo",
   },
 ]
 
