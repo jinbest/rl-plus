@@ -25,27 +25,27 @@
         "logo": "/img/home/slider1/slider-logo.png",
         "btmText": "New Artwork Needed",
         "content": {
-          "left": [],
+          "left": ["VERSION 0.1", "PATCH NOTES"],
           "right": ["RL.PLUS PREMIUM", "Coming Soon"]
         }
       },
       {
         "title": "RL.PLUS UPDATE",
-        "version": "Version 0.1",
+        "version": "Version 0.2",
         "bgImg": "/img/home/slider1/slider-bg.png",
         "logo": "/img/home/slider1/slider-logo.png",
         "content": {
-          "left": [],
+          "left": ["VERSION 0.2", "PATCH NOTES"],
           "right": ["RL.PLUS PREMIUM", "Coming Soon"]
         }
       },
       {
         "title": "RL.PLUS UPDATE",
-        "version": "Version 0.1",
+        "version": "Version 0.3",
         "bgImg": "/img/home/slider1/slider-bg.png",
         "logo": "/img/home/slider1/slider-logo.png",
         "content": {
-          "left": [],
+          "left": ["VERSION 0.3", "PATCH NOTES"],
           "right": ["RL.PLUS PREMIUM", "Coming Soon"]
         }
       }

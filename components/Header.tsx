@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { pageRoutes } from "../routes"
 import Image from "next/image"
 import logo from "../public/img/header/logo.png"
-// import alarm from "../public/img/header/alarm.svg"
+import alarm from "../public/img/header/alarm.svg"
 import config from "../static/config.json"
 import ReactDrawer from "react-drawer"
 import SignModal from "./modal/SignModal"
@@ -33,13 +33,11 @@ const Header = () => {
   // console.log("authUser", authUser)
 
   useEffect(() => {
-    if (window !== "undefined") {
-      const token = window.localStorage.getItem("token") || ""
-      if (token) {
-        setAuthUser(true)
-      } else {
-        setAuthUser(false)
-      }
+    const token = window.localStorage.getItem("token") || ""
+    if (token) {
+      setAuthUser(true)
+    } else {
+      setAuthUser(false)
     }
   }, [])
 
@@ -82,14 +80,11 @@ const Header = () => {
           {pageRoutes.map((item: any, index: number) => {
             return (
               <React.Fragment key={index}>
-                {item.name &&
-                  item.visible &&
-                  item.name !== "TRADING" &&
-                  item.name !== "RANK STATS" && (
-                    <Link href={item.path}>
-                      <a style={{ color: item.path === path ? "white" : "" }}>{item.name}</a>
-                    </Link>
-                  )}
+                {item.name && item.visible && (
+                  <Link href={item.path}>
+                    <a style={{ color: item.path === path ? "white" : "" }}>{item.name}</a>
+                  </Link>
+                )}
               </React.Fragment>
             )
           })}
